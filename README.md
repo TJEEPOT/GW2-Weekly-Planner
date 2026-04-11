@@ -14,7 +14,7 @@ browser using the official GW2 API.
 - Schedules objectives around timed world-boss events, with a configurable
   pre-event buffer so you're never caught mid-objective when Tequatl spawns
 - Shows estimated start times in your local timezone
-- Waypoint codes — click to copy straight into GW2
+- Waypoint codes - click to copy straight into GW2
 - Manual tick-off (persists across refreshes via `localStorage`)
 - API-completed objectives automatically collapse to the bottom
 
@@ -27,7 +27,7 @@ browser using the official GW2 API.
 3. Go to **Settings → Pages** and set the source to your `main` branch, root `/`.
 4. Your planner will be live at `https://<your-username>.github.io/<repo-name>/`.
 
-That's it — no build process needed.
+That's it - no build process needed.
 
 ---
 
@@ -65,7 +65,7 @@ numeric objective id returned by the GW2 API.
 |---|---|---|
 | `time_per_stage` | `number` | Minutes to reach the objective, complete one stage, and be ready for the next |
 | `stage_count` | `number` | Number of stages that make up the full objective (often equals `progress_complete` from the API, but not always) |
-| `tip` | `string` | Advice shown to the player — fastest route, useful tricks, alternatives |
+| `tip` | `string` | Advice shown to the player - fastest route, useful tricks, alternatives |
 | `waypoint` | `string\|null` | GW2 waypoint code (e.g. `[&BNABAAA=]`). Set to `null` if there's no single best starting point |
 | `timed` | `boolean` | `true` if the objective is only available at specific UTC times |
 | `schedule` | `string[]` | *(only when `timed: true`)* UTC spawn times in `"HH:MM"` format |
@@ -76,7 +76,7 @@ numeric objective id returned by the GW2 API.
 1. Find the objective's `id` from the API response or from the
    [GW2 wiki](https://wiki.guildwars2.com/wiki/Wizard%27s_Vault/Easy_objectives).
 2. Copy the template at the bottom of `js/meta.js` and fill in the fields.
-3. Save — the page will pick it up on the next refresh.
+3. Save - the page will pick it up on the next refresh.
 
 ---
 
@@ -93,25 +93,7 @@ exclusively to `api.guildwars2.com`. It is never sent anywhere else.
 
 ---
 
-## Project structure
-
-```
-/
-├── index.html          Main HTML shell
-├── css/
-│   └── styles.css      All visual styles
-├── js/
-│   ├── meta.js         Objective metadata — edit this to add/update objectives
-│   ├── api.js          GW2 API calls
-│   ├── scheduler.js    Timeline building and conflict resolution
-│   ├── render.js       DOM rendering and UI event binding
-│   └── main.js         Entry point — wires everything together
-└── README.md
-```
-
----
-
 ## Contributing
 
-Pull requests for new objective entries in `js/meta.js` are very welcome —
+Pull requests for new objective entries in `js/meta.js` are very welcome -
 especially timing data and waypoints verified in-game.
