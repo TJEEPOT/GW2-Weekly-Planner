@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wizard's Vault Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="site-title">
+        <span class="icon">⚗</span> Wizard's Vault Planner
+      </div>
+      <div class="api-row">
+        <div class="api-input-wrap">
+          <input
+            type="password"
+            id="apiKey"
+            placeholder="Paste your GW2 API key here…"
+            autocomplete="off"
+            spellcheck="false"
+          />
+        </div>
+        <button class="btn btn-primary" id="refreshBtn">Load Objectives</button>
+        <button class="btn btn-ghost"   id="clearBtn" title="Clear saved API key">✕ Clear Key</button>
+      </div>
+      <div class="timezone-note" id="tzNote"></div>
+    </div>
+  </header>
+
+  <div class="main-content">
+    <div id="output">
+      <div class="status-block">
+        <div class="status-icon">⚗</div>
+        <div>Enter your API key and click <strong>Load Objectives</strong> to begin.</div>
+        <div class="status-sub">Your key is stored only in this browser and sent only to the official GW2 API.</div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
