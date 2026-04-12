@@ -25,9 +25,7 @@ browser using the official GW2 API.
 1. Fork or clone this repository.
 2. Push to GitHub.
 3. Go to **Settings → Pages** and set the source to your `main` branch, root `/`.
-4. Your planner will be live at `https://<your-username>.github.io/<repo-name>/`.
-
-That's it - no build process needed.
+4. The planner will be live at `https://<your-username>.github.io/<repo-name>/`.
 
 ---
 

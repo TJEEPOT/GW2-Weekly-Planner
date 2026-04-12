@@ -1,5 +1,5 @@
 /**
- * js/scheduler.js — Timeline scheduling logic
+ * js/scheduler.js - Timeline scheduling logic
  *
  * Builds an ordered list of objectives, fitting non-timed objectives
  * into the gaps between timed events, respecting a pre-event buffer.
@@ -10,7 +10,7 @@ import { META } from "./meta.js";
 /** Minutes of clear time required before every timed event. */
 const BUFFER_MIN = 5;
 
-/** Milliseconds per minute — used throughout for timestamp maths. */
+/** Milliseconds per minute - used throughout for timestamp maths. */
 const MS = 60_000;
 
 /* ── Helpers ──────────────────────────────────────────────────── */
@@ -83,7 +83,7 @@ export function nextSlotAfter(schedule, afterDate) {
   const next = slotsToday.find(s => s >= afterMs);
   if (next !== undefined) return new Date(next);
 
-  // All today's slots have passed — wrap to tomorrow's first slot
+  // All today's slots have passed - wrap to tomorrow's first slot
   const tomorrow = new Date(dayStart);
   tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
   const [h, m] = schedule[0].split(":").map(Number);
@@ -153,7 +153,7 @@ function resolveTimedConflicts(timed) {
  * Build a complete, ordered schedule from raw API objective lists.
  *
  * Returns:
- *   timeline  — objectives to do, in recommended order, each enriched with:
+ *   timeline  - objectives to do, in recommended order, each enriched with:
  *                 _type            "daily" | "weekly"
  *                 _meta            metadata entry or null
  *                 _dur             estimated duration in minutes
@@ -161,7 +161,7 @@ function resolveTimedConflicts(timed) {
  *                 _waiting         true if there is idle time before a timed event
  *                 _waitFrom        Date from which the wait begins (only when _waiting)
  *                 _nextSlot        Date of the timed event (only on timed objectives)
- *   completed — API-confirmed complete objectives (for display at the bottom)
+ *   completed - API-confirmed complete objectives (for display at the bottom)
  *
  * @param {object[]} dailyObjs   objectives[] from the /daily endpoint
  * @param {object[]} weeklyObjs  objectives[] from the /weekly endpoint
@@ -214,7 +214,7 @@ export function buildSchedule(dailyObjs, weeklyObjs, now) {
   /**
    * Drain as many queued non-timed objectives as will fit
    * before `cutoffMs` (the buffer window before the next timed event).
-   * Objectives are never split — they either fit whole or are skipped.
+   * Objectives are never split - they either fit whole or are skipped.
    */
   function drainQueueBefore(cutoffMs) {
     let i = 0;
@@ -228,7 +228,7 @@ export function buildSchedule(dailyObjs, weeklyObjs, now) {
         timeline.push(obj);
         queue.splice(i, 1);
         cursor = new Date(objEndMs);
-        // Don't increment — re-check same index after splice
+        // Don't increment - re-check same index after splice
       } else {
         i++;
       }

@@ -1,5 +1,5 @@
 /**
- * js/main.js — Entry point
+ * js/main.js - Entry point
  *
  * Wires the API key input, refresh/clear buttons, and auto-load
  * behaviour together with the API, scheduler, and renderer.

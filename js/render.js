@@ -1,5 +1,5 @@
 /**
- * js/render.js — DOM rendering and UI event binding
+ * js/render.js - DOM rendering and UI event binding
  */
 
 import { isCompleted, formatTime, formatDuration, upcomingSlots } from "./scheduler.js";
@@ -103,7 +103,7 @@ function buildCardHTML(obj, index) {
   // ── Tip / description ────────────────────────────────────────
   const tipHTML = meta?.tip
     ? `<div class="obj-tip">${meta.tip}</div>`
-    : `<div class="obj-tip no-meta">No metadata entry found for this objective — add it to <code>js/meta.js</code> to enable scheduling and tips.</div>`;
+    : `<div class="obj-tip no-meta">No metadata entry found for this objective - add it to <code>js/meta.js</code> to enable scheduling and tips.</div>`;
 
   // ── Checkbox ─────────────────────────────────────────────────
   const checkIcon = (isDone || isTicked) ? "✓" : "";
@@ -161,7 +161,7 @@ function bindWaypointButtons(root) {
       };
 
       navigator.clipboard?.writeText(text).then(showPopup).catch(() => {
-        // Clipboard API unavailable — use legacy execCommand fallback
+        // Clipboard API unavailable - use legacy execCommand fallback
         const ta = Object.assign(document.createElement("textarea"), {
           value: text,
           style: "position:fixed;opacity:0",
