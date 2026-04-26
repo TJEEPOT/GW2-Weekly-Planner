@@ -283,7 +283,7 @@ export const META = {
     time_per_stage: 0.2,
     stage_count:    15,
     time_verified:  false,
-    tip:            "Guild hall, home instance, or homestead trees are fastest. Open world: 5 Cypress Saplings near Rayhan Bayt ([&BJ4CAAA=]) or 5 Baoba Saplings south of Gauntlet WP ([&BNMCAAA=]) give 3 resources per tree.",
+    tip:            "Guild hall, home instance, or homestead trees are fastest. Open world: 5 Cypress Saplings near Rayhan Bayt, Malchor's Leap ([&BJ4CAAA=]) or 5 Baoba Saplings south of Gauntlet WP, Mount Maelstrom ([&BNMCAAA=]).",
     waypoint:       "[&BJ4CAAA=]",
     timed:          false,
     priority:       false,
@@ -305,7 +305,7 @@ export const META = {
     time_per_stage: 0.2,
     stage_count:    25,
     time_verified:  true,
-    tip:            "A single circuit of your homestead or home instance nodes will often complete this. Remaining nodes can be found in north-east Mount Maelstrom. From Criterion WP, head north-west up the road, then south when the road ends, there are plenty of tree and ore nodes going down through Criterion Canyon.",
+    tip:            "A single circuit of your homestead or home instance nodes will often complete this. Remaining nodes can be found in north-east Mount Maelstrom. From Criterion WP, head north-west up the road, then south when the road ends, there are plenty of tree and ore nodes going down through Rata Pten ([&BMQCAAA=]).",
     waypoint:       "[&BMkCAAA=]",
     timed:          false,
     priority:       false,
@@ -313,13 +313,13 @@ export const META = {
 
   350: {
     // Complete a Fractal in the Fractals of the Mists
-    time_per_stage: 20,
+    time_per_stage: 8,
     stage_count:    1,
     time_verified:  false,
     tip:            "Any Tier 1 fractal works. Quickplay usually finds a group faster than LFG. The Fractals portal is in Lion's Arch near Fort Marriner.",
     waypoint:       "[&BDAEAAA=]",
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   /* ══════════════════════════════════════════════════════════════
@@ -420,19 +420,19 @@ export const META = {
     time_per_stage: 3,
     stage_count:    7,
     time_verified:  true,
-    tip:            "Complete Rifts in Janthir region maps (Lowland Shore, Janthir Syntri) - requires Janthir Wilds expansion. Check the Weekly Rift Hunting panel. Group events anywhere count as an alternative.",
-    waypoint:       null,
+    tip:            "Complete Tier 1 Rifts in Janthir Syntri. Group events anywhere count as an alternative, so this will probably be mostly complete before getting to it.",
+    waypoint:       "[&BLgOAAA=]",
     timed:          false,
     priority:       false,
   },
 
   123: {
     // Gather 100 Crafting Resources by Mining, Logging, Fishing, or Harvesting
-    time_per_stage: 1,
+    time_per_stage: 0.15,
     stage_count:    100,
-    time_verified:  false,
-    tip:            "Any combination of gathering counts - each node interaction gives 3 resources, so you need roughly 34 nodes. A full circuit of a well-stocked guild hall or home instance can complete this in a single run.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "A full circuit of a well-stocked guild hall or home instance can complete this in a single run. Outside of this, there are open world node farms. LWS4: Revolution's Heart WP, Thunderhead peaks ([&BKYLAAA=]). Head north from the wp and use a skyscale to follow the volatile magic path up to the eight iron nodes at The Weeping Crest, then continue the path, activate the rift at Sorrow's Cave and move through to The Howling Cliffs for seven platinum nodes. There are five Cypress Saplings near Rayhan Bayt, Malchor's Leap ([&BJ4CAAA=]) which are accessable if the map meta is not running. There are five Cypress Saplings west of Waywarde Waypoint, Straits of Devastation ([&BPgCAAA=]). Five Baoba Saplings are south of Gauntlet WP, Mount Maelstrom ([&BNMCAAA=]). Then, from Criterion WP, Mount Maelstrom ([&BMkCAAA=]), head north-west up the road, then south when the road ends, heading towards Rata Pten ([&BMQCAAA=]), there are plenty of wood and ore nodes in the area.",
+    waypoint:       "[&BKYLAAA=]",
     timed:          false,
     priority:       false,
   },
@@ -443,32 +443,32 @@ export const META = {
 
   5: {
     // Defeat 50 Veteran-Rank Enemies
-    time_per_stage: 2,
-    stage_count:    10,
-    time_verified:  false,
+    time_per_stage: 0.1,
+    stage_count:    50,
+    time_verified:  true,
     tip:            "Completes naturally during other objectives, but if you want to focus on it, travel to Fort Marriner and enter the Fractal portal, choosing level 4 Urban Battleground. Enter the fractal and turn right just outside the starting tent - waves of low-health veteran enemies constantly spawn here.",
-    waypoint:       null,
+    waypoint:       "[&BDAEAAA=]",
     timed:          false,
     priority:       false,
   },
 
   135: {
     // Defeat 10 Champion-Rank Enemies
-    time_per_stage: 5,
+    time_per_stage: 0.1,
     stage_count:    10,
-    time_verified:  false,
-    tip:            "Shadow Behemoth world boss spawns 15–20 Champion Fleshreavers and Shades during its portal phases - easy to tag. Alternatively: Mistlock Observatory - speak to the Fractal Instability Trainer, set rank to Champion, spawn up to 4 idle Champion Mark I Golems. Urban Battleground Fractal (scale 2) has several champions in the cell room.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Shadow Behemoth world boss spawns 15–20 easily tagable Champion Fleshreavers and Shades during its portal phases if the boss is available. If not, travel to Fort Marriner and enter the Fractal portal, choosing any level. Head over the back of the room and speak to the Fractal Instability Trainer, set rank to Champion and spawn 4 idle and 4 moving Champion Mark I Golems. Activate the mistlock instabilities Outflanked and Sugar Rush and ensure you are behind or to the side of your targets, focussing on the moving first. Once these are dead, spawn two more idle Golems to complete.",
+    waypoint:       "[&BDAEAAA=]",
     timed:          false,
     priority:       false,
   },
 
   59: {
     // Defeat 1 Legendary-Rank Enemy
-    time_per_stage: 20,
+    time_per_stage: 15,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "Most world bosses trigger this despite their displayed rank - exceptions are Modniir Ulgoth, Inquest Golem Mk II, and Tequatl. PoF Bounties marked Legendary on the board count. Strike Mission: Shiverpeaks Pass (Eye of the North WP) - the Legendary Icebrood Construct final boss counts and requires Path of Fire.",
+    time_verified:  true,
+    tip:            "Most world bosses count except for Modniir Ulgoth, Inquest Golem Mk II, and Tequatl. PoF: Bounties marked Legendary on the board count, as well as completing the Shiverpeaks Pass raid encounter.",
     waypoint:       null,
     timed:          false,
     priority:       true,
@@ -476,72 +476,66 @@ export const META = {
 
   150: {
     // Defeat Awakened or Risen
-    // ⚠️ VERIFY: stage_count is estimated - check your API progress_complete
-    time_per_stage: 1,
+    time_per_stage: 0.1,
     stage_count:    50,
-    time_verified:  false,
-    tip:            "⚠️ VERIFY stage count. Bonestrand Garrison (Bonestrand WP, The Bonestrand) has dense Awakened including veterans; interact with Vizier's Propaganda posters to spawn more. Risen fill Orr maps (Straits of Devastation, Malchor's Leap, Cursed Shore).",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "LWS4: Activate Chapter 3 story (Be My Guest) and enter south-west of Apizmic Grounds WP. Begin the mission and head across the bridge killing Awakened as you go - you should hit 50 by the time Canach blows open the doors. PoF: Bonestrand Garrison ([&BKcKAAA=]) has dense Awakened including veterans - interact with Vizier's Propaganda posters to spawn more. Core: Risen fill Orr maps (Straits of Devastation, Malchor's Leap, Cursed Shore).",
+    waypoint:       "[&BFALAAA=]",
     timed:          false,
     priority:       false,
   },
 
   70: {
     // Defeat Mordrem or Nightmare Court
-    // ⚠️ VERIFY: stage_count is estimated - check your API progress_complete
-    time_per_stage: 1,
+    time_per_stage: 0.1,
     stage_count:    50,
-    time_verified:  false,
-    tip:            "⚠️ VERIFY stage count. Mordrem are found throughout HoT maps (Verdant Brink, Auric Basin, Tangled Depths, Dragon's Stand). Nightmare Court appear in Caledon Forest and the Twilight Arbor dungeon.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "HoT: From the waypoint, travel southeast on the surface layer road towards Gnarled Roots ([&BOcHAAA=]). Southeast of the PoI, look for a stream leading into a cave. There is a Hero Point directly above marking the entrance. Inside are many easy to kill Mordrem Maggots with a short respawn time, and they split into two twice when defeated, giving a total of 7 kills each. Core: Nightmare Court appear in Caledon Forest and the Twilight Arbor dungeon.",
+    waypoint:       "[&BA4IAAA=]",
     timed:          false,
     priority:       false,
   },
 
   77: {
     // Defeat Void Enemies or Sons of Svanir
-    // ⚠️ VERIFY: stage_count is estimated - check your API progress_complete
-    time_per_stage: 1,
+    time_per_stage: 0.1,
     stage_count:    50,
-    time_verified:  false,
-    tip:            "⚠️ VERIFY stage count. Void enemies are found in Skywatch Archipelago and Amnytas (SotO maps, requires SotO). Sons of Svanir appear in Wayfarer Foothills and Frostgorge Sound.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "EoD: Complete the Trial of the Elders mini-dungeon at Sanctuary of Ione - if you reset at 7 stacks of Elder's Plight, you can clear this quickly in two runs. Core: Sons of Svanir respawn quickly between Highpeaks WP ([&BIICAAA=]), Claw Watch and Ridgepoint Sentry in Frostgorge Sound",
+    waypoint:       "[&BEgNAAA=]",
     timed:          false,
     priority:       false,
   },
 
   143: {
     // Defeat Jade Mechs or Inquest
-    // ⚠️ VERIFY: stage_count is estimated - check your API progress_complete
-    time_per_stage: 1,
+    time_per_stage: 0.1,
     stage_count:    50,
-    time_verified:  false,
-    tip:            "⚠️ VERIFY stage count. Jade Mechs are found throughout EoD maps. Inquest appear in Metrica Province and the Urban Battleground Fractal - the fractal has dense Inquest spawns in the opening area.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "LWS4: Head to the bottom of Rata Primus, Sandswept Isles for large groups of Inquest - especially around Magistorm Gallery ([&BCgLAAA=]) Jade Mechs are found throughout EoD maps.",
+    waypoint:       "[&BCULAAA=]",
     timed:          false,
     priority:       false,
   },
 
   190: {
     // Defeat Kryptis or Bandits
-    // ⚠️ VERIFY: stage_count is estimated - check your API progress_complete
-    time_per_stage: 1,
+    time_per_stage: 0.1,
     stage_count:    50,
-    time_verified:  false,
-    tip:            "⚠️ VERIFY stage count. Kryptis are the primary enemies in SotO maps (Skywatch Archipelago, Amnytas, Inner Nayos), requires SotO. Bandits appear in Kessex Hills and Queensdale.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Many groups of Bandits are found around Breean's Bandits, Brisban Wildlands ([&BFUAAAA=]).",
+    waypoint:       "[&BGEAAAA=]",
     timed:          false,
     priority:       false,
   },
 
   193: {
     // Defeat Forged or Flame Legion
-    // ⚠️ VERIFY: stage_count is estimated - check your API progress_complete
-    time_per_stage: 1,
+    time_per_stage: 0.1,
     stage_count:    50,
-    time_verified:  false,
-    tip:            "⚠️ VERIFY stage count. Forged are dense in Crystal Desert PoF maps - especially Vehjin Mines (Crystal Oasis) and Domain of Vabbi. Flame Legion Charr appear in Blazeridge Steppes, Diessa Plateau, and Fields of Ruin.",
-    waypoint:       "[&BNQEAAA=]",
+    time_verified:  true,
+    tip:            "Head to to Fort Marriner and enter the Fractal portal, choosing level 15 Thaumanova Reactor. Enter the fractal and head forward after the wall explodes, dropping down to the bottom area. Here there is a field of infinetely respawning Flame Legion enemies.",
+    waypoint:       "[&BDAEAAA=]",
     timed:          false,
     priority:       false,
   },
@@ -705,54 +699,119 @@ export const META = {
     time_per_stage: 20,
     stage_count:    1,
     time_verified:  false,
-    tip:            "Crystal Desert meta-events (Branded, Awakened Invasions, PoF world bosses) are fastest. Alternatively, RIBA in the Silverwastes (Kryta) chains many events quickly, or run a chain of events in Queensdale.",
-    waypoint:       "[&BNQEAAA=]",
-    timed:          false,
-    priority:       false,
+    tip:            "LWS4: Most Dragonfall events count as meta and are the fastest if one isn't currently active. The timer here is for the next PoF meta - type \'/wiki et\' in-game to find which one it is. Alternatively, RIBA in the Silverwastes chains many events quickly, though it might be slower doing fifteen events there compared to one in Dragonfall.",
+    waypoint:       null,
+    timed:          true,
+    schedule:       [
+      "00:00","00:05","00:30",
+      "01:00","01:30","01:45",
+      "02:00","02:05","02:30",
+      "03:00","03:30","03:45",
+      "04:00","04:05","04:30",
+      "05:00","05:30","05:45",
+      "06:00","06:05","06:30",
+      "07:00","07:30","07:45",
+      "08:00","08:05","08:30",
+      "09:00","09:30","09:45",
+      "10:00","10:05","10:30",
+      "11:00","11:30","11:45",
+      "12:00","12:05","12:30",
+      "13:00","13:30","13:45",
+      "14:00","14:05","14:30",
+      "15:00","15:30","15:45",
+      "16:00","16:05","16:30",
+      "17:00","17:30","17:45",
+      "18:00","18:05","18:30",
+      "19:00","19:30","19:45",
+      "20:00","20:05","20:30",
+      "21:00","21:30","21:45",
+      "22:00","22:05","22:30",
+      "23:00","23:30",
+    ],
+    priority:       true,
   },
 
   344: {
     // Complete a Meta-Event or Events in Cantha or Events in Maguuma Jungle
-    time_per_stage: 20,
+    time_per_stage: 25,
     stage_count:    1,
     time_verified:  false,
-    tip:            "EoD meta-events (Aetherblade Assault, Kaineng Blackout, Gang War of Echovald, Battle for the Jade Sea) satisfy the Cantha condition. Alternatively, events in Maguuma Jungle (Caledon Forest, Brisban Wildlands, Metrica Province, Dry Top, Silverwastes) count.",
+    tip:            "EoD meta-events (Aetherblade Assault, Kaineng Blackout, Gang War of Echovald) have timers below - type \'/wiki et\' in-game to find which one is on. Battle for the Jade Sea also counts, but you'll be better off waiting Aetherblade Assault to start.Alternatively, complete fifteen events in the Silverwastes.",
     waypoint:       null,
-    timed:          false,
-    priority:       false,
+    timed:          true,
+    schedule:       [
+      "00:00","00:30","01:00","01:30",
+      "02:00","02:30","03:00","03:30",
+      "04:00","04:30","05:00","05:30",
+      "06:00","06:30","07:00","07:30",
+      "08:00","08:30","09:00","09:30",
+      "10:00","10:30","11:00","11:30",
+      "12:00","12:30","13:00","13:30",
+      "14:00","14:30","15:00","15:30",
+      "16:00","16:30","17:00","17:30",
+      "18:00","18:30","19:00","19:30",
+      "20:00","20:30","21:00","21:30",
+      "22:00","22:30","23:00","23:30",
+    ],
+    priority:       true,
   },
 
   345: {
     // Complete a Meta-Event or Events in Horn of Maguuma or Events in Shiverpeak Mountains
-    time_per_stage: 20,
+    time_per_stage: 25,
     stage_count:    1,
     time_verified:  false,
-    tip:            "SotO meta-events satisfy Horn of Maguuma. Dragonstorm (Shiverpeak Mountains, requires Path of Fire) is fast. Standard Shiverpeak events in Wayfarer Foothills, Lornar's Pass, or Frostgorge Sound also count.",
+    tip:            "The timer is set for the two timed SotO metas - type \'/wiki et\' in-game to find which one it is. Inner Nayos metas also count, and it might be quicker to start and finish any of those three instead of waiting for the timed metas. Completing fifteen standard events in Wayfarer Foothills, Lornar's Pass, or Frostgorge Sound also count.",
     waypoint:       null,
-    timed:          false,
-    priority:       false,
+    timed:          true,
+    schedule:       [
+      "00:00","01:00","02:00","03:00",
+      "04:00","05:00","06:00","07:00",
+      "08:00","09:00","10:00","11:00",
+      "12:00","13:00","14:00","15:00",
+      "16:00","17:00","18:00","19:00",
+      "20:00","21:00","22:00","23:00",
+    ],
+    priority:       true,
   },
 
   364: {
     // Complete a Meta-Event or Events in Castora or Events in Orr
-    time_per_stage: 20,
+    time_per_stage: 25,
     stage_count:    1,
     time_verified:  false,
-    tip:            "Castora meta-events count, or head to Orr (Straits of Devastation, Malchor's Leap, Cursed Shore) for dense Risen and frequent chain events around the temple areas.",
+    tip:            "Timer is set for the next Castora meta-event - type \'/wiki et\' in-game to find which one it is. Otherwise, head to Orr (Straits of Devastation, Malchor's Leap, Cursed Shore) for frequent chain events around the temple areas.",
     waypoint:       null,
-    timed:          false,
-    priority:       false,
+    timed:          true,
+    schedule:       [
+      "00:40",
+      "01:40","02:40","03:40","04:40",
+      "05:40","06:40","07:40","08:40",
+      "09:40","10:40","11:40","12:40",
+      "13:40","14:40","15:40","16:40",
+      "17:40","18:40","19:40","20:40",
+      "21:40","22:40","23:40",
+    ],
+    priority:       true,
   },
 
   365: {
     // Complete a Meta-Event or Events in Janthir or Events in Orr
-    time_per_stage: 20,
+    time_per_stage: 25,
     stage_count:    1,
     time_verified:  false,
-    tip:            "Janthir Wilds meta-events satisfy the Janthir condition (requires Janthir Wilds expansion). Orr zone events are accessible to all players without expansion.",
+    tip:            "Timer is set for the two timed Janthir Wilds meta-events - type \'/wiki et\' in-game to find which one it is. Otherwise, head to Orr (Straits of Devastation, Malchor's Leap, Cursed Shore) for frequent chain events around the temple areas.",
     waypoint:       null,
-    timed:          false,
-    priority:       false,
+    timed:          true,
+    schedule:       [
+      "00:30","01:20","02:30","03:20",
+      "04:30","05:20","06:30","07:20",
+      "08:30","09:20","10:30","11:20",
+      "12:30","13:20","14:30","15:20",
+      "16:30","17:20","18:30","19:20",
+      "20:30","21:20","22:30","23:20",
+    ],
+    priority:       true,
   },
 
   367: {
@@ -760,10 +819,21 @@ export const META = {
     time_per_stage: 20,
     stage_count:    1,
     time_verified:  false,
-    tip:            "HoT meta-events (Verdant Brink Night, Auric Basin, Tangled Depths, Dragon's Stand) are efficient for Heart of Maguuma. Ascalon maps (Plains of Ashford, Diessa Plateau, Iron Marches, Blazeridge Steppes, Fields of Ruin) are an easy alternative.",
+    tip:            "The timer shows the next HoT meta-event, aside from Dragon's Stand, which is much slower (you should do Night and the Enemy instead) - type \'/wiki et\' in-game to find which one it is. Completing fifteen events in Ascalon maps (Plains of Ashford, Diessa Plateau, Iron Marches, Blazeridge Steppes, Fields of Ruin) are an alternative.",
     waypoint:       null,
-    timed:          false,
-    priority:       false,
+    timed:          true,
+    schedule:       [
+      "00:00","00:30","01:00","01:45",
+      "02:30","03:00","03:45","04:30",
+      "05:00","05:45","06:30","07:00",
+      "07:45","08:30","09:00","09:45",
+      "10:30","11:00","11:45","12:30",
+      "13:00","13:45","14:30","15:00",
+      "15:45","16:30","17:00","17:45",
+      "18:30","19:00","19:45","20:30",
+      "21:00","21:45","22:30","23:00",
+    ],
+    priority:       true,
   },
 
   /* ══════════════════════════════════════════════════════════════
@@ -773,7 +843,7 @@ export const META = {
   56: {
     // Complete the Dark Reverie Jumping Puzzle
     // ⚠️ VERIFY waypoint: Spiral WP, Morgan's Spiral, Caledon Forest
-    time_per_stage: 20,
+    time_per_stage: 10,
     stage_count:    1,
     time_verified:  false,
     tip:            "Dark Reverie is in Caledon Forest near Morgan's Spiral (Spiral WP). Moderate difficulty - allow extra time if unfamiliar. Skyscale helps with some sections. Check the GW2 wiki for a step-by-step guide.",
@@ -785,7 +855,7 @@ export const META = {
   38: {
     // Complete the Shattered Ice Ruins Jumping Puzzle
     // ⚠️ VERIFY waypoint: Ice Floe WP, Shattered Ice Floe
-    time_per_stage: 15,
+    time_per_stage: 10,
     stage_count:    1,
     time_verified:  false,
     tip:            "Shattered Ice Ruins is in Shattered Ice Floe (Ice Floe WP). You can skip most of the puzzle by scaling the large southern ice wall with a Skyscale, Springer, or upgraded Jade Bot Glide Booster.",
@@ -797,7 +867,7 @@ export const META = {
   74: {
     // Complete the Branded Mine Jumping Puzzle
     // ⚠️ VERIFY waypoint: Helliot Mine WP, Dragonrot Domains
-    time_per_stage: 20,
+    time_per_stage: 10,
     stage_count:    1,
     time_verified:  false,
     tip:            "Branded Mine is in Dragonrot Domains (Helliot Mine WP). A Crystal Desert mine puzzle of moderate difficulty. Check the wiki for the route.",
@@ -809,7 +879,7 @@ export const META = {
   129: {
     // Complete the Grendich Gamble Jumping Puzzle
     // ⚠️ VERIFY waypoint: Blasted Moors WP, The Blasted Moors
-    time_per_stage: 15,
+    time_per_stage: 10,
     stage_count:    1,
     time_verified:  false,
     tip:            "Grendich Gamble is in The Blasted Moors (Blasted Moors WP), Diessa Plateau. A relatively straightforward Charr-ruins puzzle.",
@@ -821,7 +891,7 @@ export const META = {
   130: {
     // Complete the Spekk's Laboratory Jumping Puzzle
     // ⚠️ VERIFY waypoint: Gleaner's Cove WP, Ogham Wilds
-    time_per_stage: 20,
+    time_per_stage: 10,
     stage_count:    1,
     time_verified:  false,
     tip:            "Spekk's Laboratory is in Ogham Wilds (Gleaner's Cove WP), Caledon Forest. An Asura-themed puzzle of moderate difficulty.",
@@ -833,7 +903,7 @@ export const META = {
   186: {
     // Complete the Professor Portmatt's Lab Jumping Puzzle
     // ⚠️ VERIFY waypoint: Sorrowful WP, Sorrowful Sound
-    time_per_stage: 15,
+    time_per_stage: 10,
     stage_count:    1,
     time_verified:  false,
     tip:            "Professor Portmatt's Lab is in Sorrowful Sound (Sorrowful WP), Gendarran Fields. The chest at the end can be reached quickly with a Skyscale + Bond of Faith, and also awards 1 event credit.",
@@ -845,7 +915,7 @@ export const META = {
   189: {
     // Complete the Fawcett's Bounty Jumping Puzzle
     // ⚠️ VERIFY waypoint: Arcallion WP, Arcallion Digs
-    time_per_stage: 20,
+    time_per_stage: 10,
     stage_count:    1,
     time_verified:  false,
     tip:            "Fawcett's Bounty is in Arcallion Digs (Arcallion WP), Dredgehaunt Cliffs. A standard Shiverpeaks puzzle. Check the wiki for the route.",
@@ -857,7 +927,7 @@ export const META = {
   180: {
     // Complete the Antre of Adjournment Jumping Puzzle
     // ⚠️ VERIFY waypoint: Valley of Lyss WP
-    time_per_stage: 20,
+    time_per_stage: 10,
     stage_count:    1,
     time_verified:  false,
     tip:            "Antre of Adjournment is in the Valley of Lyss area (Valley of Lyss WP), Straits of Devastation. A moderate difficulty puzzle. Check the wiki for the route.",
@@ -869,7 +939,7 @@ export const META = {
   101: {
     // Complete the Retrospective Runaround Jumping Puzzle
     // ⚠️ VERIFY waypoint: Drydock Grotto WP, Northeastern Silverwastes
-    time_per_stage: 25,
+    time_per_stage: 20,
     stage_count:    1,
     time_verified:  false,
     tip:            "Retrospective Runaround is in the Northeastern Silverwastes (Drydock Grotto WP). Collect all 9 stacks of the Milestone buff - no final chest needed. Check the wiki for milestone locations.",
@@ -881,7 +951,7 @@ export const META = {
   156: {
     // Complete the Weyandt's Revenge Jumping Puzzle
     // ⚠️ VERIFY waypoint: Farshore WP, Farshore Ward, Lion's Arch
-    time_per_stage: 20,
+    time_per_stage: 15,
     stage_count:    1,
     time_verified:  false,
     tip:            "Weyandt's Revenge is in Farshore Ward, Lion's Arch (Farshore WP). A pirate-themed puzzle of moderate difficulty. Note: completing this puzzle does NOT award a free event credit.",
@@ -893,7 +963,7 @@ export const META = {
   161: {
     // Complete the Skipping Stones Jumping Puzzle
     // ⚠️ VERIFY waypoint: Lion Point WP, Southsun Shoals
-    time_per_stage: 20,
+    time_per_stage: 15,
     stage_count:    1,
     time_verified:  false,
     tip:            "Skipping Stones is in Southsun Cove (Lion Point WP). Head west on a Skimmer, then use Skyscale or Springer + Bond of Faith to reach the island's north side. Run clockwise around the island and over a bridge to the chest.",
@@ -905,7 +975,7 @@ export const META = {
   4: {
     // Complete the Chaos Crystal Cavern Jumping Puzzle
     // ⚠️ VERIFY waypoint: Old Piken Ruins WP, Champion's Shield
-    time_per_stage: 20,
+    time_per_stage: 15,
     stage_count:    1,
     time_verified:  false,
     tip:            "Chaos Crystal Cavern is in Champion's Shield (Old Piken Ruins WP), Iron Marches. A crystal-formation puzzle of moderate difficulty. Check the wiki for the route.",
@@ -917,7 +987,7 @@ export const META = {
   148: {
     // Complete the Pig Iron Quarry Jumping Puzzle
     // ⚠️ VERIFY: location and waypoint - check wiki
-    time_per_stage: 15,
+    time_per_stage: 10,
     stage_count:    1,
     time_verified:  false,
     tip:            "⚠️ VERIFY location and waypoint. Pig Iron Quarry is reachable with Skyscale + Bond of Faith for a quick event credit alongside the puzzle completion. Check the wiki for the exact location and nearest waypoint.",
@@ -929,7 +999,7 @@ export const META = {
   146: {
     // Complete the Crimson Plateau Jumping Puzzle
     // ⚠️ VERIFY: location and waypoint - check wiki
-    time_per_stage: 15,
+    time_per_stage: 10,
     stage_count:    1,
     time_verified:  false,
     tip:            "⚠️ VERIFY location and waypoint. Crimson Plateau is reachable with Skyscale + Bond of Faith. Check the wiki for the exact location and nearest waypoint.",
@@ -941,7 +1011,7 @@ export const META = {
   40: {
     // Complete the Collapsed Observatory Jumping Puzzle
     // ⚠️ VERIFY: location and waypoint not confirmed
-    time_per_stage: 25,
+    time_per_stage: 15,
     stage_count:    1,
     time_verified:  false,
     tip:            "⚠️ VERIFY location and waypoint. Check the GW2 wiki for 'Collapsed Observatory jumping puzzle' for the waypoint and full route guide.",
@@ -953,7 +1023,7 @@ export const META = {
   44: {
     // Complete the Loreclaw Expanse Jumping Puzzle
     // ⚠️ VERIFY: location and waypoint not confirmed
-    time_per_stage: 20,
+    time_per_stage: 10,
     stage_count:    1,
     time_verified:  false,
     tip:            "⚠️ VERIFY location and waypoint. Check the GW2 wiki for 'Loreclaw Expanse jumping puzzle' for the exact waypoint and route.",
@@ -965,7 +1035,7 @@ export const META = {
   61: {
     // Complete the Not So Secret Jumping Puzzle
     // ⚠️ VERIFY waypoint in Gendarran Fields
-    time_per_stage: 30,
+    time_per_stage: 20,
     stage_count:    1,
     time_verified:  false,
     tip:            "Not So Secret is in Gendarran Fields. One of the longer puzzles - allow extra time. A Skyscale significantly helps with several sections. Check the wiki for the waypoint and full route guide.",
@@ -977,7 +1047,7 @@ export const META = {
   105: {
     // Complete the Coddler's Cove Jumping Puzzle
     // ⚠️ VERIFY: location and waypoint not confirmed
-    time_per_stage: 20,
+    time_per_stage: 10,
     stage_count:    1,
     time_verified:  false,
     tip:            "⚠️ VERIFY location and waypoint. Check the GW2 wiki for 'Coddler's Cove jumping puzzle' for the exact waypoint and route.",
@@ -989,7 +1059,7 @@ export const META = {
   116: {
     // Complete the Tribulation Caverns Jumping Puzzle
     // ⚠️ VERIFY: if this is Tribulation Mode it is extremely difficult
-    time_per_stage: 45,
+    time_per_stage: 10,
     stage_count:    1,
     time_verified:  false,
     tip:            "⚠️ VERIFY difficulty. If this is a Tribulation Mode puzzle it is extremely challenging - allow significantly more time and follow a guide. If it's a standard puzzle, allow 20–30 minutes. Check the wiki to confirm which version this refers to.",
@@ -1001,7 +1071,7 @@ export const META = {
   170: {
     // Complete the Behem Gauntlet Jumping Puzzle
     // ⚠️ VERIFY: likely in Harathi Hinterlands
-    time_per_stage: 20,
+    time_per_stage: 10,
     stage_count:    1,
     time_verified:  false,
     tip:            "⚠️ VERIFY location and waypoint. Behem Gauntlet is likely in Harathi Hinterlands. Check the GW2 wiki for the exact waypoint and route.",
@@ -1038,7 +1108,7 @@ export const META = {
 
   100: {
     // Salvage 50 Items
-    time_per_stage: 10,
+    time_per_stage: 2,
     stage_count:    1,
     time_verified:  false,
     tip:            "Buy 50 cheap dyes or Pieces of Common Unidentified Gear from the Trading Post and salvage with a Crude Salvage Kit. Pairing with the Identify 100 Gear objective is efficient - identify then salvage the results.",
@@ -1049,10 +1119,10 @@ export const META = {
 
   63: {
     // Complete 3 Fractals in the Fractals of the Mists
-    time_per_stage: 25,
+    time_per_stage: 8,
     stage_count:    3,
     time_verified:  false,
-    tip:            "Tier 1 fractals are quickest - Quickplay or LFG for speed groups. The Fractals portal is in Lion's Arch near Fort Marriner. Allow roughly 75–90 minutes for 3 sequential runs.",
+    tip:            "Complete three tier 1 fractals via Quickplay. The Fractals portal is in Lion's Arch near Fort Marriner.",
     waypoint:       null,
     timed:          false,
     priority:       true,
@@ -1061,9 +1131,9 @@ export const META = {
   269: {
     // Complete a Convergence or Fractal
     time_per_stage: 8,
-    stage_count:    1,
+    stage_count:    5,
     time_verified:  true,
-    tip:            "Complete a single Tier 1 fractal via Quickplay. If you want to do a convergence instead, public groups run every 90 minutes, alternating between Mount Balrior and Outer Nayos.",
+    tip:            "Complete five tier 1 fractals via Quickplay. If you want to do a convergence instead, public groups run every 90 minutes, alternating between Mount Balrior and Outer Nayos.",
     waypoint:       "[&BDAEAAA=]",
     timed:          false,
     // schedule:       ["00:00","01:30","03:00","04:30","06:00","07:30","09:00","10:30","12:00","13:30","15:00","16:30","18:00","19:30","21:00","22:30"],
@@ -1073,10 +1143,10 @@ export const META = {
   349: {
     // Complete 5 Quickplay Raids (300 acclaim)
     // ⚠️ VERIFY time estimate
-    time_per_stage: 30,
+    time_per_stage: 10,
     stage_count:    5,
     time_verified:  false,
-    tip:            "⚠️ VERIFY timing. Queue for Quickplay Raids from the group content panel. Each run takes roughly 20–30 minutes depending on group composition and encounter.",
+    tip:            "Queue for Quickplay Raids from the group content panel. Each run takes roughly 10 minutes depending on group composition and encounter.",
     waypoint:       null,
     timed:          false,
     priority:       true,
@@ -1084,11 +1154,10 @@ export const META = {
 
   351: {
     // Complete the Guardian's Glade Raid or 10 Quickplay Raids (300 acclaim)
-    // ⚠️ VERIFY: Guardian's Glade is a Janthir Wilds raid
-    time_per_stage: 40,
-    stage_count:    1,
+    time_per_stage: 10,
+    stage_count:    10,
     time_verified:  false,
-    tip:            "⚠️ VERIFY. Guardian's Glade is a raid encounter from the Janthir Wilds expansion. A single clear is likely faster than 10 Quickplay Raids for an experienced group. Check LFG or raid communities.",
+    tip:            "⚠️ VERIFY. Guardian's Glade is a raid encounter from Visions of Eternity. A single clear is likely faster than 10 Quickplay Raids for an experienced group, but LFG is quicker if you are solo.",
     waypoint:       null,
     timed:          false,
     priority:       true,
@@ -1097,7 +1166,7 @@ export const META = {
   357: {
     // Complete 5 Quickplay Fractals (150 acclaim)
     // ⚠️ VERIFY time estimate
-    time_per_stage: 20,
+    time_per_stage: 8,
     stage_count:    5,
     time_verified:  false,
     tip:            "⚠️ VERIFY timing. Queue for Quickplay Fractals from the group content panel. Each run should take approximately 15–20 minutes.",
@@ -1117,7 +1186,7 @@ export const META = {
     time_per_stage: 15,
     stage_count:    1,
     time_verified:  false,
-    tip:            "⚠️ VERIFY. Alliance Field Quartermasters are found in Janthir Wilds maps (requires Janthir Wilds expansion). Check the wiki for Quartermaster locations in Lowland Shore or Janthir Syntri.",
+    tip:            "⚠️ VERIFY. Alliance Field Quartermasters are found in Visions of Eternity maps. Check the wiki for Quartermaster locations.",
     waypoint:       null,
     timed:          false,
     priority:       false,
