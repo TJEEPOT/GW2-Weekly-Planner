@@ -1058,22 +1058,22 @@ export const META = {
 
   45: {
     // Complete Any Raid Encounter
-    time_per_stage: 45,
+    time_per_stage: 15,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "Any raid encounter on any wing counts - you don't need to clear the full raid. Spirit Vale Wing 1 (Vale Guardian) is the most common entry point. Check LFG for open training runs.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Any single raid encounter on any wing or strike counts. Easy options are to use Raid Quickplay LFG (Looking for Group → Raids → Raids (Training)), use LFG to find a group for one of the four daily encounters, or join an IBS5 group.",
+    waypoint:       "[&BCAJAAA=]",
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   47: {
     // Identify 100 Pieces of Unidentified Gear
-    time_per_stage: 8,
+    time_per_stage: 2,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "Buy 100 Pieces of Common Unidentified Gear from the Trading Post (Blue/Green bags are cheapest), then use 'Identify All' from your inventory in one go. Do this in open world - some instances prevent progress from counting.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Buy 100 Pieces of Common Unidentified Gear from the Trading Post (Fine / Masterwork bags are cheapest), then use 'Identify All' from your inventory in one go. Do this in open world - some instances prevent progress from counting.",
+    waypoint:       "[&BBAEAAA=]",
     timed:          false,
     priority:       false,
   },
@@ -1082,22 +1082,22 @@ export const META = {
     // Salvage 50 Items
     time_per_stage: 2,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "Buy 50 cheap dyes or Pieces of Common Unidentified Gear from the Trading Post and salvage with a Crude Salvage Kit. Pairing with the Identify 100 Gear objective is efficient - identify then salvage the results.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Buy 50 cheap dyes or Pieces of Common Unidentified Gear from the Trading Post and salvage with a Crude Salvage Kit.",
+    waypoint:       "[&BBAEAAA=]",
     timed:          false,
     priority:       false,
   },
 
   63: {
     // Complete 3 Fractals in the Fractals of the Mists
-    time_per_stage: 8,
+    time_per_stage: 7,
     stage_count:    3,
-    time_verified:  false,
+    time_verified:  true,
     tip:            "Complete three tier 1 fractals via Quickplay. The Fractals portal is in Lion's Arch near Fort Marriner.",
-    waypoint:       null,
+    waypoint:       "[&BDAEAAA=]",
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   269: {
@@ -1105,7 +1105,7 @@ export const META = {
     time_per_stage: 8,
     stage_count:    5,
     time_verified:  true,
-    tip:            "Complete five tier 1 fractals via Quickplay. If you want to do a convergence instead, public groups run every 90 minutes, alternating between Mount Balrior and Outer Nayos.",
+    tip:            "Complete five tier 1 fractals via Quickplay, the Fractals portal is in Lion's Arch near Fort Marriner. If you want to do a convergence instead, public groups run every 90 minutes, alternating between Mount Balrior and Outer Nayos.",
     waypoint:       "[&BDAEAAA=]",
     timed:          false,
     // schedule:       ["00:00","01:30","03:00","04:30","06:00","07:30","09:00","10:30","12:00","13:30","15:00","16:30","18:00","19:30","21:00","22:30"],
@@ -1114,14 +1114,13 @@ export const META = {
 
   349: {
     // Complete 5 Quickplay Raids (300 acclaim)
-    // ⚠️ VERIFY time estimate
     time_per_stage: 10,
     stage_count:    5,
-    time_verified:  false,
+    time_verified:  true,
     tip:            "Queue for Quickplay Raids from the group content panel. Each run takes roughly 10 minutes depending on group composition and encounter.",
     waypoint:       null,
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   351: {
@@ -1129,27 +1128,25 @@ export const META = {
     time_per_stage: 10,
     stage_count:    10,
     time_verified:  false,
-    tip:            "⚠️ VERIFY. Guardian's Glade is a raid encounter from Visions of Eternity. A single clear is likely faster than 10 Quickplay Raids for an experienced group, but LFG is quicker if you are solo.",
+    tip:            "Guardian's Glade is a raid encounter from Visions of Eternity. A single clear is likely faster than 10 Quickplay Raids for an experienced group, but LFG is quicker if you are solo and can't easily find a group.",
     waypoint:       null,
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   357: {
     // Complete 5 Quickplay Fractals (150 acclaim)
-    // ⚠️ VERIFY time estimate
     time_per_stage: 8,
     stage_count:    5,
-    time_verified:  false,
-    tip:            "⚠️ VERIFY timing. Queue for Quickplay Fractals from the group content panel. Each run should take approximately 15–20 minutes.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Complete five tier 1 fractals via Quickplay, the Fractals portal is in Lion's Arch near Fort Marriner.",
+    waypoint:       "[&BDAEAAA=]",
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   /* ══════════════════════════════════════════════════════════════
      PvE - SPECIAL / SEASONAL (higher acclaim)
-     ⚠️ All entries need in-game verification
      ══════════════════════════════════════════════════════════════ */
 
   346: {
