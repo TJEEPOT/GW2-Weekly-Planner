@@ -194,7 +194,7 @@ export const META = {
     // Complete 3 Events
     time_per_stage: 2.5,
     stage_count:    3,
-    time_verified:  false,
+    time_verified:  true,
     tip:            "Completes naturally during most other PvE objectives. For a dedicated run: RIBA in the Silverwastes chains many events quickly. Rift hunting gives two event credits per rift. Opening the chest at the end of a jumping puzzle also awards 1 event credit.",
     waypoint:       "[&BH8HAAA=]",
     timed:          false,
@@ -249,7 +249,7 @@ export const META = {
     // Salvage 10 Items
     time_per_stage: 2,
     stage_count:    1,
-    time_verified:  false,
+    time_verified:  true,
     tip:            "Buy 10 cheap dyes or Pieces of Common Unidentified Gear from the Trading Post and salvage with a Crude Salvage Kit. Do this in the open world as certain instances (Strikes, etc.) can prevent progress from counting.",
     waypoint:       null,
     timed:          false,
@@ -269,9 +269,9 @@ export const META = {
 
   95: {
     // Harvest 10 Resources with a Harvesting Sickle
-    time_per_stage: 1,
+    time_per_stage: 0.2,
     stage_count:    10,
-    time_verified:  false,
+    time_verified:  true,
     tip:            "Your guild hall, home instance, or homestead resource nodes are the most convenient. A lettuce farm south of Beetletun WP (Shire of Beetletun, Queensdale) has 8 nodes with more nearby.",
     waypoint:       "[&BPoAAAA=]",
     timed:          false,
@@ -282,7 +282,7 @@ export const META = {
     // Gather 15 Resources with a Logging Axe
     time_per_stage: 0.2,
     stage_count:    15,
-    time_verified:  false,
+    time_verified:  true,
     tip:            "Guild hall, home instance, or homestead trees are fastest. Open world: 5 Cypress Saplings near Rayhan Bayt, Malchor's Leap ([&BJ4CAAA=]) or 5 Baoba Saplings south of Gauntlet WP, Mount Maelstrom ([&BNMCAAA=]).",
     waypoint:       "[&BJ4CAAA=]",
     timed:          false,
@@ -293,7 +293,7 @@ export const META = {
     // Gather 15 Resources with a Mining Pick
     time_per_stage: 0.2,
     stage_count:    15,
-    time_verified:  false,
+    time_verified:  true,
     tip:            "Guild hall, home instance, or homestead ore nodes are fastest. Open world: Platinum Ore and Rich Platinum Veins around Rata Pten ([&BMQCAAA=]) give 3 resources per node.",
     waypoint:       "[&BMkCAAA=]",
     timed:          false,
@@ -313,9 +313,9 @@ export const META = {
 
   350: {
     // Complete a Fractal in the Fractals of the Mists
-    time_per_stage: 8,
+    time_per_stage: 7,
     stage_count:    1,
-    time_verified:  false,
+    time_verified:  true,
     tip:            "Any Tier 1 fractal works. Quickplay usually finds a group faster than LFG. The Fractals portal is in Lion's Arch near Fort Marriner.",
     waypoint:       "[&BDAEAAA=]",
     timed:          false,
@@ -454,7 +454,7 @@ export const META = {
 
   135: {
     // Defeat 10 Champion-Rank Enemies
-    time_per_stage: 0.1,
+    time_per_stage: 1,
     stage_count:    10,
     time_verified:  true,
     tip:            "Shadow Behemoth world boss spawns 15–20 easily tagable Champion Fleshreavers and Shades during its portal phases if the boss is available. If not, travel to Fort Marriner and enter the Fractal portal, choosing any level. Head over the back of the room and speak to the Fractal Instability Trainer, set rank to Champion and spawn 4 idle and 4 moving Champion Mark I Golems. Activate the mistlock instabilities Outflanked and Sugar Rush and ensure you are behind or to the side of your targets, focussing on the moving first. Once these are dead, spawn two more idle Golems to complete.",
@@ -512,7 +512,7 @@ export const META = {
     time_per_stage: 0.1,
     stage_count:    50,
     time_verified:  true,
-    tip:            "LWS4: Head to the bottom of Rata Primus, Sandswept Isles for large groups of Inquest - especially around Magistorm Gallery ([&BCgLAAA=]) Jade Mechs are found throughout EoD maps.",
+    tip:            "LWS4: Head to the bottom of Rata Primus, Sandswept Isles for large groups of Inquest - especially around Magistorm Gallery ([&BCgLAAA=]). VoE: Groups of Inquest can be found under and around Riddled Cove ([&BIMPAAA=]) and Guarded Glades ([&BIkPAAA=]), Shipwreck Strand. Jade Mechs are found throughout EoD maps.",
     waypoint:       "[&BCULAAA=]",
     timed:          false,
     priority:       false,
@@ -542,43 +542,35 @@ export const META = {
 
   272: {
     // Defeat Titanspawn or Elemental Enemies
-    // ⚠️ VERIFY: stage_count is estimated - check your API progress_complete
-    time_per_stage: 1,
+    time_per_stage: 0.2,
     stage_count:    50,
-    time_verified:  false,
-    tip:            "⚠️ VERIFY stage count. Titanspawn are found in Janthir Wilds maps (requires Janthir Wilds expansion). Elemental enemies (Earth, Fire, Water, Air Elementals) appear throughout core Tyria and HoT maps.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "The best target here, if it is active, is the 'Get an extinguisher from Engineer Kayle Brightshock and put out fires' event in Sati Passage, Fireheart Rise. It is important that you NEVER use the extinguisher, as it reduces the number of elemental spawns - you should just move between the respawns as they occur. JW: Titanspawn are most numerous on Tier 1 Rifts, and Lowland Shore ([&BCcPAAA=]) has many potential spawn points close to each other.",
+    waypoint:       "[&BBgCAAA=]",
     timed:          false,
     priority:       false,
   },
 
   334: {
     // Defeat Inquest Enemies or Pirates
-    // ⚠️ VERIFY: stage_count is estimated - check your API progress_complete
-    time_per_stage: 1,
+    time_per_stage: 0.1,
     stage_count:    50,
-    time_verified:  false,
-    tip:            "⚠️ VERIFY stage count. Inquest appear in Metrica Province and Urban Battleground Fractal. Pirates (Consortium/bandit crews) are found in Southsun Cove and Kessex Hills.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "LWS4: Head to the bottom of Rata Primus, Sandswept Isles for large groups of Inquest - especially around Magistorm Gallery ([&BCgLAAA=]). VoE: Groups of Inquest can be found under and around Riddled Cove ([&BIMPAAA=]) and Guarded Glades ([&BIkPAAA=]), Shipwreck Strand. Core: Inquest appear in Metrica Province and Level 15 Thaumanova Reactor Fractal, pirates (Consortium/bandit crews) are found in Southsun Cove and Kessex Hills.",
+    waypoint:       "[&BCgLAAA=]",
     timed:          false,
     priority:       false,
   },
 
   /* ══════════════════════════════════════════════════════════════
      PvE - WEEKLY (50 acclaim) - World Boss Events
-     ──────────────────────────────────────────────────────────────
-     ⚠️ World bosses other than Tequatl are marked timed:false
-     pending schedule verification. To enable smart scheduling:
-       1. Look up UTC times at https://gw2timer.com
-       2. Set  timed: true
-       3. Add  schedule: ["HH:MM", ...]
      ══════════════════════════════════════════════════════════════ */
 
   358: {
     // Defeat Tequatl the Sunless or Complete Events in Sparkfly Fen
     time_per_stage: 15,
     stage_count:    1,
-    time_verified:  false,
+    time_verified:  true,
     tip:            "Prioritise the Tequatl fight - it's the fastest completion and well-organised on most servers. Arrive 5 minutes early at the Splintered Coast. If you miss the window, completing events in Sparkfly Fen works but takes much longer.",
     waypoint:       "[&BNABAAA=]",
     timed:          true,
@@ -591,9 +583,9 @@ export const META = {
     // Schedule derived from the GW2 wiki event timer JSON (core-wb sequence, r:8, every 2h at 1:45)
     time_per_stage: 15,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "Shadow Behemoth spawns every 2 hours in Godslost Swamp, Queensdale - the next UTC time is shown on your schedule. Arrive a few minutes early. Note: this fight also spawns Champion Fleshreavers during its portal phases, useful for the Defeat 10 Champions objective. Queensdale events count as an alternative.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Shadow Behemoth spawns every 2 hours in Godslost Swamp, Queensdale. Arrive a few minutes before the event starts. Note: this fight also spawns Champion Fleshreavers during its portal phases, useful for the Defeat 10 Champions objective. Queensdale events count as an alternative if you miss the window, but are not recommended as they take much longer.",
+    waypoint:       "[&BPcAAAA=]",
     timed:          true,
     schedule:       ["01:45","03:45","05:45","07:45","09:45","11:45","13:45","15:45","17:45","19:45","21:45","23:45"],
     priority:       true,
@@ -604,9 +596,9 @@ export const META = {
     // Schedule derived from the GW2 wiki event timer JSON (core-wb sequence, r:2, every 2h at :15)
     time_per_stage: 12,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "Svanir Shaman Chief spawns every 2 hours throughout the day - the next UTC time is shown on your schedule. Arrive a few minutes early at Wayfarer Foothills. If you miss the window, events in Wayfarer Foothills near the starting area count as an alternative.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Svanir Shaman Chief spawns every 2 hours in Wayfarer Foothills. Arrive a few minutes earlier than the timer indicates. If you miss the window, events in Wayfarer Foothills near the starting area count as an alternative, but are not recommended as they take much longer.",
+    waypoint:       "[&BMIDAAA=]",
     timed:          true,
     schedule:       ["00:15","02:15","04:15","06:15","08:15","10:15","12:15","14:15","16:15","18:15","20:15","22:15"],
     priority:       true,
@@ -617,9 +609,9 @@ export const META = {
     // Schedule derived from the GW2 wiki event timer JSON (core-wb sequence, r:4, every 2h at :45)
     time_per_stage: 15,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "Fire Elemental spawns every 2 hours near the Thaumanova Reactor in Metrica Province - the next UTC time is shown on your schedule. Arrive a few minutes early. Metrica Province events around the reactor area count as an alternative.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Fire Elemental spawns every 2 hours near the Thaumanova Reactor in Metrica Province. Arrive a few minutes earlier than the timer indicates. Metrica Province events around the reactor area count as an alternative, but are not recommended as they take much longer.",
+    waypoint:       "[&BEcAAAA=]",
     timed:          true,
     schedule:       ["00:45","02:45","04:45","06:45","08:45","10:45","12:45","14:45","16:45","18:45","20:45","22:45"],
     priority:       true,
@@ -628,11 +620,11 @@ export const META = {
   134: {
     // Defeat the Megadestroyer World Boss or Complete Events in Mount Maelstrom
     // Schedule derived from the GW2 wiki event timer JSON (core-wb sequence, r:3, every 3h at :30)
-    time_per_stage: 20,
+    time_per_stage: 15,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "Megadestroyer spawns every 3 hours in Mount Maelstrom - the next UTC time is shown on your schedule. Arrive a few minutes early. Mount Maelstrom events around the volcanic region count as an alternative.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Megadestroyer spawns every 3 hours in Mount Maelstrom. Arrive a few minutes earlier than the timer indicates. Mount Maelstrom events around the volcanic region count as an alternative, but are not recommended as they take much longer.",
+    waypoint:       "[&BM0CAAA=]",
     timed:          true,
     schedule:       ["00:30","03:30","06:30","09:30","12:30","15:30","18:30","21:30"],
     priority:       true,
@@ -641,11 +633,11 @@ export const META = {
   159: {
     // Defeat the Inquest Golem Mark II World Boss or Complete Events in Mount Maelstrom
     // Schedule derived from the GW2 wiki event timer JSON (core-wb sequence, r:10, every 3h at :00 offset 2h)
-    time_per_stage: 20,
+    time_per_stage: 10,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "Inquest Golem Mk II spawns every 3 hours in Mount Maelstrom - the next UTC time is shown on your schedule. Note: this boss does NOT count for the Defeat 1 Legendary-Rank Enemy objective. Mount Maelstrom events count as an alternative.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Inquest Golem Mk II spawns every 3 hours in Mount Maelstrom. Arrive a few minutes earlier than the timer indicates. Note: this boss does NOT count for the Defeat 1 Legendary-Rank Enemy objective. Mount Maelstrom events count as an alternative,  but are not recommended as they take much longer.",
+    waypoint:       "[&BNQCAAA=]",
     timed:          true,
     schedule:       ["02:00","05:00","08:00","11:00","14:00","17:00","20:00","23:00"],
     priority:       true,
@@ -654,11 +646,11 @@ export const META = {
   196: {
     // Defeat the Shatterer World Boss or Complete Events in Blazeridge Steppes
     // Schedule derived from the GW2 wiki event timer JSON (core-wb sequence, r:5, every 3h at 1:00)
-    time_per_stage: 15,
+    time_per_stage: 10,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "The Shatterer spawns every 3 hours in the Lowland Burns area of Blazeridge Steppes - the next UTC time is shown on your schedule. Arrive a few minutes early. Blazeridge Steppes events count as an alternative.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "The Shatterer spawns every 3 hours in the Lowland Burns area of Blazeridge Steppes. Arrive a few minutes earlier than the timer indicates. Blazeridge Steppes events count as an alternative, but are not recommended as they take much longer.",
+    waypoint:       "[&BE4DAAA=]",
     timed:          true,
     schedule:       ["01:00","04:00","07:00","10:00","13:00","16:00","19:00","22:00"],
     priority:       true,
@@ -667,11 +659,11 @@ export const META = {
   19: {
     // Defeat the Claw of Jormag World Boss or Complete Events in Frostgorge Sound
     // Schedule derived from the GW2 wiki event timer JSON (core-wb sequence, r:9, every 3h at 2:30)
-    time_per_stage: 20,
+    time_per_stage: 15,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "Claw of Jormag spawns every 3 hours in Frostgorge Sound - the next UTC time is shown on your schedule. Arrive a few minutes early. Frostgorge Sound events around the Arundon area count as an alternative.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Claw of Jormag spawns every 3 hours in Frostgorge Sound. Arrive a few minutes earlier than the timer indicates. Frostgorge Sound events count as an alternative, but are not recommended as they take much longer.",
+    waypoint:       "[&BHoCAAA=]",
     timed:          true,
     schedule:       ["02:30","05:30","08:30","11:30","14:30","17:30","20:30","23:30"],
     priority:       true,
@@ -680,11 +672,11 @@ export const META = {
   31: {
     // Defeat the Great Jungle Wurm World Boss or Complete Events in Caledon Forest
     // Schedule derived from the GW2 wiki event timer JSON (core-wb sequence, r:6, every 2h at 1:15)
-    time_per_stage: 20,
+    time_per_stage: 10,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "Great Jungle Wurm spawns every 2 hours in the Twilight Arbor area of Caledon Forest - the next UTC time is shown on your schedule. Arrive a few minutes early. Caledon Forest events near Ventry Bay count as an alternative.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Great Jungle Wurm spawns every 2 hours in the Twilight Arbor area of Caledon Forest. Arrive a few minutes earlier than the timer indicates. Caledon Forest events count as an alternative, but are not recommended as they take much longer.",
+    waypoint:       "[&BEEFAAA=]",
     timed:          true,
     schedule:       ["01:15","03:15","05:15","07:15","09:15","11:15","13:15","15:15","17:15","19:15","21:15","23:15"],
     priority:       true,
@@ -698,8 +690,8 @@ export const META = {
     // Complete a Meta-Event or Events in the Crystal Desert or Events in Kryta
     time_per_stage: 20,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "LWS4: Most Dragonfall events count as meta and are the fastest if one isn't currently active. The timer here is for the next PoF meta - type \'/wiki et\' in-game to find which one it is. Alternatively, RIBA in the Silverwastes chains many events quickly, though it might be slower doing fifteen events there compared to one in Dragonfall.",
+    time_verified:  true,
+    tip:            "The timer here is for the next PoF meta - type \'/wiki et\' in-game to find which one it is (it's likely 'Junundu Rising' or 'Maws of Torment'). LWS4: Most Dragonfall events count as meta and might be a little faster if a meta isn't about to be active. Core: RIBA in the Silverwastes chains many events quickly, though it will likely be slower doing fifteen events there compared to one in Dragonfall or PoF.",
     waypoint:       null,
     timed:          true,
     schedule:       [
@@ -735,8 +727,8 @@ export const META = {
     // Complete a Meta-Event or Events in Cantha or Events in Maguuma Jungle
     time_per_stage: 25,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "EoD meta-events (Aetherblade Assault, Kaineng Blackout, Gang War of Echovald) have timers below - type \'/wiki et\' in-game to find which one is on. Battle for the Jade Sea also counts, but you'll be better off waiting Aetherblade Assault to start.Alternatively, complete fifteen events in the Silverwastes.",
+    time_verified:  true,
+    tip:            "EoD meta-events (Aetherblade Assault, Kaineng Blackout, Gang War of Echovald) have timers below - type \'/wiki et\' in-game to find which one is on. Battle for the Jade Sea also counts, but you'll be better off waiting Aetherblade Assault to start. Alternatively, complete fifteen RIBA events in the Silverwastes.",
     waypoint:       null,
     timed:          true,
     schedule:       [
@@ -760,8 +752,8 @@ export const META = {
     // Complete a Meta-Event or Events in Horn of Maguuma or Events in Shiverpeak Mountains
     time_per_stage: 25,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "The timer is set for the two timed SotO metas - type \'/wiki et\' in-game to find which one it is. Inner Nayos metas also count, and it might be quicker to start and finish any of those three instead of waiting for the timed metas. Completing fifteen standard events in Wayfarer Foothills, Lornar's Pass, or Frostgorge Sound also count.",
+    time_verified:  true,
+    tip:            "The timer is set for the two timed SotO metas - type \'/wiki et\' in-game to find which one it is. Inner Nayos metas also count, and it might be quicker to start and finish any of those three instead of waiting for the timed metas. Completing fifteen standard events in Wayfarer Foothills, Lornar's Pass, or Frostgorge Sound also count, but will take a lot longer.",
     waypoint:       null,
     timed:          true,
     schedule:       [
@@ -779,7 +771,7 @@ export const META = {
     // Complete a Meta-Event or Events in Castora or Events in Orr
     time_per_stage: 25,
     stage_count:    1,
-    time_verified:  false,
+    time_verified:  true,
     tip:            "Timer is set for the next Castora meta-event - type \'/wiki et\' in-game to find which one it is. Otherwise, head to Orr (Straits of Devastation, Malchor's Leap, Cursed Shore) for frequent chain events around the temple areas.",
     waypoint:       null,
     timed:          true,
@@ -799,7 +791,7 @@ export const META = {
     // Complete a Meta-Event or Events in Janthir or Events in Orr
     time_per_stage: 25,
     stage_count:    1,
-    time_verified:  false,
+    time_verified:  true,
     tip:            "Timer is set for the two timed Janthir Wilds meta-events - type \'/wiki et\' in-game to find which one it is. Otherwise, head to Orr (Straits of Devastation, Malchor's Leap, Cursed Shore) for frequent chain events around the temple areas.",
     waypoint:       null,
     timed:          true,
@@ -818,7 +810,7 @@ export const META = {
     // Complete a Meta-Event or Events in Heart of Maguuma or Events in Ascalon
     time_per_stage: 20,
     stage_count:    1,
-    time_verified:  false,
+    time_verified:  true,
     tip:            "The timer shows the next HoT meta-event, aside from Dragon's Stand, which is much slower (you should do Night and the Enemy instead) - type \'/wiki et\' in-game to find which one it is. Completing fifteen events in Ascalon maps (Plains of Ashford, Diessa Plateau, Iron Marches, Blazeridge Steppes, Fields of Ruin) are an alternative.",
     waypoint:       null,
     timed:          true,
@@ -842,242 +834,222 @@ export const META = {
 
   56: {
     // Complete the Dark Reverie Jumping Puzzle
-    // ⚠️ VERIFY waypoint: Spiral WP, Morgan's Spiral, Caledon Forest
-    time_per_stage: 10,
+    time_per_stage: 15,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "Dark Reverie is in Caledon Forest near Morgan's Spiral (Spiral WP). Moderate difficulty - allow extra time if unfamiliar. Skyscale helps with some sections. Check the GW2 wiki for a step-by-step guide.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Dark Reverie is in Caledon Forest, immediately following the Morgan's Spiral JP. Moderate difficulty - allow extra time if unfamiliar. Skyscale can help you skip Morgan's Spiral, check guides on YouTube. Check the GW2 wiki for a step-by-step guide of both jumping puzzles. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
+    waypoint:       "[&BDUBAAA=]",
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   38: {
     // Complete the Shattered Ice Ruins Jumping Puzzle
-    // ⚠️ VERIFY waypoint: Ice Floe WP, Shattered Ice Floe
     time_per_stage: 10,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "Shattered Ice Ruins is in Shattered Ice Floe (Ice Floe WP). You can skip most of the puzzle by scaling the large southern ice wall with a Skyscale, Springer, or upgraded Jade Bot Glide Booster.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Shattered Ice Ruins is in Shattered Ice Floe. You can skip most of the puzzle by scaling the large southern ice wall with a Skyscale, Springer, or upgraded Jade Bot Glide Booster. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
+    waypoint:       "[&BH4CAAA=]",
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   74: {
     // Complete the Branded Mine Jumping Puzzle
-    // ⚠️ VERIFY waypoint: Helliot Mine WP, Dragonrot Domains
     time_per_stage: 10,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "Branded Mine is in Dragonrot Domains (Helliot Mine WP). A Crystal Desert mine puzzle of moderate difficulty. Check the wiki for the route.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Branded Mine is in Dragonrot Domains. From Tenaebron WP, head west to the Renown Heart NPC, then follow the path south, the opening to the jumping puzzle is on your right, surrounded by jagged branded rocks and is just south of a red plant. Check the wiki or YouTube for the route when inside and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
+    waypoint:       "[&BNcAAAA=]",
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   129: {
     // Complete the Grendich Gamble Jumping Puzzle
-    // ⚠️ VERIFY waypoint: Blasted Moors WP, The Blasted Moors
-    time_per_stage: 10,
+    time_per_stage: 5,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "Grendich Gamble is in The Blasted Moors (Blasted Moors WP), Diessa Plateau. A relatively straightforward Charr-ruins puzzle.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Grendich Gamble is in The Blasted Moors, Diessa Plateau. A relatively straightforward Charr-ruins puzzle, it can be skipped entirely with a timed launch with Bond of Faith from a Skyscale. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
+    waypoint:       "[&BNoAAAA=]",
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   130: {
     // Complete the Spekk's Laboratory Jumping Puzzle
-    // ⚠️ VERIFY waypoint: Gleaner's Cove WP, Ogham Wilds
     time_per_stage: 10,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "Spekk's Laboratory is in Ogham Wilds (Gleaner's Cove WP), Caledon Forest. An Asura-themed puzzle of moderate difficulty.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Spekk's Laboratory is in Sandycove Beach, north-north-west of Gleaner's Cove WP, Caledon Forest. Each control panel you touch acts as a waypoint, if you fall, just speak to a Lab Assistant to teleport back up. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
+    waypoint:       "[&BDcBAAA=]",
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   186: {
     // Complete the Professor Portmatt's Lab Jumping Puzzle
-    // ⚠️ VERIFY waypoint: Sorrowful WP, Sorrowful Sound
     time_per_stage: 10,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "Professor Portmatt's Lab is in Sorrowful Sound (Sorrowful WP), Gendarran Fields. The chest at the end can be reached quickly with a Skyscale + Bond of Faith, and also awards 1 event credit.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Professor Portmatt's Lab is underwater in Sorrowful Sound, Gendarran Fields. The chest at the end can be reached quickly with a Skyscale + Bond of Faith. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
+    waypoint:       "[&BKQBAAA=]",
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   189: {
     // Complete the Fawcett's Bounty Jumping Puzzle
-    // ⚠️ VERIFY waypoint: Arcallion WP, Arcallion Digs
     time_per_stage: 10,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "Fawcett's Bounty is in Arcallion Digs (Arcallion WP), Dredgehaunt Cliffs. A standard Shiverpeaks puzzle. Check the wiki for the route.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Fawcett's Bounty is in Arcallion Digs, Harathi Hinterlands. Head north and west out of Arcallion Digs. Swim across the lake to the west, looking for a path on the north shore, just to the left of a small waterfall trickling out of the rocks. Head up the path and interact with the gate to enter. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
+    waypoint:       "[&BMMAAAA=]",
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   180: {
     // Complete the Antre of Adjournment Jumping Puzzle
-    // ⚠️ VERIFY waypoint: Valley of Lyss WP
     time_per_stage: 10,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "Antre of Adjournment is in the Valley of Lyss area (Valley of Lyss WP), Straits of Devastation. A moderate difficulty puzzle. Check the wiki for the route.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Antre of Adjournment is in the Valley of Lyss, Straits of Devastation. From Pagga's Waypoint, head west to the bridge and jump off the north side, the entrance is on your right. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
+    waypoint:       "[&BKYCAAA=]",
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   101: {
     // Complete the Retrospective Runaround Jumping Puzzle
-    // ⚠️ VERIFY waypoint: Drydock Grotto WP, Northeastern Silverwastes
     time_per_stage: 20,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "Retrospective Runaround is in the Northeastern Silverwastes (Drydock Grotto WP). Collect all 9 stacks of the Milestone buff - no final chest needed. Check the wiki for milestone locations.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Retrospective Runaround is in the Northeastern Silverwastes (Drydock Grotto WP). Collect all 9 stacks of the Milestone buff - no final chest needed. Check the wiki for milestone locations guide and allow extra time if unfamiliar.",
+    waypoint:       "[&BLoHAAA=]",
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   156: {
     // Complete the Weyandt's Revenge Jumping Puzzle
-    // ⚠️ VERIFY waypoint: Farshore WP, Farshore Ward, Lion's Arch
     time_per_stage: 15,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "Weyandt's Revenge is in Farshore Ward, Lion's Arch (Farshore WP). A pirate-themed puzzle of moderate difficulty. Note: completing this puzzle does NOT award a free event credit.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Weyandt's Revenge is in Farshore Ward, Lion's Arch, behind Tokk's Mill. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended. Note: completing this puzzle does not award a free event credit.",
+    waypoint:       "[&BDMEAAA=]",
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   161: {
     // Complete the Skipping Stones Jumping Puzzle
-    // ⚠️ VERIFY waypoint: Lion Point WP, Southsun Shoals
     time_per_stage: 15,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "Skipping Stones is in Southsun Cove (Lion Point WP). Head west on a Skimmer, then use Skyscale or Springer + Bond of Faith to reach the island's north side. Run clockwise around the island and over a bridge to the chest.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Skipping Stones is in Southsun Shoals, Southsun Cove. Head west on a Skimmer, then use Skyscale with Bond of Faith to reach the island's north side. Run clockwise around the island and over a bridge to the chest. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
+    waypoint:       "[&BNAGAAA=]",
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   4: {
     // Complete the Chaos Crystal Cavern Jumping Puzzle
-    // ⚠️ VERIFY waypoint: Old Piken Ruins WP, Champion's Shield
     time_per_stage: 15,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "Chaos Crystal Cavern is in Champion's Shield (Old Piken Ruins WP), Iron Marches. A crystal-formation puzzle of moderate difficulty. Check the wiki for the route.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Chaos Crystal Cavern is in Champion's Shield, Iron Marches. Travel west from the waypoint to a cliff with some Cliff Bats on it. Jump up the cliff, then down the large hole to the south. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
+    waypoint:       "[&BOQBAAA=]",
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   148: {
     // Complete the Pig Iron Quarry Jumping Puzzle
-    // ⚠️ VERIFY: location and waypoint - check wiki
     time_per_stage: 10,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "⚠️ VERIFY location and waypoint. Pig Iron Quarry is reachable with Skyscale + Bond of Faith for a quick event credit alongside the puzzle completion. Check the wiki for the exact location and nearest waypoint.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Pig Iron Quarry is in Champion's Shield, Iron Marches. The end is easily reachable with Skyscale + Bond of Faith for a quick event credit alongside the puzzle completion. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
+    waypoint:       "[&BBkCAAA=]",
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   146: {
     // Complete the Crimson Plateau Jumping Puzzle
-    // ⚠️ VERIFY: location and waypoint - check wiki
     time_per_stage: 10,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "⚠️ VERIFY location and waypoint. Crimson Plateau is reachable with Skyscale + Bond of Faith. Check the wiki for the exact location and nearest waypoint.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Crimson Plateau is in Reaper's Corridor, Dissa Plateau. It is reachable with Skyscale + Bond of Faith from the south. Check the wiki for the exact location or for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
+    waypoint:       "[&BMYDAAA=]",
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   40: {
     // Complete the Collapsed Observatory Jumping Puzzle
-    // ⚠️ VERIFY: location and waypoint not confirmed
     time_per_stage: 15,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "⚠️ VERIFY location and waypoint. Check the GW2 wiki for 'Collapsed Observatory jumping puzzle' for the waypoint and full route guide.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Collapsed Observatory is in Cereboth Canyon, Kessex Hills. Follow the nearby stream south into the cavern. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
+    waypoint:       "[&BBIAAAA=]",
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   44: {
     // Complete the Loreclaw Expanse Jumping Puzzle
-    // ⚠️ VERIFY: location and waypoint not confirmed
     time_per_stage: 10,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "⚠️ VERIFY location and waypoint. Check the GW2 wiki for 'Loreclaw Expanse jumping puzzle' for the exact waypoint and route.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Loreclaw Expanse is in Planes of Ashford, from the WP head southeast and climb the cliff, heading east into the cave. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
+    waypoint:       "[&BMcDAAA=]",
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   61: {
     // Complete the Not So Secret Jumping Puzzle
-    // ⚠️ VERIFY waypoint in Gendarran Fields
     time_per_stage: 20,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "Not So Secret is in Gendarran Fields. One of the longer puzzles - allow extra time. A Skyscale significantly helps with several sections. Check the wiki for the waypoint and full route guide.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Not So Secret is in Broadhollow Bluffs, Gendarran Fields - travel southeast from the WP then south, scaling the cliffs with the jump pads or a Skyscale to get in. This JP is generally considered the longest in Core Tyria. A Springer or Skyscale significantly help with cutting out most of the puzzle - search for Not So Secret shortcuts on YouTube. Check the wiki for the route and allow around 1-2 hours if unfamiliar with the route and not taking a shortcut. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is highly recommended.",
+    waypoint:       "[&BOEAAAA=]",
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   105: {
     // Complete the Coddler's Cove Jumping Puzzle
-    // ⚠️ VERIFY: location and waypoint not confirmed
-    time_per_stage: 10,
+    time_per_stage: 15,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "⚠️ VERIFY location and waypoint. Check the GW2 wiki for 'Coddler's Cove jumping puzzle' for the exact waypoint and route.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "Coddler's Cove is in Mellaggan's Grotto, Timberline Falls. From the WP, head south to the cliff and follow it southwest around to the entrance. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
+    waypoint:       "[&BEYCAAA=]",
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   116: {
     // Complete the Tribulation Caverns Jumping Puzzle
-    // ⚠️ VERIFY: if this is Tribulation Mode it is extremely difficult
     time_per_stage: 10,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "⚠️ VERIFY difficulty. If this is a Tribulation Mode puzzle it is extremely challenging - allow significantly more time and follow a guide. If it's a standard puzzle, allow 20–30 minutes. Check the wiki to confirm which version this refers to.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "The entrance to Tribulation Caverns JP is in Tribulation Rift, Dredgehaunt Cliffs. The JP follows on from the Tribulation Rift Scaffholding JP, and that JP can be skipped with a Skyscale or Springer on the south tip of the subzone. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
+    waypoint:       "[&BD8FAAA=]",
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   170: {
     // Complete the Behem Gauntlet Jumping Puzzle
-    // ⚠️ VERIFY: likely in Harathi Hinterlands
     time_per_stage: 10,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "⚠️ VERIFY location and waypoint. Behem Gauntlet is likely in Harathi Hinterlands. Check the GW2 wiki for the exact waypoint and route.",
-    waypoint:       null,
+    time_verified:  true,
+    tip:            "The Behem Gauntlet JP is found in the subzone of the same name in Blazeridge Steppes. Follow the road southeast into the cave. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
+    waypoint:       "[&BP0BAAA=]",
     timed:          false,
-    priority:       true,
+    priority:       false,
   },
 
   /* ══════════════════════════════════════════════════════════════
