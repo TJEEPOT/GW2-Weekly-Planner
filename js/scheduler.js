@@ -7,8 +7,12 @@
 
 import { META } from "./meta.js";
 
-/** Minutes of clear time required before every timed event. */
-const BUFFER_MIN = 5;
+/**
+ * Minutes of clear time required before every timed event.
+ * The scheduler will not start a non-timed objective if it would
+ * bleed into this window.
+ */
+const BUFFER_MIN = 2;
 
 /** Milliseconds per minute - used throughout for timestamp maths. */
 const MS = 60_000;
@@ -152,6 +156,11 @@ function resolveTimedConflicts(timed) {
 /**
  * Build a complete, ordered schedule from raw API objective lists.
  *
+ * Timed events that are imminent — i.e. their slot falls within the
+ * BUFFER_MIN window from `now` — are placed first on the timeline
+ * before any non-timed work, since there is no time to start anything
+ * else before they begin.
+ *
  * Returns:
  *   timeline  - objectives to do, in recommended order, each enriched with:
  *                 _type            "daily" | "weekly"
@@ -235,24 +244,42 @@ export function buildSchedule(dailyObjs, weeklyObjs, now) {
     }
   }
 
-  // Interleave non-timed objectives into gaps around timed events
-  while (timedLeft.length > 0) {
-    const nextTimed  = timedLeft.shift();
-    const cutoffMs   = nextTimed._nextSlot.getTime() - BUFFER_MIN * MS;
-
-    drainQueueBefore(cutoffMs);
-
-    // Schedule the timed event at its fixed time
-    const waiting = cursor < nextTimed._nextSlot;
-    nextTimed._scheduledStart = new Date(nextTimed._nextSlot);
-    nextTimed._waiting        = waiting;
-    if (waiting) nextTimed._waitFrom = new Date(cursor);
-
-    timeline.push(nextTimed);
-    cursor = new Date(nextTimed._nextSlot.getTime() + nextTimed._dur * MS);
+  /**
+   * Schedule a single timed event onto the timeline, advancing cursor.
+   * @param {object} obj  Enriched timed objective with _nextSlot set
+   */
+  function scheduleTimedEvent(obj) {
+    const waiting = cursor < obj._nextSlot;
+    obj._scheduledStart = new Date(obj._nextSlot);
+    obj._waiting        = waiting;
+    if (waiting) obj._waitFrom = new Date(cursor);
+    timeline.push(obj);
+    cursor = new Date(obj._nextSlot.getTime() + obj._dur * MS);
   }
 
-  // Append any remaining non-timed objectives after all timed events
+  // ── Imminent events: place any timed event whose slot is within
+  //    BUFFER_MIN of now first, before any non-timed work. ─────────
+  //
+  // timedLeft is already sorted by _nextSlot ascending, so we just
+  // pull from the front while the condition holds.
+  const bufferMs = BUFFER_MIN * MS;
+  while (
+    timedLeft.length > 0 &&
+    timedLeft[0]._nextSlot.getTime() - now.getTime() <= bufferMs
+  ) {
+    scheduleTimedEvent(timedLeft.shift());
+  }
+
+  // ── Interleave remaining non-timed into gaps around timed events ─
+  while (timedLeft.length > 0) {
+    const nextTimed = timedLeft.shift();
+    const cutoffMs  = nextTimed._nextSlot.getTime() - bufferMs;
+
+    drainQueueBefore(cutoffMs);
+    scheduleTimedEvent(nextTimed);
+  }
+
+  // ── Append any remaining non-timed after all timed events ───────
   while (queue.length > 0) {
     const obj = queue.shift();
     obj._scheduledStart = new Date(cursor);
