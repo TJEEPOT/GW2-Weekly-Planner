@@ -22,13 +22,27 @@
  *                            or code still needs in-game verification.
  * timed           {boolean}  true if only available at specific UTC times.
  * schedule        {string[]} (timed:true only) UTC "HH:MM" spawn windows.
- * priority        {boolean}  true = schedule before non-priority items.
+ * priority        {PRIORITY} PRIORITY.HIGH   = timed or must-do-first objectives.
+ *                            PRIORITY.NORMAL = active objectives worth doing deliberately.
+ *                            PRIORITY.LOW    = passively completes alongside other objectives.
  *
  * ── VERIFICATION NOTES ───────────────────────────────────────────
  * Entries marked ⚠️ VERIFY need in-game confirmation.
  * See the VERIFICATION CHECKLIST at the bottom of this file.
  * ─────────────────────────────────────────────────────────────────
  */
+
+/**
+ * Priority levels for objective scheduling.
+ * Use these named constants rather than raw numbers — the scheduler
+ * sorts numerically (HIGH > NORMAL > LOW), but the names make intent
+ * clear when editing entries.
+ */
+export const PRIORITY = Object.freeze({
+  HIGH:   3,  // Timed events; anything you'd stop other tasks to catch
+  NORMAL: 2,  // Active objectives worth doing deliberately
+  LOW:    1,  // Completes passively alongside other objectives; schedule last
+});
 
 export const META = {
 
@@ -44,7 +58,7 @@ export const META = {
     tip:            "Simply logging in completes this automatically.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.LOW,
   },
 
   125: {
@@ -55,7 +69,7 @@ export const META = {
     tip:            "You only need to press the dodge key while in combat - you don't have to actually evade an attack. Quickest method: take a small fall from your skyscale to enter combat, then dodge 3 times. Or go to the PvP lobby and dodge next to the running target golems at the Combat Training WP.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   20: {
@@ -66,7 +80,7 @@ export const META = {
     tip:            "Most rotations trigger combos naturally during regular combat. If you want to target this objective, go to the PvP lobby (Combat Training WP) and use combo finishers inside a combo field on the golems. Alternatively, attack Trainer Raji at the Seitung Province Training Grounds (Monastery WP).",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   182: {
@@ -77,7 +91,7 @@ export const META = {
     tip:            "Any orange defiance bar counts. Easiest options: (1) PvP lobby - attack the Elite Target Golem and use crowd-control skills; Siege Turtle or Warclaw break bars fast. (2) LA Aerodrome Special Forces Training Area - configure a golem with a defiance bar. (3) Seitung Province Training Grounds (Monastery WP) - the Training Mech hero point south-east of the WP has a defiance bar.",
     waypoint:       "[&BL8MAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   149: {
@@ -88,7 +102,7 @@ export const META = {
     tip:            "Completes naturally alongside almost any other PvE objective. For a dedicated run: Pocket Raptors south of Westwatch WP (Verdant Brink) spawn in large packs, or Fireflies and Scaled Drakes south-west of Wardenhurst WP (The Verdence) are low-level and fast to clear.",
     waypoint:       "[&BL4NAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.LOW,
   },
 
   140: {
@@ -99,7 +113,7 @@ export const META = {
     tip:            "Completes naturally during other objectives. If you want to focus on it, travel to Fort Marriner and enter the Fractal portal, choosing level 4 Urban Battleground. Enter the fractal and turn right just outside the starting tent - waves of low-health veteran enemies constantly spawn here.",
     waypoint:       "[&BDAEAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.LOW,
   },
 
   34: {
@@ -110,7 +124,7 @@ export const META = {
     tip:            "Eat any food before starting (the Malnourished debuff also counts). Easiest food buff is the cake fired from a Birthday Blaster or Feast of Delectable Birthday Cake, though if you don't have those, the cheapest option is usually a Soul Pastry.",
     waypoint:       null,
     timed:          false,
-    priority:       true,
+    priority:       PRIORITY.HIGH,
   },
 
   195: {
@@ -121,7 +135,7 @@ export const META = {
     tip:            "Use any utility consumable before starting (the Diminished debuff also counts). The easiest option is to use a Candy Corn / Zhaitaffy / Snowflake gobbler, though if you don't have these, the cheapest option is usually an Apprentice Tuning Crystal.",
     waypoint:       null,
     timed:          false,
-    priority:       true,
+    priority:       PRIORITY.HIGH,
   },
 
   104: {
@@ -132,7 +146,7 @@ export const META = {
     tip:            "Pocket Raptors in Dry Step Mesas (Shipwreck Peak WP, Maguuma's Breach) spawn in large groups and die quickly.",
     waypoint:       "[&BN4HAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   132: {
@@ -143,7 +157,7 @@ export const META = {
     tip:            "Non-hostile Dust Mites spawn around the Wizard's Tower area (Tower Courtyard WP, Outer Ring) and can be killed easily.",
     waypoint:       "[&BB8OAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   83: {
@@ -154,7 +168,7 @@ export const META = {
     tip:            "Non-aggressive animals east of the Spirit Vestibule POI in Seitung Province (Village WP, Seitung Harbor) are plentiful and easy to kill, though any End of Dragons map works.",
     waypoint:       "[&BJ4MAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   58: {
@@ -165,7 +179,7 @@ export const META = {
     tip:            "Forged Prowlers spawn in packs in Vehjin Mines (Vehjin Palace WP, Desert Highlands) during events. Enemies north of Destiny's Gorge WP in the blockaded cliff pass are also reliable.",
     waypoint:       "[&BO0KAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   276: {
@@ -176,7 +190,7 @@ export const META = {
     tip:            "Any enemies in Lowland Shore or Janthir Syntri count. Enemies are plentiful throughout both maps.",
     waypoint:       "[&BCcPAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   335: {
@@ -187,7 +201,7 @@ export const META = {
     tip:            "Hermit Crabs on the beach east of Lilycreek Cascade POI (Breezy Cay) are plentiful and easy.",
     waypoint:       "[&BIkPAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   1: {
@@ -198,7 +212,7 @@ export const META = {
     tip:            "Completes naturally during most other PvE objectives. For a dedicated run: RIBA in the Silverwastes chains many events quickly. Rift hunting gives two event credits per rift. Opening the chest at the end of a jumping puzzle also awards 1 event credit.",
     waypoint:       "[&BH8HAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.LOW,
   },
 
   62: {
@@ -209,7 +223,7 @@ export const META = {
     tip:            "Depends on which expansions you have access to. JW or VoE: buy Local Writs of Renown from a renown vendor to instantly complete their heart. EoD: 'Help Xunlai Jade test and promote jade tech' at [&BBYNAAA=] can be completed by repeatedly getting on and off a Zip Line. PoF: 'Give aid to the refugees at Marifa Camp' at [&BAQKAAA=] is easily completed. LWS4: 'Atholma Farms' at [&BDYLAAA=], stomp the beetle mounds with your springer mount without engaging the beetles.",
     waypoint:       "[&BMwPAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   117: {
@@ -220,7 +234,7 @@ export const META = {
     tip:            "Tier 1 Rift events in Skywatch Archipelago are targeted by many people, you're unlikely to be alone.",
     waypoint:       "[&BL4NAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   164: {
@@ -231,7 +245,7 @@ export const META = {
     tip:            "Any open-water fishing spot works. Fishing Village (Village WP, Seitung Province) has open water right nearby. Your JW homestead fishing hole also counts.",
     waypoint:       "[&BJ4MAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   88: {
@@ -242,7 +256,7 @@ export const META = {
     tip:            "Buy 10 Pieces of Common Unidentified Gear from the Trading Post and identify them. Do this in the open world as certain instances (Strikes, etc.) can prevent progress from counting.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   65: {
@@ -253,7 +267,7 @@ export const META = {
     tip:            "Buy 10 cheap dyes or Pieces of Common Unidentified Gear from the Trading Post and salvage with a Crude Salvage Kit. Do this in the open world as certain instances (Strikes, etc.) can prevent progress from counting.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   43: {
@@ -264,7 +278,7 @@ export const META = {
     tip:            "Either combine Essences of Luck as an Artificer, or refine 10 basic materials such as Mithril Ore into Mithril Ingots at any crafting station.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   95: {
@@ -275,7 +289,7 @@ export const META = {
     tip:            "Your guild hall, home instance, or homestead resource nodes are the most convenient. A lettuce farm south of Beetletun WP (Shire of Beetletun, Queensdale) has 8 nodes with more nearby.",
     waypoint:       "[&BPoAAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   79: {
@@ -286,7 +300,7 @@ export const META = {
     tip:            "Guild hall, home instance, or homestead trees are fastest. Open world: 5 Cypress Saplings near Rayhan Bayt, Malchor's Leap ([&BJ4CAAA=]) or 5 Baoba Saplings south of Gauntlet WP, Mount Maelstrom ([&BNMCAAA=]).",
     waypoint:       "[&BJ4CAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   128: {
@@ -297,7 +311,7 @@ export const META = {
     tip:            "Guild hall, home instance, or homestead ore nodes are fastest. Open world: Platinum Ore and Rich Platinum Veins around Rata Pten ([&BMQCAAA=]) give 3 resources per node.",
     waypoint:       "[&BMkCAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   115: {
@@ -308,7 +322,7 @@ export const META = {
     tip:            "A single circuit of your homestead or home instance nodes will often complete this. Remaining nodes can be found in north-east Mount Maelstrom. From Criterion WP, head north-west up the road, then south when the road ends, there are plenty of tree and ore nodes going down through Rata Pten ([&BMQCAAA=]).",
     waypoint:       "[&BMkCAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   350: {
@@ -319,7 +333,7 @@ export const META = {
     tip:            "Any Tier 1 fractal works. Quickplay usually finds a group faster than LFG. The Fractals portal is in Lion's Arch near Fort Marriner.",
     waypoint:       "[&BDAEAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   /* ══════════════════════════════════════════════════════════════
@@ -335,7 +349,7 @@ export const META = {
     waypoint:       "[&BH8HAAA=]",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.LOW,
   },
 
   3: {
@@ -346,7 +360,7 @@ export const META = {
     tip:            "Any open-world group event (with other players present) counts. RIBA fortresses in the Silverwastes are fast, easy, and soloable group events. Alternatively, use the Bounty Board at the Amnoon WP ([&BLsKAAA=]). Avoid the Temple of Kormir board as those bounties may not count.",
     waypoint:       "[&BH8HAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   7: {
@@ -357,7 +371,7 @@ export const META = {
     tip:            "Any open-world group event (with other players present) counts. RIBA fortresses in the Silverwastes are fast, easy, and soloable group events. Alternatively, use the Bounty Board at the Makali Outpost WP ([&BGsKAAA=]).",
     waypoint:       "[&BH8HAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   87: {
@@ -368,7 +382,7 @@ export const META = {
     tip:            "Any open-world group event (with other players present) counts. RIBA fortresses in the Silverwastes are fast, easy, and soloable group events. Alternatively, use the Bounty Board at the Augury's Shadow WP ([&BFMKAAA=]).",
     waypoint:       "[&BH8HAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   121: {
@@ -379,7 +393,7 @@ export const META = {
     tip:            "Any open-world group event (with other players present) counts. RIBA fortresses in the Silverwastes are fast, easy, and soloable group events. Alternatively, use the Bounty Board at the Bonestrand WP ([&BNwKAAA=]).",
     waypoint:       "[&BH8HAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   169: {
@@ -390,7 +404,7 @@ export const META = {
     tip:            "Any open-world group event (with other players present) counts. RIBA fortresses in the Silverwastes are fast, easy, and soloable group events. Alternatively, use the Bounty Board at the Vehjin Palace WP ([&BO0KAAA=]).",
     waypoint:       "[&BH8HAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   120: {
@@ -401,7 +415,7 @@ export const META = {
     tip:            "Complete Tier 1 Rifts in Skywatch Archipelago or check the Weekly Rift Hunting panel for active rift locations. Group events anywhere count as an alternative, so this will probably be mostly complete before getting to it.",
     waypoint:       "[&BL4NAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.LOW,
   },
 
   347: {
@@ -412,7 +426,7 @@ export const META = {
     tip:            "Complete Tier 1 Rifts in Shipwreck Strand, you can pair this with the Linus VoE Chest Farm, which takes about 45 minutes in total. Group events anywhere count as an alternative, so this will probably be mostly complete before getting to it.",
     waypoint:       "[&BJwPAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.LOW,
   },
 
   352: {
@@ -423,7 +437,7 @@ export const META = {
     tip:            "Complete Tier 1 Rifts in Janthir Syntri. Group events anywhere count as an alternative, so this will probably be mostly complete before getting to it.",
     waypoint:       "[&BLgOAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.LOW,
   },
 
   123: {
@@ -434,7 +448,7 @@ export const META = {
     tip:            "A full circuit of a well-stocked guild hall or home instance can complete this in a single run. Outside of this, there are open world node farms. LWS4: Revolution's Heart WP, Thunderhead peaks ([&BKYLAAA=]). Head north from the wp and use a skyscale to follow the volatile magic path up to the eight iron nodes at The Weeping Crest, then continue the path, activate the rift at Sorrow's Cave and move through to The Howling Cliffs for seven platinum nodes. There are five Cypress Saplings near Rayhan Bayt, Malchor's Leap ([&BJ4CAAA=]) which are accessable if the map meta is not running. There are five Cypress Saplings west of Waywarde Waypoint, Straits of Devastation ([&BPgCAAA=]). Five Baoba Saplings are south of Gauntlet WP, Mount Maelstrom ([&BNMCAAA=]). Then, from Criterion WP, Mount Maelstrom ([&BMkCAAA=]), head north-west up the road, then south when the road ends, heading towards Rata Pten ([&BMQCAAA=]), there are plenty of wood and ore nodes in the area.",
     waypoint:       "[&BKYLAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   /* ══════════════════════════════════════════════════════════════
@@ -449,7 +463,7 @@ export const META = {
     tip:            "Completes naturally during other objectives, but if you want to focus on it, travel to Fort Marriner and enter the Fractal portal, choosing level 4 Urban Battleground. Enter the fractal and turn right just outside the starting tent - waves of low-health veteran enemies constantly spawn here.",
     waypoint:       "[&BDAEAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.LOW,
   },
 
   135: {
@@ -460,7 +474,7 @@ export const META = {
     tip:            "Shadow Behemoth world boss spawns 15–20 easily tagable Champion Fleshreavers and Shades during its portal phases if the boss is available. If not, travel to Fort Marriner and enter the Fractal portal, choosing any level. Head over the back of the room and speak to the Fractal Instability Trainer, set rank to Champion and spawn 4 idle and 4 moving Champion Mark I Golems. Activate the mistlock instabilities Outflanked and Sugar Rush and ensure you are behind or to the side of your targets, focussing on the moving first. Once these are dead, spawn two more idle Golems to complete.",
     waypoint:       "[&BDAEAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   59: {
@@ -471,7 +485,7 @@ export const META = {
     tip:            "Most world bosses count except for Modniir Ulgoth, Inquest Golem Mk II, and Tequatl. PoF: Bounties marked Legendary on the board count, as well as completing the Shiverpeaks Pass raid encounter.",
     waypoint:       null,
     timed:          false,
-    priority:       true,
+    priority:       PRIORITY.HIGH,
   },
 
   150: {
@@ -482,7 +496,7 @@ export const META = {
     tip:            "LWS4: Activate Chapter 3 story (Be My Guest) and enter south-west of Apizmic Grounds WP. Begin the mission and head across the bridge killing Awakened as you go - you should hit 50 by the time Canach blows open the doors. PoF: Bonestrand Garrison ([&BKcKAAA=]) has dense Awakened including veterans - interact with Vizier's Propaganda posters to spawn more. Core: Risen fill Orr maps (Straits of Devastation, Malchor's Leap, Cursed Shore).",
     waypoint:       "[&BFALAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   70: {
@@ -493,7 +507,7 @@ export const META = {
     tip:            "HoT: From the waypoint, travel southeast on the surface layer road towards Gnarled Roots ([&BOcHAAA=]). Southeast of the PoI, look for a stream leading into a cave. There is a Hero Point directly above marking the entrance. Inside are many easy to kill Mordrem Maggots with a short respawn time, and they split into two twice when defeated, giving a total of 7 kills each. Core: Nightmare Court appear in Caledon Forest and the Twilight Arbor dungeon.",
     waypoint:       "[&BA4IAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   77: {
@@ -504,7 +518,7 @@ export const META = {
     tip:            "EoD: Complete the Trial of the Elders mini-dungeon at Sanctuary of Ione - if you reset at 7 stacks of Elder's Plight, you can clear this quickly in two runs. Core: Sons of Svanir respawn quickly between Highpeaks WP ([&BIICAAA=]), Claw Watch and Ridgepoint Sentry in Frostgorge Sound",
     waypoint:       "[&BEgNAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   143: {
@@ -515,7 +529,7 @@ export const META = {
     tip:            "LWS4: Head to the bottom of Rata Primus, Sandswept Isles for large groups of Inquest - especially around Magistorm Gallery ([&BCgLAAA=]). VoE: Groups of Inquest can be found under and around Riddled Cove ([&BIMPAAA=]) and Guarded Glades ([&BIkPAAA=]), Shipwreck Strand. Jade Mechs are found throughout EoD maps.",
     waypoint:       "[&BCULAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   190: {
@@ -526,7 +540,7 @@ export const META = {
     tip:            "Many groups of Bandits are found around Breean's Bandits, Brisban Wildlands ([&BFUAAAA=]).",
     waypoint:       "[&BGEAAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   193: {
@@ -537,7 +551,7 @@ export const META = {
     tip:            "Head to to Fort Marriner and enter the Fractal portal, choosing level 15 Thaumanova Reactor. Enter the fractal and head forward after the wall explodes, dropping down to the bottom area. Here there is a field of infinetely respawning Flame Legion enemies.",
     waypoint:       "[&BDAEAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   272: {
@@ -548,7 +562,7 @@ export const META = {
     tip:            "The best target here, if it is active, is the 'Get an extinguisher from Engineer Kayle Brightshock and put out fires' event in Sati Passage, Fireheart Rise. It is important that you NEVER use the extinguisher, as it reduces the number of elemental spawns - you should just move between the respawns as they occur. JW: Titanspawn are most numerous on Tier 1 Rifts, and Lowland Shore ([&BCcPAAA=]) has many potential spawn points close to each other.",
     waypoint:       "[&BBgCAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   334: {
@@ -559,7 +573,7 @@ export const META = {
     tip:            "LWS4: Head to the bottom of Rata Primus, Sandswept Isles for large groups of Inquest - especially around Magistorm Gallery ([&BCgLAAA=]). VoE: Groups of Inquest can be found under and around Riddled Cove ([&BIMPAAA=]) and Guarded Glades ([&BIkPAAA=]), Shipwreck Strand. Core: Inquest appear in Metrica Province and Level 15 Thaumanova Reactor Fractal, pirates (Consortium/bandit crews) are found in Southsun Cove and Kessex Hills.",
     waypoint:       "[&BCgLAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   /* ══════════════════════════════════════════════════════════════
@@ -575,7 +589,7 @@ export const META = {
     waypoint:       "[&BNABAAA=]",
     timed:          true,
     schedule:       ["00:00", "03:00", "07:00", "11:30", "16:00", "19:00"],
-    priority:       true,
+    priority:       PRIORITY.HIGH,
   },
 
   60: {
@@ -588,7 +602,7 @@ export const META = {
     waypoint:       "[&BPcAAAA=]",
     timed:          true,
     schedule:       ["01:45","03:45","05:45","07:45","09:45","11:45","13:45","15:45","17:45","19:45","21:45","23:45"],
-    priority:       true,
+    priority:       PRIORITY.HIGH,
   },
 
   178: {
@@ -601,7 +615,7 @@ export const META = {
     waypoint:       "[&BMIDAAA=]",
     timed:          true,
     schedule:       ["00:15","02:15","04:15","06:15","08:15","10:15","12:15","14:15","16:15","18:15","20:15","22:15"],
-    priority:       true,
+    priority:       PRIORITY.HIGH,
   },
 
   55: {
@@ -614,7 +628,7 @@ export const META = {
     waypoint:       "[&BEcAAAA=]",
     timed:          true,
     schedule:       ["00:45","02:45","04:45","06:45","08:45","10:45","12:45","14:45","16:45","18:45","20:45","22:45"],
-    priority:       true,
+    priority:       PRIORITY.HIGH,
   },
 
   134: {
@@ -627,7 +641,7 @@ export const META = {
     waypoint:       "[&BM0CAAA=]",
     timed:          true,
     schedule:       ["00:30","03:30","06:30","09:30","12:30","15:30","18:30","21:30"],
-    priority:       true,
+    priority:       PRIORITY.HIGH,
   },
 
   159: {
@@ -640,7 +654,7 @@ export const META = {
     waypoint:       "[&BNQCAAA=]",
     timed:          true,
     schedule:       ["02:00","05:00","08:00","11:00","14:00","17:00","20:00","23:00"],
-    priority:       true,
+    priority:       PRIORITY.HIGH,
   },
 
   196: {
@@ -653,7 +667,7 @@ export const META = {
     waypoint:       "[&BE4DAAA=]",
     timed:          true,
     schedule:       ["01:00","04:00","07:00","10:00","13:00","16:00","19:00","22:00"],
-    priority:       true,
+    priority:       PRIORITY.HIGH,
   },
 
   19: {
@@ -666,7 +680,7 @@ export const META = {
     waypoint:       "[&BHoCAAA=]",
     timed:          true,
     schedule:       ["02:30","05:30","08:30","11:30","14:30","17:30","20:30","23:30"],
-    priority:       true,
+    priority:       PRIORITY.HIGH,
   },
 
   31: {
@@ -679,7 +693,7 @@ export const META = {
     waypoint:       "[&BEEFAAA=]",
     timed:          true,
     schedule:       ["01:15","03:15","05:15","07:15","09:15","11:15","13:15","15:15","17:15","19:15","21:15","23:15"],
-    priority:       true,
+    priority:       PRIORITY.HIGH,
   },
 
   /* ══════════════════════════════════════════════════════════════
@@ -720,7 +734,7 @@ export const META = {
       "22:00","22:05","22:30",
       "23:00","23:30",
     ],
-    priority:       true,
+    priority:       PRIORITY.HIGH,
   },
 
   344: {
@@ -745,7 +759,7 @@ export const META = {
       "20:00","20:30","21:00","21:30",
       "22:00","22:30","23:00","23:30",
     ],
-    priority:       true,
+    priority:       PRIORITY.HIGH,
   },
 
   345: {
@@ -764,7 +778,7 @@ export const META = {
       "16:00","17:00","18:00","19:00",
       "20:00","21:00","22:00","23:00",
     ],
-    priority:       true,
+    priority:       PRIORITY.HIGH,
   },
 
   364: {
@@ -784,7 +798,7 @@ export const META = {
       "17:40","18:40","19:40","20:40",
       "21:40","22:40","23:40",
     ],
-    priority:       true,
+    priority:       PRIORITY.HIGH,
   },
 
   365: {
@@ -803,7 +817,7 @@ export const META = {
       "16:30","17:20","18:30","19:20",
       "20:30","21:20","22:30","23:20",
     ],
-    priority:       true,
+    priority:       PRIORITY.HIGH,
   },
 
   367: {
@@ -825,7 +839,7 @@ export const META = {
       "18:30","19:00","19:45","20:30",
       "21:00","21:45","22:30","23:00",
     ],
-    priority:       true,
+    priority:       PRIORITY.HIGH,
   },
 
   /* ══════════════════════════════════════════════════════════════
@@ -840,7 +854,7 @@ export const META = {
     tip:            "Dark Reverie is in Caledon Forest, immediately following the Morgan's Spiral JP. Moderate difficulty - allow extra time if unfamiliar. Skyscale can help you skip Morgan's Spiral, check guides on YouTube. Check the GW2 wiki for a step-by-step guide of both jumping puzzles. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
     waypoint:       "[&BDUBAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   38: {
@@ -851,7 +865,7 @@ export const META = {
     tip:            "Shattered Ice Ruins is in Shattered Ice Floe. You can skip most of the puzzle by scaling the large southern ice wall with a Skyscale, Springer, or upgraded Jade Bot Glide Booster. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
     waypoint:       "[&BH4CAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   74: {
@@ -862,7 +876,7 @@ export const META = {
     tip:            "Branded Mine is in Dragonrot Domains. From Tenaebron WP, head west to the Renown Heart NPC, then follow the path south, the opening to the jumping puzzle is on your right, surrounded by jagged branded rocks and is just south of a red plant. Check the wiki or YouTube for the route when inside and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
     waypoint:       "[&BNcAAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   129: {
@@ -873,7 +887,7 @@ export const META = {
     tip:            "Grendich Gamble is in The Blasted Moors, Diessa Plateau. A relatively straightforward Charr-ruins puzzle, it can be skipped entirely with a timed launch with Bond of Faith from a Skyscale. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
     waypoint:       "[&BNoAAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   130: {
@@ -884,7 +898,7 @@ export const META = {
     tip:            "Spekk's Laboratory is in Sandycove Beach, north-north-west of Gleaner's Cove WP, Caledon Forest. Each control panel you touch acts as a waypoint, if you fall, just speak to a Lab Assistant to teleport back up. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
     waypoint:       "[&BDcBAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   186: {
@@ -895,7 +909,7 @@ export const META = {
     tip:            "Professor Portmatt's Lab is underwater in Sorrowful Sound, Gendarran Fields. The chest at the end can be reached quickly with a Skyscale + Bond of Faith. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
     waypoint:       "[&BKQBAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   189: {
@@ -906,7 +920,7 @@ export const META = {
     tip:            "Fawcett's Bounty is in Arcallion Digs, Harathi Hinterlands. Head north and west out of Arcallion Digs. Swim across the lake to the west, looking for a path on the north shore, just to the left of a small waterfall trickling out of the rocks. Head up the path and interact with the gate to enter. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
     waypoint:       "[&BMMAAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   180: {
@@ -917,7 +931,7 @@ export const META = {
     tip:            "Antre of Adjournment is in the Valley of Lyss, Straits of Devastation. From Pagga's Waypoint, head west to the bridge and jump off the north side, the entrance is on your right. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
     waypoint:       "[&BKYCAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   101: {
@@ -928,7 +942,7 @@ export const META = {
     tip:            "Retrospective Runaround is in the Northeastern Silverwastes (Drydock Grotto WP). Collect all 9 stacks of the Milestone buff - no final chest needed. Check the wiki for milestone locations guide and allow extra time if unfamiliar.",
     waypoint:       "[&BLoHAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   156: {
@@ -939,7 +953,7 @@ export const META = {
     tip:            "Weyandt's Revenge is in Farshore Ward, Lion's Arch, behind Tokk's Mill. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended. Note: completing this puzzle does not award a free event credit.",
     waypoint:       "[&BDMEAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   161: {
@@ -950,7 +964,7 @@ export const META = {
     tip:            "Skipping Stones is in Southsun Shoals, Southsun Cove. Head west on a Skimmer, then use Skyscale with Bond of Faith to reach the island's north side. Run clockwise around the island and over a bridge to the chest. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
     waypoint:       "[&BNAGAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   4: {
@@ -961,7 +975,7 @@ export const META = {
     tip:            "Chaos Crystal Cavern is in Champion's Shield, Iron Marches. Travel west from the waypoint to a cliff with some Cliff Bats on it. Jump up the cliff, then down the large hole to the south. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
     waypoint:       "[&BOQBAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   148: {
@@ -972,7 +986,7 @@ export const META = {
     tip:            "Pig Iron Quarry is in Champion's Shield, Iron Marches. The end is easily reachable with Skyscale + Bond of Faith for a quick event credit alongside the puzzle completion. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
     waypoint:       "[&BBkCAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   146: {
@@ -983,7 +997,7 @@ export const META = {
     tip:            "Crimson Plateau is in Reaper's Corridor, Dissa Plateau. It is reachable with Skyscale + Bond of Faith from the south. Check the wiki for the exact location or for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
     waypoint:       "[&BMYDAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   40: {
@@ -994,7 +1008,7 @@ export const META = {
     tip:            "Collapsed Observatory is in Cereboth Canyon, Kessex Hills. Follow the nearby stream south into the cavern. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
     waypoint:       "[&BBIAAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   44: {
@@ -1005,7 +1019,7 @@ export const META = {
     tip:            "Loreclaw Expanse is in Planes of Ashford, from the WP head southeast and climb the cliff, heading east into the cave. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
     waypoint:       "[&BMcDAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   61: {
@@ -1016,7 +1030,7 @@ export const META = {
     tip:            "Not So Secret is in Broadhollow Bluffs, Gendarran Fields - travel southeast from the WP then south, scaling the cliffs with the jump pads or a Skyscale to get in. This JP is generally considered the longest in Core Tyria. A Springer or Skyscale significantly help with cutting out most of the puzzle - search for Not So Secret shortcuts on YouTube. Check the wiki for the route and allow around 1-2 hours if unfamiliar with the route and not taking a shortcut. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is highly recommended.",
     waypoint:       "[&BOEAAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   105: {
@@ -1027,7 +1041,7 @@ export const META = {
     tip:            "Coddler's Cove is in Mellaggan's Grotto, Timberline Falls. From the WP, head south to the cliff and follow it southwest around to the entrance. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
     waypoint:       "[&BEYCAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   116: {
@@ -1038,7 +1052,7 @@ export const META = {
     tip:            "The entrance to Tribulation Caverns JP is in Tribulation Rift, Dredgehaunt Cliffs. The JP follows on from the Tribulation Rift Scaffholding JP, and that JP can be skipped with a Skyscale or Springer on the south tip of the subzone. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
     waypoint:       "[&BD8FAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   170: {
@@ -1049,7 +1063,7 @@ export const META = {
     tip:            "The Behem Gauntlet JP is found in the subzone of the same name in Blazeridge Steppes. Follow the road southeast into the cave. Check the wiki for the route and allow extra time if unfamiliar. Alternatively, if there is a player with commander tag up at the end of the puzzle, you can join their group and use a Teleport to Friend to skip the entire thing - mailing a tip to the commander is recommended.",
     waypoint:       "[&BP0BAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   /* ══════════════════════════════════════════════════════════════
@@ -1064,7 +1078,7 @@ export const META = {
     tip:            "Any single raid encounter on any wing or strike counts. Easy options are to use Raid Quickplay LFG (Looking for Group → Raids → Raids (Training)), use LFG to find a group for one of the four daily encounters, or join an IBS5 group.",
     waypoint:       "[&BCAJAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   47: {
@@ -1075,7 +1089,7 @@ export const META = {
     tip:            "Buy 100 Pieces of Common Unidentified Gear from the Trading Post (Fine / Masterwork bags are cheapest), then use 'Identify All' from your inventory in one go. Do this in open world - some instances prevent progress from counting.",
     waypoint:       "[&BBAEAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   100: {
@@ -1086,7 +1100,7 @@ export const META = {
     tip:            "Buy 50 cheap dyes or Pieces of Common Unidentified Gear from the Trading Post and salvage with a Crude Salvage Kit.",
     waypoint:       "[&BBAEAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   63: {
@@ -1097,7 +1111,7 @@ export const META = {
     tip:            "Complete three tier 1 fractals via Quickplay. The Fractals portal is in Lion's Arch near Fort Marriner.",
     waypoint:       "[&BDAEAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   269: {
@@ -1109,7 +1123,7 @@ export const META = {
     waypoint:       "[&BDAEAAA=]",
     timed:          false,
     // schedule:       ["00:00","01:30","03:00","04:30","06:00","07:30","09:00","10:30","12:00","13:30","15:00","16:30","18:00","19:30","21:00","22:30"],
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   349: {
@@ -1120,7 +1134,7 @@ export const META = {
     tip:            "Queue for Quickplay Raids from the group content panel. Each run takes roughly 10 minutes depending on group composition and encounter.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   351: {
@@ -1131,7 +1145,7 @@ export const META = {
     tip:            "Guardian's Glade is a raid encounter from Visions of Eternity. A single clear is likely faster than 10 Quickplay Raids for an experienced group, but LFG is quicker if you are solo and can't easily find a group.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   357: {
@@ -1142,7 +1156,7 @@ export const META = {
     tip:            "Complete five tier 1 fractals via Quickplay, the Fractals portal is in Lion's Arch near Fort Marriner.",
     waypoint:       "[&BDAEAAA=]",
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   /* ══════════════════════════════════════════════════════════════
@@ -1158,7 +1172,7 @@ export const META = {
     tip:            "⚠️ VERIFY. Alliance Field Quartermasters are found in Visions of Eternity maps. Check the wiki for Quartermaster locations.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   355: {
@@ -1170,7 +1184,7 @@ export const META = {
     tip:            "⚠️ VERIFY timing. Complete 30 events specifically in the Castora region. Rift hunting in Castora gives 2 event credits per rift and is likely the most efficient approach.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   356: {
@@ -1182,7 +1196,7 @@ export const META = {
     tip:            "⚠️ VERIFY. These minis appear associated with Janthir Wilds or a seasonal event. Check the Trading Post or the relevant event/expansion content for how to obtain them.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   360: {
@@ -1194,7 +1208,7 @@ export const META = {
     tip:            "⚠️ VERIFY timing. Complete 15 repeatable renown hearts (marked with the infinity symbol) in the Castora region - they reset daily.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   361: {
@@ -1206,7 +1220,7 @@ export const META = {
     tip:            "⚠️ VERIFY. Visions of Eternity content is from Secrets of the Obscure. Set 2 relics are obtained through SotO content. Check the wiki for the current set composition and relic sources.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   362: {
@@ -1218,7 +1232,7 @@ export const META = {
     tip:            "⚠️ VERIFY stage count against your API progress_complete. Buy 10 inexpensive items from the Trading Post and unlock their skins (right-click → Unlock Skin), or unlock skins through normal gameplay. Mystic Forge output and salvage-unlocked skins also count.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   363: {
@@ -1230,7 +1244,7 @@ export const META = {
     tip:            "⚠️ VERIFY timing. Complete 4 meta-events in the Castora region maps. Check an event timer for Castora meta schedules and plan your session around multiple meta windows.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   366: {
@@ -1242,7 +1256,7 @@ export const META = {
     tip:            "⚠️ VERIFY. This appears tied to a specific seasonal event or Living Story chapter. Shaman Palak's dialogue may depend on the current in-game season. Check the wiki for their location and any prerequisites.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   /* ══════════════════════════════════════════════════════════════
@@ -1257,7 +1271,7 @@ export const META = {
     tip:            "[WvW] Earned from any WvW activity - capturing objectives, killing NPCs or players, and completing events. A single camp capture typically provides enough.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   99: {
@@ -1268,7 +1282,7 @@ export const META = {
     tip:            "[WvW] Supply camps are the smallest and most accessible WvW objectives. Look for undefended enemy-held camps on any borderland or Eternal Battlegrounds map.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   107: {
@@ -1279,7 +1293,7 @@ export const META = {
     tip:            "[WvW] Sentry points are small guard posts scattered throughout WvW maps. They require only a few NPC kills to capture and are usually uncontested.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   139: {
@@ -1290,7 +1304,7 @@ export const META = {
     tip:            "[WvW] Ruins are found in Desert Borderlands; shrines in Alpine Borderlands. Both are smaller than towers or keeps and faster to flip.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   155: {
@@ -1301,7 +1315,7 @@ export const META = {
     tip:            "[WvW] Engage enemy players in any WvW map. Roaming near frequently contested supply camps or sentry points gives reliable opportunities.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   187: {
@@ -1312,7 +1326,7 @@ export const META = {
     tip:            "[WvW] Enemy NPC guards protect all objectives. Attacking any enemy-held camp or tower clears guards - combine naturally with a capture objective.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   202: {
@@ -1323,7 +1337,7 @@ export const META = {
     tip:            "[WvW] Supply caravans (dolyaks) move automatically between supply camps and objectives. Stay near the dolyak and defend it until it arrives at its destination.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   28: {
@@ -1334,7 +1348,7 @@ export const META = {
     tip:            "[WvW] Enemy dolyaks travel along fixed paths between objectives. Intercept one on a route through enemy territory and kill it before it arrives.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   10: {
@@ -1345,7 +1359,7 @@ export const META = {
     tip:            "[WvW] Defense events trigger when an enemy attacks a friendly objective. Join a map with active siege and respond to defense callouts. Brief participation before the event resolves should be enough for credit.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   353: {
@@ -1356,7 +1370,7 @@ export const META = {
     tip:            "[WvW] Operate any siege weapon (Arrow Cart, Ballista, Trebuchet, Catapult, Cannon) during an attack or defense. Arrow Carts against a rushing enemy accumulate damage quickly.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   /* ══════════════════════════════════════════════════════════════
@@ -1371,7 +1385,7 @@ export const META = {
     tip:            "[WvW] Accumulated across a full WvW session. An active hour of capturing objectives, killing players and NPCs, and participating in events should be sufficient.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   46: {
@@ -1382,7 +1396,7 @@ export const META = {
     tip:            "[WvW] Capture any combination of camps, towers, keeps, or castles. Joining an offensive zerg during an active push is the fastest way to chain captures.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   181: {
@@ -1393,7 +1407,7 @@ export const META = {
     tip:            "[WvW] Supply camps are the most accessible WvW objectives. A roamer or small group can flip camps quickly on quieter borderlands.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   192: {
@@ -1404,7 +1418,7 @@ export const META = {
     tip:            "[WvW] Towers require more players and siege than camps. Join a commander-led zerg during an active offensive push for fastest progress.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   137: {
@@ -1415,7 +1429,7 @@ export const META = {
     tip:            "[WvW] Keeps require coordinated siege and a sizeable group. Join a commander in Eternal Battlegrounds or a borderland during a full offensive.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   109: {
@@ -1426,7 +1440,7 @@ export const META = {
     tip:            "[WvW] Ruins (Desert Borderlands) and shrines (Alpine Borderlands) flip quickly. Mercenary camps require killing a group of NPC mercenaries. All are faster to capture than towers or keeps.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   50: {
@@ -1437,7 +1451,7 @@ export const META = {
     tip:            "[WvW] Engage enemy players actively. Defending a contested objective gives reliable kill opportunities as enemies push in.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   144: {
@@ -1448,7 +1462,7 @@ export const META = {
     tip:            "[WvW] Enemy NPC guards are cleared at every objective you attack. Attacking 4–5 enemy objectives will passively accumulate the full count.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   94: {
@@ -1459,7 +1473,7 @@ export const META = {
     tip:            "[WvW] Enemy dolyaks travel fixed routes between objectives. Intercept them along paths through enemy territory. Quieter borderlands have easier-to-reach dolyaks.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   32: {
@@ -1470,7 +1484,7 @@ export const META = {
     tip:            "[WvW] Walk alongside friendly dolyaks as they travel between objectives. Stay nearby and help defend them from interception. This is a passive objective - just keep up with each dolyak.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   206: {
@@ -1481,7 +1495,7 @@ export const META = {
     tip:            "[WvW] Defense credits require participating in a defense event when enemies attack a friendly objective. Stay in an active contested area and respond to attack callouts.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   163: {
@@ -1492,7 +1506,7 @@ export const META = {
     tip:            "[WvW] Play a healing-focused support build and sustain allies during fights. Healing-heavy builds (Tempest, Druid, Firebrand) in an active zerg accumulate healing rapidly. Self-healing during sustained solo combat also counts.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   85: {
@@ -1503,7 +1517,7 @@ export const META = {
     tip:            "[WvW/PvP] Damage accumulates across the whole session. In WvW, an active hour in large zerg fights builds damage quickly. In sPvP, high-damage power builds reach this faster per match.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   359: {
@@ -1514,7 +1528,7 @@ export const META = {
     tip:            "[WvW] Operate siege weapons during active objective fights. Trebuchets and Catapults deal high damage to structures; Arrow Carts deal high damage to players during rushes.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   /* ══════════════════════════════════════════════════════════════
@@ -1529,7 +1543,7 @@ export const META = {
     tip:            "[PvP] Queue for any unranked or ranked match from the PvP lobby. One match completion - win or loss - is sufficient.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   18: {
@@ -1540,7 +1554,7 @@ export const META = {
     tip:            "[PvP] Kill 3 enemy players in a single match. Play an offensive build and engage in team fights rather than capping empty points.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   37: {
@@ -1551,7 +1565,7 @@ export const META = {
     tip:            "[PvP] Rank points are earned from participating in matches regardless of outcome. A single match typically awards 30–50 rank points - two matches should comfortably cover this.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   78: {
@@ -1562,7 +1576,7 @@ export const META = {
     tip:            "[PvP] Finish a match leading your team in any one category - kills, damage, healing, or capture points. Focusing on a single stat and sustaining that focus throughout the match increases your chance of leading it.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   157: {
@@ -1573,7 +1587,7 @@ export const META = {
     tip:            "[PvP] PvP Reward Track progress is earned in every match. One full match should trigger at least one reward chest. Make sure an active reward track is selected before queuing.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   174: {
@@ -1584,7 +1598,7 @@ export const META = {
     tip:            "[PvP] Play a power DPS build and focus on combat. One or two matches with a damage-focused build is typically sufficient.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   /* ══════════════════════════════════════════════════════════════
@@ -1599,7 +1613,7 @@ export const META = {
     tip:            "[PvP] Kill 30 enemy players across multiple matches - roughly 5–6 kills per match with an offensive build. Engage actively in team fights rather than holding points passively.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   108: {
@@ -1610,7 +1624,7 @@ export const META = {
     tip:            "[PvP] Complete 10 matches - win or loss both count. Unranked reduces pressure. Allow roughly 2 hours depending on queue times.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   110: {
@@ -1621,7 +1635,7 @@ export const META = {
     tip:            "[PvP] Lead your team in any one scoreboard category across 5 separate matches. Specialising in one measurable stat and maintaining focus across multiple matches is most reliable.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   141: {
@@ -1632,7 +1646,7 @@ export const META = {
     tip:            "[PvP - Ranked only] Stand on a friendly capture point and kill 3 enemies who contest it. A tanky or bruiser build works well for holding points under pressure.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   80: {
@@ -1643,7 +1657,7 @@ export const META = {
     tip:            "[PvP - Ranked only] Neutralize (not necessarily fully capture) 5 enemy-held points across one or more matches. Roaming between contested points is more efficient than fully capping each one.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   145: {
@@ -1654,7 +1668,7 @@ export const META = {
     tip:            "[PvP - Ranked only] Win 3 ranked matches. Play a meta build in a role you're comfortable with. Allow more time than 3 matches depending on win rate.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   171: {
@@ -1665,7 +1679,7 @@ export const META = {
     tip:            "[PvP] Win 5 matches - ranked or unranked. Allow 1.5–2.5 hours depending on queue times and win rate.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   36: {
@@ -1676,7 +1690,7 @@ export const META = {
     tip:            "[PvP] Each Conquest map has a secondary objective (e.g., killing the lord, capturing a shrine or relic). Complete the map's secondary objective during the match AND win. Coordinating the secondary with your team improves success rate.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   167: {
@@ -1689,7 +1703,7 @@ export const META = {
     waypoint:       null,
     timed:          true,
     schedule:       ["00:00","03:00","09:00","12:00","15:00","18:00","21:00"],
-    priority:       true,
+    priority:       PRIORITY.HIGH,
   },
 
   177: {
@@ -1700,7 +1714,7 @@ export const META = {
     tip:            "[PvP] Play 5+ matches with an active reward track. Each match progresses the track and triggers reward pips at regular intervals. Combine naturally with other PvP objectives.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   184: {
@@ -1711,7 +1725,7 @@ export const META = {
     tip:            "[PvP] Rank points accumulate across all PvP matches regardless of outcome - roughly 30–200 points per match depending on performance. Expect 6–10 matches to complete this.",
     waypoint:       null,
     timed:          false,
-    priority:       false,
+    priority:       PRIORITY.NORMAL,
   },
 
   /* ══════════════════════════════════════════════════════════════
@@ -1727,7 +1741,7 @@ export const META = {
        waypoint:       "[&XXXXXXX=]",   // or null
        timed:          false,
        // schedule:    ["HH:MM", ...],  // only when timed: true
-       priority:       false,
+       priority:       PRIORITY.NORMAL,
      },
      ════════════════════════════════════════════════════════════ */
 };

@@ -5,7 +5,7 @@
  * into the gaps between timed events, respecting a pre-event buffer.
  */
 
-import { META } from "./meta.js";
+import { META, PRIORITY } from "./meta.js";
 
 /**
  * Minutes of clear time required before every timed event.
@@ -207,12 +207,15 @@ export function buildSchedule(dailyObjs, weeklyObjs, now) {
   resolveTimedConflicts(timed);
   timed.sort((a, b) => a._nextSlot - b._nextSlot);
 
-  // Sort non-timed: priority first, then by ascending duration
-  // (shorter objectives are easier to slot into gaps)
-  const nonTimedSorted = [
-    ...nonTimed.filter(o =>  o._meta?.priority).sort((a, b) => a._dur - b._dur),
-    ...nonTimed.filter(o => !o._meta?.priority).sort((a, b) => a._dur - b._dur),
-  ];
+  // Sort non-timed by priority descending (HIGH → NORMAL → LOW),
+  // then by duration ascending within each priority tier so shorter
+  // objectives fill gaps more efficiently.
+  const nonTimedSorted = [...nonTimed].sort((a, b) => {
+    const pa = a._meta?.priority ?? PRIORITY.NORMAL;
+    const pb = b._meta?.priority ?? PRIORITY.NORMAL;
+    if (pb !== pa) return pb - pa;   // higher priority first
+    return a._dur - b._dur;          // shorter first within same tier
+  });
 
   // ── Fill the timeline ────────────────────────────────────────
   const timeline  = [];
@@ -223,7 +226,7 @@ export function buildSchedule(dailyObjs, weeklyObjs, now) {
   /**
    * Drain as many queued non-timed objectives as will fit
    * before `cutoffMs` (the buffer window before the next timed event).
-   * Objectives are never split - they either fit whole or are skipped.
+   * Objectives are never split — they either fit whole or are skipped.
    */
   function drainQueueBefore(cutoffMs) {
     let i = 0;
