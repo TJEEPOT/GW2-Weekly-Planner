@@ -1126,6 +1126,21 @@ export const META = {
     priority:       PRIORITY.NORMAL,
   },
 
+  /* ══════════════════════════════════════════════════════════════
+     PvE - SPECIAL / SEASONAL (higher acclaim)
+     ══════════════════════════════════════════════════════════════ */
+
+  346: {
+    // Collect 4 Spears from an Alliance Field Quartermaster (150 acclaim)
+    time_per_stage: 15,
+    stage_count:    1,
+    time_verified:  true,
+    tip:            "Alliance Field Quartermasters are found in Visions of Eternity maps. Check the wiki for Quartermaster locations.",
+    waypoint:       null,
+    timed:          false,
+    priority:       PRIORITY.NORMAL,
+  },
+
   349: {
     // Complete 5 Quickplay Raids (300 acclaim)
     time_per_stage: 10,
@@ -1141,8 +1156,30 @@ export const META = {
     // Complete the Guardian's Glade Raid or 10 Quickplay Raids (300 acclaim)
     time_per_stage: 10,
     stage_count:    10,
-    time_verified:  false,
+    time_verified:  true,
     tip:            "Guardian's Glade is a raid encounter from Visions of Eternity. A single clear is likely faster than 10 Quickplay Raids for an experienced group, but LFG is quicker if you are solo and can't easily find a group.",
+    waypoint:       null,
+    timed:          false,
+    priority:       PRIORITY.NORMAL,
+  },
+
+  355: {
+    // Complete 30 Events in Castora (150 acclaim)
+    time_per_stage: 5,
+    stage_count:    30,
+    time_verified:  true,
+    tip:            " Complete 30 events specifically in the Castora region. Rift hunting in Castora gives 2 event credits per rift and is likely the most efficient approach.",
+    waypoint:       null,
+    timed:          false,
+    priority:       PRIORITY.NORMAL,
+  },
+
+  356: {
+    // Collect Any 1 Mini Kela, Mini Sebb, or Mini Dancing Crab (75 acclaim)
+    time_per_stage: 5,
+    stage_count:    1,
+    time_verified:  true,
+    tip:            "These minis are from Visions of Eternity. Check the wiki for how to obtain them.",
     waypoint:       null,
     timed:          false,
     priority:       PRIORITY.NORMAL,
@@ -1159,53 +1196,12 @@ export const META = {
     priority:       PRIORITY.NORMAL,
   },
 
-  /* ══════════════════════════════════════════════════════════════
-     PvE - SPECIAL / SEASONAL (higher acclaim)
-     ══════════════════════════════════════════════════════════════ */
-
-  346: {
-    // Collect 4 Spears from an Alliance Field Quartermaster (150 acclaim)
-    // ⚠️ VERIFY: Janthir Wilds content
-    time_per_stage: 15,
-    stage_count:    1,
-    time_verified:  false,
-    tip:            "⚠️ VERIFY. Alliance Field Quartermasters are found in Visions of Eternity maps. Check the wiki for Quartermaster locations.",
-    waypoint:       null,
-    timed:          false,
-    priority:       PRIORITY.NORMAL,
-  },
-
-  355: {
-    // Complete 30 Events in Castora (150 acclaim)
-    // ⚠️ VERIFY time estimate
-    time_per_stage: 4,
-    stage_count:    30,
-    time_verified:  false,
-    tip:            "⚠️ VERIFY timing. Complete 30 events specifically in the Castora region. Rift hunting in Castora gives 2 event credits per rift and is likely the most efficient approach.",
-    waypoint:       null,
-    timed:          false,
-    priority:       PRIORITY.NORMAL,
-  },
-
-  356: {
-    // Collect Any 1 Mini Kela, Mini Sebb, or Mini Dancing Crab (75 acclaim)
-    // ⚠️ VERIFY: source of these minis
-    time_per_stage: 30,
-    stage_count:    1,
-    time_verified:  false,
-    tip:            "⚠️ VERIFY. These minis appear associated with Janthir Wilds or a seasonal event. Check the Trading Post or the relevant event/expansion content for how to obtain them.",
-    waypoint:       null,
-    timed:          false,
-    priority:       PRIORITY.NORMAL,
-  },
-
   360: {
     // Complete 15 Repeatable Renown Hearts in Castora (150 acclaim)
-    // ⚠️ VERIFY time estimate
-    time_per_stage: 5,
+    time_per_stage: 10,
     stage_count:    15,
-    time_verified:  false,
-    tip:            "⚠️ VERIFY timing. Complete 15 repeatable renown hearts (marked with the infinity symbol) in the Castora region - they reset daily.",
+    time_verified:  true,
+    tip:            "Complete 15 repeatable renown hearts in the Castora region - they reset daily.",
     waypoint:       null,
     timed:          false,
     priority:       PRIORITY.NORMAL,
@@ -1213,11 +1209,10 @@ export const META = {
 
   361: {
     // Collect 4 Relics from Visions of Eternity Set 2 (150 acclaim)
-    // ⚠️ VERIFY: SotO content
     time_per_stage: 30,
     stage_count:    4,
-    time_verified:  false,
-    tip:            "⚠️ VERIFY. Visions of Eternity content is from Secrets of the Obscure. Set 2 relics are obtained through SotO content. Check the wiki for the current set composition and relic sources.",
+    time_verified:  true,
+    tip:            "Check the wiki for the current set composition and relic sources.",
     waypoint:       null,
     timed:          false,
     priority:       PRIORITY.NORMAL,
@@ -1225,11 +1220,10 @@ export const META = {
 
   362: {
     // Unlock Any 10 Item Skins (150 acclaim)
-    // ⚠️ VERIFY: exact count against your API progress_complete
     time_per_stage: 5,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "⚠️ VERIFY stage count against your API progress_complete. Buy 10 inexpensive items from the Trading Post and unlock their skins (right-click → Unlock Skin), or unlock skins through normal gameplay. Mystic Forge output and salvage-unlocked skins also count.",
+    time_verified:  true,
+    tip:            "Buy 10 inexpensive items from the Trading Post and unlock their skins (right-click → Unlock Skin), or unlock skins through normal gameplay. Salvage-unlocked skins also count.",
     waypoint:       null,
     timed:          false,
     priority:       PRIORITY.NORMAL,
@@ -1237,11 +1231,10 @@ export const META = {
 
   363: {
     // Complete 4 Meta-Events in Castora (150 acclaim)
-    // ⚠️ VERIFY time estimate
     time_per_stage: 25,
     stage_count:    4,
-    time_verified:  false,
-    tip:            "⚠️ VERIFY timing. Complete 4 meta-events in the Castora region maps. Check an event timer for Castora meta schedules and plan your session around multiple meta windows.",
+    time_verified:  true,
+    tip:            "Complete 4 meta-events in the Castora region maps. Use '/wiki et' and check Castora meta schedules and plan your session around both meta windows.",
     waypoint:       null,
     timed:          false,
     priority:       PRIORITY.NORMAL,
@@ -1249,11 +1242,10 @@ export const META = {
 
   366: {
     // Speak with Shaman Palak about the Endless Summer Legendary Ring (75 acclaim)
-    // ⚠️ VERIFY: seasonal/Living Story content
     time_per_stage: 5,
     stage_count:    1,
-    time_verified:  false,
-    tip:            "⚠️ VERIFY. This appears tied to a specific seasonal event or Living Story chapter. Shaman Palak's dialogue may depend on the current in-game season. Check the wiki for their location and any prerequisites.",
+    time_verified:  true,
+    tip:            "Check the wiki for their location and any prerequisites.",
     waypoint:       null,
     timed:          false,
     priority:       PRIORITY.NORMAL,
@@ -1265,7 +1257,7 @@ export const META = {
 
   98: {
     // Earn 200 WvW Experience
-    time_per_stage: 10,
+    time_per_stage: 12,
     stage_count:    1,
     time_verified:  false,
     tip:            "[WvW] Earned from any WvW activity - capturing objectives, killing NPCs or players, and completing events. A single camp capture typically provides enough.",
@@ -1276,7 +1268,7 @@ export const META = {
 
   99: {
     // Capture 1 Camp Objective in WvW
-    time_per_stage: 8,
+    time_per_stage: 10,
     stage_count:    1,
     time_verified:  false,
     tip:            "[WvW] Supply camps are the smallest and most accessible WvW objectives. Look for undefended enemy-held camps on any borderland or Eternal Battlegrounds map.",
@@ -1309,7 +1301,7 @@ export const META = {
 
   155: {
     // Defeat 3 Enemy Invaders in WvW
-    time_per_stage: 10,
+    time_per_stage: 8,
     stage_count:    3,
     time_verified:  false,
     tip:            "[WvW] Engage enemy players in any WvW map. Roaming near frequently contested supply camps or sentry points gives reliable opportunities.",
@@ -1320,7 +1312,7 @@ export const META = {
 
   187: {
     // Defeat 5 Enemy Guards in WvW
-    time_per_stage: 5,
+    time_per_stage: 2,
     stage_count:    5,
     time_verified:  false,
     tip:            "[WvW] Enemy NPC guards protect all objectives. Attacking any enemy-held camp or tower clears guards - combine naturally with a capture objective.",
@@ -1548,7 +1540,7 @@ export const META = {
 
   18: {
     // Defeat 3 Enemy Players in a Structured PvP Match
-    time_per_stage: 12,
+    time_per_stage: 3,
     stage_count:    3,
     time_verified:  false,
     tip:            "[PvP] Kill 3 enemy players in a single match. Play an offensive build and engage in team fights rather than capping empty points.",
@@ -1570,7 +1562,7 @@ export const META = {
 
   78: {
     // Earn a Top Scoreboard Stat on Your Team in a PvP Match
-    time_per_stage: 15,
+    time_per_stage: 12,
     stage_count:    1,
     time_verified:  false,
     tip:            "[PvP] Finish a match leading your team in any one category - kills, damage, healing, or capture points. Focusing on a single stat and sustaining that focus throughout the match increases your chance of leading it.",
@@ -1610,7 +1602,7 @@ export const META = {
     time_per_stage: 12,
     stage_count:    5,
     time_verified:  false,
-    tip:            "[PvP] Kill 30 enemy players across multiple matches - roughly 5–6 kills per match with an offensive build. Engage actively in team fights rather than holding points passively.",
+    tip:            "[PvP] Kill 30 enemy players across multiple matches - roughly 10 kills per match with an offensive build. Engage actively in team fights rather than holding points passively.",
     waypoint:       null,
     timed:          false,
     priority:       PRIORITY.NORMAL,
@@ -1640,7 +1632,7 @@ export const META = {
 
   141: {
     // Defeat 3 Enemies While Defending a Capture Point in Rated PvP Conquest
-    time_per_stage: 15,
+    time_per_stage: 5,
     stage_count:    3,
     time_verified:  false,
     tip:            "[PvP - Ranked only] Stand on a friendly capture point and kill 3 enemies who contest it. A tanky or bruiser build works well for holding points under pressure.",
@@ -1651,7 +1643,7 @@ export const META = {
 
   80: {
     // Neutralize 5 Enemy Capture Points in Rated PvP Conquest
-    time_per_stage: 15,
+    time_per_stage: 10,
     stage_count:    5,
     time_verified:  false,
     tip:            "[PvP - Ranked only] Neutralize (not necessarily fully capture) 5 enemy-held points across one or more matches. Roaming between contested points is more efficient than fully capping each one.",
@@ -1662,7 +1654,7 @@ export const META = {
 
   145: {
     // Win 3 Structured PvP Rated Games
-    time_per_stage: 15,
+    time_per_stage: 20,
     stage_count:    3,
     time_verified:  false,
     tip:            "[PvP - Ranked only] Win 3 ranked matches. Play a meta build in a role you're comfortable with. Allow more time than 3 matches depending on win rate.",
@@ -1673,7 +1665,7 @@ export const META = {
 
   171: {
     // Win 5 Games in Structured PvP
-    time_per_stage: 15,
+    time_per_stage: 12,
     stage_count:    5,
     time_verified:  false,
     tip:            "[PvP] Win 5 matches - ranked or unranked. Allow 1.5–2.5 hours depending on queue times and win rate.",
@@ -1695,11 +1687,10 @@ export const META = {
 
   167: {
     // Participate in 1 PvP Tournament Match
-    // ⚠️ VERIFY: Tournaments are timed - add schedule if known
-    time_per_stage: 20,
+    time_per_stage: 30,
     stage_count:    1,
-    time_verified:  true,
-    tip:            "[PvP] Automated Tournaments run on a fixed schedule - EU servers at 12:00, 15:00, 18:00, 21:00 UTC; NA servers at 00:00, 03:00, 09:00, 21:00 UTC. Sign up via the PvP panel before the start time. Participation (not a win) is sufficient for credit. The schedule shown reflects all possible windows - only those matching your region will be available.",
+    time_verified:  false,
+    tip:            "[PvP] Automated Tournaments run on a fixed schedule. Sign up via the PvP panel before the start time. Participation (not a win) is sufficient for credit. The schedule shown reflects all possible windows - only those matching your region will be available.",
     waypoint:       null,
     timed:          true,
     schedule:       ["00:00","03:00","09:00","12:00","15:00","18:00","21:00"],
@@ -1719,8 +1710,8 @@ export const META = {
 
   184: {
     // Earn 1,000 PvP Rank Points
-    time_per_stage: 12,
-    stage_count:    5,
+    time_per_stage: 15,
+    stage_count:    7,
     time_verified:  false,
     tip:            "[PvP] Rank points accumulate across all PvP matches regardless of outcome - roughly 30–200 points per match depending on performance. Expect 6–10 matches to complete this.",
     waypoint:       null,
@@ -1745,48 +1736,3 @@ export const META = {
      },
      ════════════════════════════════════════════════════════════ */
 };
-
-/* ════════════════════════════════════════════════════════════════
-   VERIFICATION CHECKLIST
-   ────────────────────────────────────────────────────────────────
-   Search for "⚠️ VERIFY" to jump to each flagged entry.
-
-   1. WORLD BOSS & CONVERGENCE SCHEDULES - ✅ RESOLVED
-      Schedules for ids 19, 31, 55, 60, 134, 159, 178, 196, 269
-      were derived from the GW2 wiki event timer JSON by parsing
-      the core-wb (regular bosses) and public-con (Convergences)
-      sequence data. The epoch is UTC midnight. All are now set
-      to timed:true with correct schedule arrays.
-
-   2. PvP TOURNAMENT SCHEDULE - ✅ RESOLVED
-      Id 167 schedule derived from core-ateu (EU) and core-atna
-      (NA) sequences in the event timer JSON. Combined window list
-      included; only windows matching your server region will
-      actually be available in-game.
-
-   3. JUMPING PUZZLE WAYPOINTS - needs in-game copy-paste
-      (ids: 4, 38, 44, 56, 61, 74, 101, 105, 116, 129, 130,
-            146, 148, 156, 161, 170, 180, 186, 189)
-      Hover over the nearest waypoint in-game, Ctrl+C, paste here.
-
-   4. JUMPING PUZZLE LOCATIONS - unconfirmed
-      (ids: 40, 44, 61, 105, 116, 146, 148, 170)
-      Check the GW2 wiki for map, waypoint, and route.
-
-   5. ENEMY FACTION STAGE COUNTS - estimated at 50
-      (ids: 70, 77, 143, 150, 190, 193, 272, 334)
-      Check the API response (progress_complete) for your current
-      objective to confirm the actual count required.
-
-   6. NEW & SEASONAL CONTENT - best-guess tips only
-      (ids: 346, 349, 351, 355, 356, 357, 360, 361, 362, 363, 366)
-      Verify in-game or on the wiki.
-
-   6. PvP TOURNAMENT SCHEDULE (id: 167)
-      Set timed:true and add schedule if UTC windows are known.
-
-   7. TIME VERIFICATION - set time_verified:true after timing in-game
-      Currently all entries have time_verified:false.
-      When you've run an objective and know how long it actually takes,
-      update time_per_stage, stage_count, and flip time_verified:true.
-   ════════════════════════════════════════════════════════════ */
