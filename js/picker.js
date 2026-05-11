@@ -71,6 +71,16 @@ function _save(entries) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
 }
 
+/**
+ * Replace the stored manual selection with the given entries wholesale.
+ * Used by the API loader to persist fetched objectives for page-refresh survival.
+ *
+ * @param {Array<{id: number, resetType: "daily"|"weekly", resetEpoch: number}>} entries
+ */
+export function setManualEntries(entries) {
+  _save(entries);
+}
+
 /* ── Expiry ───────────────────────────────────────────────────── */
 
 /**

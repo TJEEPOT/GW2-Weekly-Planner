@@ -11,13 +11,15 @@
  */
 
 import { fetchAllObjectives }                         from "./api.js";
-import { buildSchedule, formatTime }                  from "./scheduler.js";
+import { buildSchedule, formatTime, isCompleted }      from "./scheduler.js";
 import { renderOutput, renderLoading, renderError,
          renderWelcome, renderExpiryNotice }           from "./render.js";
 import { initDialog, showDialog }                     from "./dialog.js";
 import { initPicker, openPicker,
          pruneExpiredObjectives, getManualObjectiveLists,
-         hasManualObjectives, clearAllManualObjectives } from "./picker.js";
+         hasManualObjectives, clearAllManualObjectives,
+         getDailyResetEpoch, getWeeklyResetEpoch,
+         setManualEntries }                              from "./picker.js";
 
 /* ── DOM refs ─────────────────────────────────────────────────── */
 
@@ -94,6 +96,19 @@ async function loadFromAPI() {
     const { daily, weekly } = await fetchAllObjectives(apiKey);
     const now  = new Date();
     const data = buildSchedule(daily.objectives, weekly.objectives, now);
+
+    // Persist incomplete objectives so the schedule survives a page refresh.
+    // Completed ones are excluded — they're done and have no scheduling value.
+    const dailyEpoch  = getDailyResetEpoch(now);
+    const weeklyEpoch = getWeeklyResetEpoch(now);
+    setManualEntries([
+      ...daily.objectives
+        .filter(o => !isCompleted(o))
+        .map(o => ({ id: o.id, resetType: "daily",  resetEpoch: dailyEpoch  })),
+      ...weekly.objectives
+        .filter(o => !isCompleted(o))
+        .map(o => ({ id: o.id, resetType: "weekly", resetEpoch: weeklyEpoch })),
+    ]);
 
     renderOutput(data);
 
