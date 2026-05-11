@@ -19,6 +19,10 @@ const DAILY_ACCLAIM  = 10;
 const WEEKLY_ACCLAIM = 50;
 const STORAGE_KEY    = "gw2_wv_manual_objectives";
 
+/** Max objectives a player can be assigned for each period — matches in-game cap. */
+const DAILY_LIMIT  = 4;
+const WEEKLY_LIMIT = 8;
+
 /* ── Reset epoch helpers ──────────────────────────────────────── */
 
 /**
@@ -239,16 +243,27 @@ function _toggle(id) {
   const meta = META[id];
   if (!meta) return;
 
-  const now        = new Date();
-  const resetType  = meta.acclaim === DAILY_ACCLAIM ? "daily" : "weekly";
-  const resetEpoch = resetType === "daily"
-    ? getDailyResetEpoch(now)
-    : getWeeklyResetEpoch(now);
+  const resetType = meta.acclaim === DAILY_ACCLAIM ? "daily" : "weekly";
 
   if (_selectedIds.has(id)) {
+    // Removing is always allowed, even when over the limit
     _selectedIds.delete(id);
     _save(_load().filter(e => e.id !== id));
   } else {
+    // Adding is blocked once the type's limit is reached
+    const { daily, weekly } = _getCounts();
+    const limit = resetType === "daily" ? DAILY_LIMIT : WEEKLY_LIMIT;
+    const count = resetType === "daily" ? daily : weekly;
+    if (count >= limit) {
+      _pulseWarning();
+      return;
+    }
+
+    const now        = new Date();
+    const resetEpoch = resetType === "daily"
+      ? getDailyResetEpoch(now)
+      : getWeeklyResetEpoch(now);
+
     _selectedIds.add(id);
     const stored = _load();
     if (!stored.some(e => e.id === id)) {
@@ -260,18 +275,61 @@ function _toggle(id) {
   _renderPickerUI();
 }
 
+/** Count selected objectives split by reset type. */
+function _getCounts() {
+  const stored = _load();
+  let daily = 0, weekly = 0;
+  for (const e of stored) {
+    if      (e.resetType === "daily")  daily++;
+    else if (e.resetType === "weekly") weekly++;
+  }
+  return { daily, weekly };
+}
+
+/** Re-trigger the warning banner's pulse animation. */
+function _pulseWarning() {
+  const banner = document.getElementById("pickerWarning");
+  if (!banner.classList.contains("active")) return;
+  banner.classList.remove("pulse");
+  void banner.offsetWidth;            // force reflow to restart the animation
+  banner.classList.add("pulse");
+}
+
 /* ── Picker render helpers ────────────────────────────────────── */
 
 function _renderPickerUI() {
   _renderChips();
   _renderResults(document.getElementById("pickerSearch").value.trim().toLowerCase());
-  _updateCount();
+  _updateCounts();
 }
 
-function _updateCount() {
-  const n = _selectedIds.size;
-  document.getElementById("pickerCount").textContent = n;
-  document.getElementById("pickerClearAll").style.display = n > 0 ? "" : "none";
+function _updateCounts() {
+  const { daily, weekly } = _getCounts();
+  const dailyAtLimit  = daily  >= DAILY_LIMIT;
+  const weeklyAtLimit = weekly >= WEEKLY_LIMIT;
+
+  // Per-type count badges in the header
+  document.getElementById("pickerCountDailyNum").textContent  = daily;
+  document.getElementById("pickerCountWeeklyNum").textContent = weekly;
+  document.getElementById("pickerCountDaily" ).classList.toggle("at-limit", dailyAtLimit);
+  document.getElementById("pickerCountWeekly").classList.toggle("at-limit", weeklyAtLimit);
+
+  // Warning banner — reserved height; only its colors/text change
+  const banner = document.getElementById("pickerWarning");
+  let message  = "";
+  if (dailyAtLimit && weeklyAtLimit) {
+    message = `⚠ Daily (${DAILY_LIMIT}/${DAILY_LIMIT}) and weekly (${WEEKLY_LIMIT}/${WEEKLY_LIMIT}) limits reached — deselect one to add another.`;
+  } else if (dailyAtLimit) {
+    message = `⚠ Daily limit reached (${DAILY_LIMIT}/${DAILY_LIMIT}) — deselect one to add another.`;
+  } else if (weeklyAtLimit) {
+    message = `⚠ Weekly limit reached (${WEEKLY_LIMIT}/${WEEKLY_LIMIT}) — deselect one to add another.`;
+  }
+  banner.textContent = message;
+  banner.classList.toggle("active", message !== "");
+
+  // Clear-all button visibility
+  document.getElementById("pickerClearAll").style.display =
+    (daily + weekly) > 0 ? "" : "none";
 }
 
 function _renderChips() {
@@ -321,14 +379,20 @@ function _renderResults(query = "") {
   const daily  = filtered.filter(o => o.acclaim === DAILY_ACCLAIM);
   const weekly = filtered.filter(o => o.acclaim === WEEKLY_ACCLAIM);
 
+  const counts = _getCounts();
+  const atLimit = {
+    daily:  counts.daily  >= DAILY_LIMIT,
+    weekly: counts.weekly >= WEEKLY_LIMIT,
+  };
+
   let html = "";
   if (daily.length > 0) {
     html += `<div class="picker-group-label">Daily — ${DAILY_ACCLAIM} Astral Acclaim</div>`;
-    html += daily.map(_resultHTML).join("");
+    html += daily.map(o => _resultHTML(o, atLimit.daily)).join("");
   }
   if (weekly.length > 0) {
     html += `<div class="picker-group-label">Weekly — ${WEEKLY_ACCLAIM} Astral Acclaim</div>`;
-    html += weekly.map(_resultHTML).join("");
+    html += weekly.map(o => _resultHTML(o, atLimit.weekly)).join("");
   }
 
   container.innerHTML = html;
@@ -338,11 +402,13 @@ function _renderResults(query = "") {
   );
 }
 
-function _resultHTML(o) {
+function _resultHTML(o, typeAtLimit) {
   const sel      = _selectedIds.has(o.id);
+  const disabled = typeAtLimit && !sel;   // selected items always stay clickable (to remove)
   const trackCls = `badge-track-${o.track.toLowerCase()}`;
+  const cls      = `picker-result${sel ? " selected" : ""}${disabled ? " disabled" : ""}`;
   return `
-    <div class="picker-result${sel ? " selected" : ""}" data-id="${o.id}">
+    <div class="${cls}" data-id="${o.id}">
       <span class="badge ${trackCls}">${o.track}</span>
       <span class="result-title">${o.title}</span>
       ${sel ? `<span class="result-check">✓</span>` : ""}
