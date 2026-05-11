@@ -78,12 +78,20 @@
         <div class="picker-title">
           <span class="icon">🎯</span>
           Select Objectives
-          <span class="picker-count-badge">
-            <span id="pickerCount">0</span> selected
+          <span class="picker-counts">
+            <span class="picker-count picker-count-daily"  id="pickerCountDaily">
+              Daily <span id="pickerCountDailyNum">0</span>/4
+            </span>
+            <span class="picker-count picker-count-weekly" id="pickerCountWeekly">
+              Weekly <span id="pickerCountWeeklyNum">0</span>/8
+            </span>
           </span>
         </div>
         <button class="picker-close" id="pickerClose" aria-label="Close">✕</button>
       </div>
+
+      <!-- Warning banner — reserved height; invisible until a limit is hit -->
+      <div class="picker-warning" id="pickerWarning" aria-live="polite"></div>
 
       <!-- Currently selected -->
       <div class="picker-section-label">Selected objectives</div>

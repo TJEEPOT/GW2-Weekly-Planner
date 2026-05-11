@@ -690,16 +690,70 @@ body {
   gap: 0.5rem;
 }
 
-.picker-count-badge {
+.picker-counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.picker-count {
   font-family: 'Cinzel', serif;
   font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.1em;
-  background: rgba(90,191,138,0.15);
-  border: 1px solid rgba(90,191,138,0.3);
-  color: var(--manual-accent);
   padding: 0.15rem 0.55rem;
   border-radius: 3px;
+  border: 1px solid;
+  text-transform: uppercase;
+  transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+
+.picker-count-daily {
+  background: rgba(74,159,212,0.15);
+  border-color: rgba(74,159,212,0.3);
+  color: var(--daily-accent);
+}
+
+.picker-count-weekly {
+  background: rgba(155,109,212,0.15);
+  border-color: rgba(155,109,212,0.3);
+  color: var(--weekly-accent);
+}
+
+.picker-count.at-limit {
+  background: rgba(255,170,80,0.18);
+  border-color: rgba(255,170,80,0.5);
+  color: #ffc070;
+}
+
+/* Reserved-height warning banner — never causes layout shift */
+.picker-warning {
+  height: 2.4rem;
+  padding: 0 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  color: transparent;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: color var(--transition),
+              background var(--transition),
+              border-color var(--transition);
+  flex-shrink: 0;
+  pointer-events: none;
+}
+.picker-warning.active {
+  color: #ffd089;
+  background: rgba(255,170,80,0.08);
+  border-bottom-color: rgba(255,170,80,0.25);
+}
+.picker-warning.pulse {
+  animation: picker-warning-pulse 0.45s ease;
+}
+@keyframes picker-warning-pulse {
+  0%, 100% { background: rgba(255,170,80,0.08); }
+  50%      { background: rgba(255,170,80,0.28); }
 }
 
 .picker-close {
@@ -829,6 +883,11 @@ body {
 }
 .picker-result:hover    { background: rgba(255,255,255,0.04); }
 .picker-result.selected { background: rgba(90,191,138,0.08); }
+.picker-result.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.picker-result.disabled:hover { background: transparent; }
 
 .result-title {
   flex: 1;
