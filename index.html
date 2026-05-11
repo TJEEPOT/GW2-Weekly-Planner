@@ -10,44 +10,58 @@
 </head>
 <body>
 
+  <!-- ── Header ─────────────────────────────────────────────── -->
   <header class="site-header">
     <div class="header-inner">
       <div class="site-title">
         <span class="icon">⚗</span> Wizard's Vault Planner
       </div>
+
+      <!-- API row -->
       <div class="api-row">
         <div class="api-input-wrap">
-          <input
-            type="password"
-            id="apiKey"
-            placeholder="Paste your GW2 API key here…"
-            autocomplete="off"
-            spellcheck="false"
-          />
+          <input type="password" id="apiKey"
+                 placeholder="Paste your GW2 API key here…"
+                 autocomplete="off" spellcheck="false" />
         </div>
-        <button class="btn btn-primary" id="refreshBtn">Load Objectives</button>
+        <button class="btn btn-primary" id="refreshBtn">Load from API</button>
         <button class="btn btn-ghost"   id="clearBtn" title="Clear saved API key">✕ Clear Key</button>
       </div>
+
+      <!-- Manual mode row — visually distinct -->
+      <div class="manual-row">
+        <button class="btn btn-manual" id="openPickerBtn">
+          🎯 Select Objectives Manually
+        </button>
+        <span class="manual-hint">
+          Use this if the API hasn't updated yet after logging in.
+        </span>
+      </div>
+
+      <!-- Status lines -->
       <div class="timezone-note" id="tzNote"></div>
+      <div class="mode-bar hidden" id="modeBar"></div>
+
+      <!-- Expiry banner — shown on load when objectives were pruned -->
+      <div class="expiry-banner hidden" id="expiryBanner"></div>
+
+      <!-- API cache warning -->
       <div class="cache-warning">
         ⚠ The GW2 API caches your objective progress. After logging in, it may take
         <strong>up to 1 hour</strong> for completed objectives to appear here -
         there is nothing this tool can do to speed that up. If your progress looks
-        out of date, log into the game, wait a few minutes, then hit Refresh.
+        out of date, use <em>Select Objectives Manually</em> to build your schedule
+        immediately, or log in, check your objectives in-game, then hit Load from API.
       </div>
     </div>
   </header>
 
+  <!-- ── Main content ───────────────────────────────────────── -->
   <div class="main-content">
-    <div id="output">
-      <div class="status-block">
-        <div class="status-icon">⚗</div>
-        <div>Enter your API key and click <strong>Load Objectives</strong> to begin.</div>
-        <div class="status-sub">Your key is stored only in this browser and sent only to the official GW2 API.</div>
-      </div>
-    </div>
+    <div id="output"></div>
   </div>
 
+  <!-- ── Footer ─────────────────────────────────────────────── -->
   <footer class="site-footer">
     <div class="footer-inner">
       Created by <strong>Silinde.7610</strong> with help from the 
@@ -55,6 +69,58 @@
       <a href="https://github.com/TJEEPOT/GW2-Weekly-Planner" target="_blank" rel="noopener">View on GitHub</a>
     </div>
   </footer>
+
+  <!-- ── Objective picker modal ─────────────────────────────── -->
+  <div class="picker-overlay hidden" id="pickerOverlay">
+    <div class="picker-panel">
+
+      <div class="picker-header">
+        <div class="picker-title">
+          <span class="icon">🎯</span>
+          Select Objectives
+          <span class="picker-count-badge">
+            <span id="pickerCount">0</span> selected
+          </span>
+        </div>
+        <button class="picker-close" id="pickerClose" aria-label="Close">✕</button>
+      </div>
+
+      <!-- Currently selected -->
+      <div class="picker-section-label">Selected objectives</div>
+      <div class="picker-selected" id="pickerSelectedList">
+        <div class="picker-empty-hint">No objectives selected yet — search below to add some.</div>
+      </div>
+      <div class="picker-actions">
+        <button class="btn btn-ghost btn-sm" id="pickerClearAll" style="display:none">
+          ✕ Clear all
+        </button>
+      </div>
+
+      <!-- Search -->
+      <div class="picker-search-wrap">
+        <span class="picker-search-icon">🔍</span>
+        <input type="text" id="pickerSearch"
+               class="picker-search"
+               placeholder="Search objectives…"
+               autocomplete="off" spellcheck="false" />
+      </div>
+
+      <!-- Results -->
+      <div class="picker-results" id="pickerResults"></div>
+
+    </div>
+  </div>
+
+  <!-- ── Confirm dialog modal ───────────────────────────────── -->
+  <div class="dialog-overlay hidden" id="dialogOverlay">
+    <div class="dialog-panel">
+      <div class="dialog-message" id="dialogMessage"></div>
+      <div class="dialog-buttons">
+        <button class="btn btn-ghost"    id="dialogCancelBtn">Cancel</button>
+        <button class="btn btn-primary"  id="dialogConfirmBtn">Confirm</button>
+      </div>
+    </div>
+  </div>
 
   <script type="module" src="js/main.js"></script>
 </body>

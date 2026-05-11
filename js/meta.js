@@ -26,10 +26,6 @@
  *                            PRIORITY.NORMAL = active objectives worth doing deliberately.
  *                            PRIORITY.LOW    = passively completes alongside other objectives.
  *
- * ── VERIFICATION NOTES ───────────────────────────────────────────
- * Entries marked ⚠️ VERIFY need in-game confirmation.
- * See the VERIFICATION CHECKLIST at the bottom of this file.
- * ─────────────────────────────────────────────────────────────────
  */
 
 /**
@@ -52,6 +48,9 @@ export const META = {
 
   133: {
     // Log In
+    title:          "Log In",
+    track:          "PvE",
+    acclaim:        5,
     time_per_stage: 1,
     stage_count:    1,
     time_verified:  true,
@@ -63,6 +62,9 @@ export const META = {
 
   125: {
     // Dodge 3 Enemy Attacks Using a Dodge Roll
+    title:          "Dodge 3 Enemy Attacks Using a Dodge Roll",
+    track:          "PvE",
+    acclaim:        10,
     time_per_stage: 0.33,
     stage_count:    3,
     time_verified:  true,
@@ -74,6 +76,9 @@ export const META = {
 
   20: {
     // Perform 3 Combo Skills in Combat
+    title:          "Perform 3 Combo Skills in Combat",
+    track:          "PvE",
+    acclaim:        10,
     time_per_stage: 0.33,
     stage_count:    3,
     time_verified:  true,
@@ -85,6 +90,9 @@ export const META = {
 
   182: {
     // Break 1 Enemy's Defiance Bar
+    title:          "Break 1 Enemy\'s Defiance Bar",
+    track:          "PvE",
+    acclaim:        10,
     time_per_stage: 1,
     stage_count:    1,
     time_verified:  true,
@@ -96,6 +104,9 @@ export const META = {
 
   149: {
     // Defeat 25 Enemies
+    title:          "Defeat 25 Enemies",
+    track:          "PvE",
+    acclaim:        10,
     time_per_stage: 0.1,
     stage_count:    25,
     time_verified:  true,
@@ -107,6 +118,9 @@ export const META = {
 
   140: {
     // Defeat 5 Veteran Enemies
+    title:          "Defeat 5 Veteran Enemies",
+    track:          "PvE",
+    acclaim:        10,
     time_per_stage: 0.4,
     stage_count:    5,
     time_verified:  true,
@@ -118,6 +132,9 @@ export const META = {
 
   34: {
     // Defeat 10 Enemies While Under a Nourishment Effect
+    title:          "Defeat 10 Enemies While Under a Nourishment Effect",
+    track:          "PvE",
+    acclaim:        10,
     time_per_stage: 0.1,
     stage_count:    10,
     time_verified:  true,
@@ -129,6 +146,9 @@ export const META = {
 
   195: {
     // Defeat 10 Enemies While Under an Enhancement Effect
+    title:          "Defeat 10 Enemies While Under an Enhancement Effect",
+    track:          "PvE",
+    acclaim:        10,
     time_per_stage: 0.1,
     stage_count:    10,
     time_verified:  true,
@@ -140,6 +160,9 @@ export const META = {
 
   104: {
     // Defeat 10 Enemies in the Heart of Maguuma
+    title:          "Defeat 10 Enemies in the Heart of Maguuma",
+    track:          "PvE",
+    acclaim:        10,
     time_per_stage: 0.2,
     stage_count:    10,
     time_verified:  true,
@@ -151,6 +174,9 @@ export const META = {
 
   132: {
     // Defeat 10 Enemies in the Horn of Maguuma
+    title:          "Defeat 10 Enemies in the Horn of Maguuma",
+    track:          "PvE",
+    acclaim:        10,
     time_per_stage: 0.3,
     stage_count:    10,
     time_verified:  true,
@@ -162,6 +188,9 @@ export const META = {
 
   83: {
     // Defeat 10 Enemies in Cantha
+    title:          "Defeat 10 Enemies in Cantha",
+    track:          "PvE",
+    acclaim:        10,
     time_per_stage: 0.3,
     stage_count:    10,
     time_verified:  true,
@@ -173,6 +202,9 @@ export const META = {
 
   58: {
     // Defeat 10 Enemies in the Crystal Desert
+    title:          "Defeat 10 Enemies in the Crystal Desert",
+    track:          "PvE",
+    acclaim:        10,
     time_per_stage: 0.3,
     stage_count:    10,
     time_verified:  true,
@@ -184,6 +216,9 @@ export const META = {
 
   276: {
     // Defeat 10 Enemies in the Janthir Region
+    title:          "Defeat 10 Enemies in the Janthir Region",
+    track:          "PvE",
+    acclaim:        10,
     time_per_stage: 0.4,
     stage_count:    10,
     time_verified:  true,
@@ -195,6 +230,9 @@ export const META = {
 
   335: {
     // Defeat 10 Enemies in the Castora Region
+    title:          "Defeat 10 Enemies in the Castora Region",
+    track:          "PvE",
+    acclaim:        10,
     time_per_stage: 1.3,
     stage_count:    10,
     time_verified:  true,
@@ -206,6 +244,9 @@ export const META = {
 
   1: {
     // Complete 3 Events
+    title:          "Complete 3 Events",
+    track:          "PvE",
+    acclaim:        10,
     time_per_stage: 2.5,
     stage_count:    3,
     time_verified:  true,
@@ -217,6 +258,9 @@ export const META = {
 
   62: {
     // Complete a Renown Heart
+    title:          "Complete a Renown Heart",
+    track:          "PvE",
+    acclaim:        10,
     time_per_stage: 4,
     stage_count:    1,
     time_verified:  true,
@@ -228,6 +272,9 @@ export const META = {
 
   117: {
     // Participate in 1 Rift Hunt Event
+    title:          "Participate in 1 Rift Hunt Event",
+    track:          "PvE",
+    acclaim:        10,
     time_per_stage: 3,
     stage_count:    1,
     time_verified:  true,
@@ -239,6 +286,9 @@ export const META = {
 
   164: {
     // Catch 5 Fish
+    title:          "Catch 5 Fish",
+    track:          "PvE",
+    acclaim:        10,
     time_per_stage: 1,
     stage_count:    5,
     time_verified:  true,
@@ -250,6 +300,9 @@ export const META = {
 
   88: {
     // Identify 10 Pieces of Unidentified Gear
+    title:          "Identify 10 Pieces of Unidentified Gear",
+    track:          "PvE",
+    acclaim:        10,
     time_per_stage: 2,
     stage_count:    1,
     time_verified:  true,
@@ -261,6 +314,9 @@ export const META = {
 
   65: {
     // Salvage 10 Items
+    title:          "Salvage 10 Items",
+    track:          "PvE",
+    acclaim:        10,
     time_per_stage: 2,
     stage_count:    1,
     time_verified:  true,
@@ -272,6 +328,9 @@ export const META = {
 
   43: {
     // Craft 10 Items
+    title:          "Craft 10 Items",
+    track:          "PvE",
+    acclaim:        10,
     time_per_stage: 3,
     stage_count:    1,
     time_verified:  true,
@@ -283,6 +342,9 @@ export const META = {
 
   95: {
     // Harvest 10 Resources with a Harvesting Sickle
+    title:          "Harvest 10 Resources with a Harvesting Sickle",
+    track:          "PvE",
+    acclaim:        10,
     time_per_stage: 0.2,
     stage_count:    10,
     time_verified:  true,
@@ -294,6 +356,9 @@ export const META = {
 
   79: {
     // Gather 15 Resources with a Logging Axe
+    title:          "Gather 15 Resources with a Logging Axe",
+    track:          "PvE",
+    acclaim:        10,
     time_per_stage: 0.2,
     stage_count:    15,
     time_verified:  true,
@@ -305,6 +370,9 @@ export const META = {
 
   128: {
     // Gather 15 Resources with a Mining Pick
+    title:          "Gather 15 Resources with a Mining Pick",
+    track:          "PvE",
+    acclaim:        10,
     time_per_stage: 0.2,
     stage_count:    15,
     time_verified:  true,
@@ -316,6 +384,9 @@ export const META = {
 
   115: {
     // Gather 25 Crafting Resources
+    title:          "Gather 25 Crafting Resources",
+    track:          "PvE",
+    acclaim:        10,
     time_per_stage: 0.2,
     stage_count:    25,
     time_verified:  true,
@@ -327,6 +398,9 @@ export const META = {
 
   350: {
     // Complete a Fractal in the Fractals of the Mists
+    title:          "Complete a Fractal in the Fractals of the Mists",
+    track:          "PvE",
+    acclaim:        10,
     time_per_stage: 7,
     stage_count:    1,
     time_verified:  true,
@@ -342,6 +416,9 @@ export const META = {
 
   57: {
     // Complete 10 Events
+    title:          "Complete 10 Events",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 2,
     stage_count:    10,
     time_verified:  true,
@@ -354,6 +431,9 @@ export const META = {
 
   3: {
     // Complete 5 Bounty Missions in Crystal Oasis or Group Events
+    title:          "Complete 5 Bounty Missions in Crystal Oasis or Group Events",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 2,
     stage_count:    5,
     time_verified:  true,
@@ -365,6 +445,9 @@ export const META = {
 
   7: {
     // Complete 5 Bounty Missions in Desert Highlands or Group Events
+    title:          "Complete 5 Bounty Missions in Desert Highlands or Group Events",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 2,
     stage_count:    5,
     time_verified:  true,
@@ -376,6 +459,9 @@ export const META = {
 
   87: {
     // Complete 5 Bounty Missions in Elon Riverlands or Group Events
+    title:          "Complete 5 Bounty Missions in Elon Riverlands or Group Events",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 2,
     stage_count:    5,
     time_verified:  true,
@@ -387,6 +473,9 @@ export const META = {
 
   121: {
     // Complete 5 Bounty Missions in the Desolation or Group Events
+    title:          "Complete 5 Bounty Missions in the Desolation or Group Events",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 2,
     stage_count:    5,
     time_verified:  true,
@@ -398,6 +487,9 @@ export const META = {
 
   169: {
     // Complete 5 Bounty Missions in the Domain of Vabbi or Group Events
+    title:          "Complete 5 Bounty Missions in the Domain of Vabbi or Group Events",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 2,
     stage_count:    5,
     time_verified:  true,
@@ -409,6 +501,9 @@ export const META = {
 
   120: {
     // Complete 7 Rift Hunts in Horn of Maguuma or Group Events
+    title:          "Complete 7 Rift Hunts in Horn of Maguuma or Group Events",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 3,
     stage_count:    7,
     time_verified:  true,
@@ -420,6 +515,9 @@ export const META = {
 
   347: {
     // Complete 7 Rift Hunts in Castora or Group Events
+    title:          "Complete 7 Rift Hunts in Castora or Group Events",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 3,
     stage_count:    7,
     time_verified:  true,
@@ -431,6 +529,9 @@ export const META = {
 
   352: {
     // Complete 7 Rift Hunts in Janthir or Group Events
+    title:          "Complete 7 Rift Hunts in Janthir or Group Events",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 3,
     stage_count:    7,
     time_verified:  true,
@@ -442,6 +543,9 @@ export const META = {
 
   123: {
     // Gather 100 Crafting Resources by Mining, Logging, Fishing, or Harvesting
+    title:          "Gather 100 Crafting Resources by Mining, Logging, Fishing, or Harvesting Resource Nodes",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 0.15,
     stage_count:    100,
     time_verified:  true,
@@ -457,6 +561,9 @@ export const META = {
 
   5: {
     // Defeat 50 Veteran-Rank Enemies
+    title:          "Defeat 50 Veteran-Rank Enemies",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 0.1,
     stage_count:    50,
     time_verified:  true,
@@ -468,6 +575,9 @@ export const META = {
 
   135: {
     // Defeat 10 Champion-Rank Enemies
+    title:          "Defeat 10 Champion-Rank Enemies",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 1,
     stage_count:    10,
     time_verified:  true,
@@ -479,6 +589,9 @@ export const META = {
 
   59: {
     // Defeat 1 Legendary-Rank Enemy
+    title:          "Defeat 1 Legendary-Rank Enemy",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 15,
     stage_count:    1,
     time_verified:  true,
@@ -490,6 +603,9 @@ export const META = {
 
   150: {
     // Defeat Awakened or Risen
+    title:          "Defeat Awakened or Risen",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 0.1,
     stage_count:    50,
     time_verified:  true,
@@ -501,6 +617,9 @@ export const META = {
 
   70: {
     // Defeat Mordrem or Nightmare Court
+    title:          "Defeat Mordrem or Nightmare Court",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 0.1,
     stage_count:    50,
     time_verified:  true,
@@ -512,6 +631,9 @@ export const META = {
 
   77: {
     // Defeat Void Enemies or Sons of Svanir
+    title:          "Defeat Void Enemies or Sons of Svanir",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 0.1,
     stage_count:    50,
     time_verified:  true,
@@ -523,6 +645,9 @@ export const META = {
 
   143: {
     // Defeat Jade Mechs or Inquest
+    title:          "Defeat Jade Mechs or Inquest",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 0.1,
     stage_count:    50,
     time_verified:  true,
@@ -534,6 +659,9 @@ export const META = {
 
   190: {
     // Defeat Kryptis or Bandits
+    title:          "Defeat Kryptis or Bandits",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 0.1,
     stage_count:    50,
     time_verified:  true,
@@ -545,6 +673,9 @@ export const META = {
 
   193: {
     // Defeat Forged or Flame Legion
+    title:          "Defeat Forged or Flame Legion",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 0.1,
     stage_count:    50,
     time_verified:  true,
@@ -556,6 +687,9 @@ export const META = {
 
   272: {
     // Defeat Titanspawn or Elemental Enemies
+    title:          "Defeat Titanspawn or Elemental Enemies",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 0.2,
     stage_count:    50,
     time_verified:  true,
@@ -567,6 +701,9 @@ export const META = {
 
   334: {
     // Defeat Inquest Enemies or Pirates
+    title:          "Defeat Inquest Enemies or Pirates",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 0.1,
     stage_count:    50,
     time_verified:  true,
@@ -582,6 +719,9 @@ export const META = {
 
   358: {
     // Defeat Tequatl the Sunless or Complete Events in Sparkfly Fen
+    title:          "Defeat Tequatl the Sunless or Complete Events in Sparkfly Fen",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 15,
     stage_count:    1,
     time_verified:  true,
@@ -595,6 +735,9 @@ export const META = {
   60: {
     // Defeat the Shadow Behemoth World Boss or Complete Events in Queensdale
     // Schedule derived from the GW2 wiki event timer JSON (core-wb sequence, r:8, every 2h at 1:45)
+    title:          "Defeat the Shadow Behemoth World Boss or Complete Events in Queensdale",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 15,
     stage_count:    1,
     time_verified:  true,
@@ -608,6 +751,9 @@ export const META = {
   178: {
     // Defeat the Svanir Shaman Chief World Boss or Complete Events in Wayfarer Foothills
     // Schedule derived from the GW2 wiki event timer JSON (core-wb sequence, r:2, every 2h at :15)
+    title:          "Defeat the Svanir Shaman Chief World Boss or Complete Events in Wayfarer Foothills",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 12,
     stage_count:    1,
     time_verified:  true,
@@ -621,6 +767,9 @@ export const META = {
   55: {
     // Defeat the Fire Elemental World Boss or Complete Events in Metrica Province
     // Schedule derived from the GW2 wiki event timer JSON (core-wb sequence, r:4, every 2h at :45)
+    title:          "Defeat the Fire Elemental World Boss or Complete Events in Metrica Province",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 15,
     stage_count:    1,
     time_verified:  true,
@@ -634,6 +783,9 @@ export const META = {
   134: {
     // Defeat the Megadestroyer World Boss or Complete Events in Mount Maelstrom
     // Schedule derived from the GW2 wiki event timer JSON (core-wb sequence, r:3, every 3h at :30)
+    title:          "Defeat the Megadestroyer World Boss or Complete Events in Mount Maelstrom",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 15,
     stage_count:    1,
     time_verified:  true,
@@ -647,6 +799,9 @@ export const META = {
   159: {
     // Defeat the Inquest Golem Mark II World Boss or Complete Events in Mount Maelstrom
     // Schedule derived from the GW2 wiki event timer JSON (core-wb sequence, r:10, every 3h at :00 offset 2h)
+    title:          "Defeat the Inquest Golem Mark II World Boss or Complete Events in Mount Maelstrom",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 10,
     stage_count:    1,
     time_verified:  true,
@@ -660,6 +815,9 @@ export const META = {
   196: {
     // Defeat the Shatterer World Boss or Complete Events in Blazeridge Steppes
     // Schedule derived from the GW2 wiki event timer JSON (core-wb sequence, r:5, every 3h at 1:00)
+    title:          "Defeat the Shatterer World Boss or Complete Events in Blazeridge Steppes",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 10,
     stage_count:    1,
     time_verified:  true,
@@ -673,6 +831,9 @@ export const META = {
   19: {
     // Defeat the Claw of Jormag World Boss or Complete Events in Frostgorge Sound
     // Schedule derived from the GW2 wiki event timer JSON (core-wb sequence, r:9, every 3h at 2:30)
+    title:          "Defeat the Claw of Jormag World Boss or Complete Events in Frostgorge Sound",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 15,
     stage_count:    1,
     time_verified:  true,
@@ -686,6 +847,9 @@ export const META = {
   31: {
     // Defeat the Great Jungle Wurm World Boss or Complete Events in Caledon Forest
     // Schedule derived from the GW2 wiki event timer JSON (core-wb sequence, r:6, every 2h at 1:15)
+    title:          "Defeat the Great Jungle Wurm World Boss or Complete Events in Caledon Forest",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 10,
     stage_count:    1,
     time_verified:  true,
@@ -702,6 +866,9 @@ export const META = {
 
   348: {
     // Complete a Meta-Event or Events in the Crystal Desert or Events in Kryta
+    title:          "Complete a Meta-Event or Events in the Crystal Desert or Events in Kryta",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 20,
     stage_count:    1,
     time_verified:  true,
@@ -739,6 +906,9 @@ export const META = {
 
   344: {
     // Complete a Meta-Event or Events in Cantha or Events in Maguuma Jungle
+    title:          "Complete a Meta-Event or Events in Cantha or Events in Maguuma Jungle",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 25,
     stage_count:    1,
     time_verified:  true,
@@ -764,6 +934,9 @@ export const META = {
 
   345: {
     // Complete a Meta-Event or Events in Horn of Maguuma or Events in Shiverpeak Mountains
+    title:          "Complete a Meta-Event or Events in Horn of Maguuma or Events in Shiverpeak Mountains",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 25,
     stage_count:    1,
     time_verified:  true,
@@ -783,6 +956,9 @@ export const META = {
 
   364: {
     // Complete a Meta-Event or Events in Castora or Events in Orr
+    title:          "Complete a Meta-Event or Events in Castora or Events in Orr",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 25,
     stage_count:    1,
     time_verified:  true,
@@ -803,6 +979,9 @@ export const META = {
 
   365: {
     // Complete a Meta-Event or Events in Janthir or Events in Orr
+    title:          "Complete a Meta-Event or Events in Janthir or Events in Orr",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 25,
     stage_count:    1,
     time_verified:  true,
@@ -822,6 +1001,9 @@ export const META = {
 
   367: {
     // Complete a Meta-Event or Events in Heart of Maguuma or Events in Ascalon
+    title:          "Complete a Meta-Event or Events in Heart of Maguuma or Events in Ascalon",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 20,
     stage_count:    1,
     time_verified:  true,
@@ -848,6 +1030,9 @@ export const META = {
 
   56: {
     // Complete the Dark Reverie Jumping Puzzle
+    title:          "Complete the Dark Reverie Jumping Puzzle",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 15,
     stage_count:    1,
     time_verified:  true,
@@ -859,6 +1044,9 @@ export const META = {
 
   38: {
     // Complete the Shattered Ice Ruins Jumping Puzzle
+    title:          "Complete the Shattered Ice Ruins Jumping Puzzle",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 10,
     stage_count:    1,
     time_verified:  true,
@@ -870,6 +1058,9 @@ export const META = {
 
   74: {
     // Complete the Branded Mine Jumping Puzzle
+    title:          "Complete the Branded Mine Jumping Puzzle",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 10,
     stage_count:    1,
     time_verified:  true,
@@ -881,6 +1072,9 @@ export const META = {
 
   129: {
     // Complete the Grendich Gamble Jumping Puzzle
+    title:          "Complete the Grendich Gamble Jumping Puzzle",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 5,
     stage_count:    1,
     time_verified:  true,
@@ -892,6 +1086,9 @@ export const META = {
 
   130: {
     // Complete the Spekk's Laboratory Jumping Puzzle
+    title:          "Complete the Spekk\'s Laboratory Jumping Puzzle",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 10,
     stage_count:    1,
     time_verified:  true,
@@ -903,6 +1100,9 @@ export const META = {
 
   186: {
     // Complete the Professor Portmatt's Lab Jumping Puzzle
+    title:          "Complete the Professor Portmatt\'s Lab Jumping Puzzle",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 10,
     stage_count:    1,
     time_verified:  true,
@@ -914,6 +1114,9 @@ export const META = {
 
   189: {
     // Complete the Fawcett's Bounty Jumping Puzzle
+    title:          "Complete the Fawcett\'s Bounty Jumping Puzzle",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 10,
     stage_count:    1,
     time_verified:  true,
@@ -925,6 +1128,9 @@ export const META = {
 
   180: {
     // Complete the Antre of Adjournment Jumping Puzzle
+    title:          "Complete the Antre of Adjournment Jumping Puzzle",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 10,
     stage_count:    1,
     time_verified:  true,
@@ -936,6 +1142,9 @@ export const META = {
 
   101: {
     // Complete the Retrospective Runaround Jumping Puzzle
+    title:          "Complete the Retrospective Runaround Jumping Puzzle",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 20,
     stage_count:    1,
     time_verified:  true,
@@ -947,6 +1156,9 @@ export const META = {
 
   156: {
     // Complete the Weyandt's Revenge Jumping Puzzle
+    title:          "Complete the Weyandt\'s Revenge Jumping Puzzle",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 15,
     stage_count:    1,
     time_verified:  true,
@@ -958,6 +1170,9 @@ export const META = {
 
   161: {
     // Complete the Skipping Stones Jumping Puzzle
+    title:          "Complete the Skipping Stones Jumping Puzzle",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 15,
     stage_count:    1,
     time_verified:  true,
@@ -969,6 +1184,9 @@ export const META = {
 
   4: {
     // Complete the Chaos Crystal Cavern Jumping Puzzle
+    title:          "Complete the Chaos Crystal Cavern Jumping Puzzle",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 15,
     stage_count:    1,
     time_verified:  true,
@@ -980,6 +1198,9 @@ export const META = {
 
   148: {
     // Complete the Pig Iron Quarry Jumping Puzzle
+    title:          "Complete the Pig Iron Quarry Jumping Puzzle",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 10,
     stage_count:    1,
     time_verified:  true,
@@ -991,6 +1212,9 @@ export const META = {
 
   146: {
     // Complete the Crimson Plateau Jumping Puzzle
+    title:          "Complete the Crimson Plateau Jumping Puzzle",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 10,
     stage_count:    1,
     time_verified:  true,
@@ -1002,6 +1226,9 @@ export const META = {
 
   40: {
     // Complete the Collapsed Observatory Jumping Puzzle
+    title:          "Complete the Collapsed Observatory Jumping Puzzle",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 15,
     stage_count:    1,
     time_verified:  true,
@@ -1013,6 +1240,9 @@ export const META = {
 
   44: {
     // Complete the Loreclaw Expanse Jumping Puzzle
+    title:          "Complete the Loreclaw Expanse Jumping Puzzle",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 10,
     stage_count:    1,
     time_verified:  true,
@@ -1024,6 +1254,9 @@ export const META = {
 
   61: {
     // Complete the Not So Secret Jumping Puzzle
+    title:          "Complete the Not So Secret Jumping Puzzle",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 20,
     stage_count:    1,
     time_verified:  true,
@@ -1035,6 +1268,9 @@ export const META = {
 
   105: {
     // Complete the Coddler's Cove Jumping Puzzle
+    title:          "Complete the Coddler\'s Cove Jumping Puzzle",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 15,
     stage_count:    1,
     time_verified:  true,
@@ -1046,6 +1282,9 @@ export const META = {
 
   116: {
     // Complete the Tribulation Caverns Jumping Puzzle
+    title:          "Complete the Tribulation Caverns Jumping Puzzle",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 10,
     stage_count:    1,
     time_verified:  true,
@@ -1057,6 +1296,9 @@ export const META = {
 
   170: {
     // Complete the Behem Gauntlet Jumping Puzzle
+    title:          "Complete the Behem Gauntlet Jumping Puzzle",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 10,
     stage_count:    1,
     time_verified:  true,
@@ -1072,6 +1314,9 @@ export const META = {
 
   45: {
     // Complete Any Raid Encounter
+    title:          "Complete Any Raid Encounter",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 15,
     stage_count:    1,
     time_verified:  true,
@@ -1083,6 +1328,9 @@ export const META = {
 
   47: {
     // Identify 100 Pieces of Unidentified Gear
+    title:          "Identify 100 Pieces of Unidentified Gear",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 2,
     stage_count:    1,
     time_verified:  true,
@@ -1094,6 +1342,9 @@ export const META = {
 
   100: {
     // Salvage 50 Items
+    title:          "Salvage 50 Items",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 2,
     stage_count:    1,
     time_verified:  true,
@@ -1105,6 +1356,9 @@ export const META = {
 
   63: {
     // Complete 3 Fractals in the Fractals of the Mists
+    title:          "Complete 3 Fractals in the Fractals of the Mists",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 7,
     stage_count:    3,
     time_verified:  true,
@@ -1116,6 +1370,9 @@ export const META = {
 
   269: {
     // Complete a Convergence or Fractal
+    title:          "Complete a Convergence or Fractal",
+    track:          "PvE",
+    acclaim:        50,
     time_per_stage: 8,
     stage_count:    5,
     time_verified:  true,
@@ -1132,6 +1389,9 @@ export const META = {
 
   346: {
     // Collect 4 Spears from an Alliance Field Quartermaster (150 acclaim)
+    title:          "Collect 4 Spears from an Alliance Field Quartermaster",
+    track:          "PvE",
+    acclaim:        150,
     time_per_stage: 15,
     stage_count:    1,
     time_verified:  true,
@@ -1143,6 +1403,9 @@ export const META = {
 
   349: {
     // Complete 5 Quickplay Raids (300 acclaim)
+    title:          "Complete 5 Quickplay Raids",
+    track:          "PvE",
+    acclaim:        300,
     time_per_stage: 10,
     stage_count:    5,
     time_verified:  true,
@@ -1154,6 +1417,9 @@ export const META = {
 
   351: {
     // Complete the Guardian's Glade Raid or 10 Quickplay Raids (300 acclaim)
+    title:          "Complete the Guardian\'s Glade Raid or 10 Quickplay Raids",
+    track:          "PvE",
+    acclaim:        300,
     time_per_stage: 10,
     stage_count:    10,
     time_verified:  true,
@@ -1163,12 +1429,30 @@ export const META = {
     priority:       PRIORITY.NORMAL,
   },
 
+  357: {
+    // Complete 5 Quickplay Fractals (150 acclaim)
+    title:          "Complete 5 Quickplay Fractals",
+    track:          "PvE",
+    acclaim:        150,
+    time_per_stage: 8,
+    stage_count:    5,
+    time_verified:  true,
+    tip:            "Complete five tier 1 fractals via Quickplay, the Fractals portal is in Lion's Arch near Fort Marriner.",
+    waypoint:       "[&BDAEAAA=]",
+    timed:          false,
+    priority:       PRIORITY.NORMAL,
+  },
+
+ 
   355: {
     // Complete 30 Events in Castora (150 acclaim)
-    time_per_stage: 5,
+    title:          "Complete 30 Events in Castora",
+    track:          "PvE",
+    acclaim:        150,
+    time_per_stage: 4,
     stage_count:    30,
     time_verified:  true,
-    tip:            " Complete 30 events specifically in the Castora region. Rift hunting in Castora gives 2 event credits per rift and is likely the most efficient approach.",
+    tip:            "Complete 30 events specifically in the Castora region. Rift hunting in Castora gives 2 event credits per rift and is likely the most efficient approach.",
     waypoint:       null,
     timed:          false,
     priority:       PRIORITY.NORMAL,
@@ -1185,19 +1469,11 @@ export const META = {
     priority:       PRIORITY.NORMAL,
   },
 
-  357: {
-    // Complete 5 Quickplay Fractals (150 acclaim)
-    time_per_stage: 8,
-    stage_count:    5,
-    time_verified:  true,
-    tip:            "Complete five tier 1 fractals via Quickplay, the Fractals portal is in Lion's Arch near Fort Marriner.",
-    waypoint:       "[&BDAEAAA=]",
-    timed:          false,
-    priority:       PRIORITY.NORMAL,
-  },
-
   360: {
     // Complete 15 Repeatable Renown Hearts in Castora (150 acclaim)
+    title:          "Complete 15 Repeatable Renown Hearts in Castora",
+    track:          "PvE",
+    acclaim:        150,
     time_per_stage: 10,
     stage_count:    15,
     time_verified:  true,
@@ -1209,6 +1485,10 @@ export const META = {
 
   361: {
     // Collect 4 Relics from Visions of Eternity Set 2 (150 acclaim)
+    // ⚠️ VERIFY: SotO content
+    title:          "Collect 4 Relics from Visions of Eternity Set 2",
+    track:          "PvE",
+    acclaim:        150,
     time_per_stage: 30,
     stage_count:    4,
     time_verified:  true,
@@ -1220,6 +1500,10 @@ export const META = {
 
   362: {
     // Unlock Any 10 Item Skins (150 acclaim)
+    // ⚠️ VERIFY: exact count against your API progress_complete
+    title:          "Unlock Any 10 Item Skins",
+    track:          "PvE",
+    acclaim:        150,
     time_per_stage: 5,
     stage_count:    1,
     time_verified:  true,
@@ -1231,6 +1515,10 @@ export const META = {
 
   363: {
     // Complete 4 Meta-Events in Castora (150 acclaim)
+    // ⚠️ VERIFY time estimate
+    title:          "Complete 4 Meta-Events in Castora",
+    track:          "PvE",
+    acclaim:        150,
     time_per_stage: 25,
     stage_count:    4,
     time_verified:  true,
@@ -1242,6 +1530,10 @@ export const META = {
 
   366: {
     // Speak with Shaman Palak about the Endless Summer Legendary Ring (75 acclaim)
+    // ⚠️ VERIFY: seasonal/Living Story content
+    title:          "Speak with Shaman Palak about the Endless Summer Legendary Ring",
+    track:          "PvE",
+    acclaim:        75,
     time_per_stage: 5,
     stage_count:    1,
     time_verified:  true,
@@ -1257,6 +1549,9 @@ export const META = {
 
   98: {
     // Earn 200 WvW Experience
+    title:          "Earn 200 WvW Experience",
+    track:          "WvW",
+    acclaim:        10,
     time_per_stage: 12,
     stage_count:    1,
     time_verified:  false,
@@ -1268,6 +1563,9 @@ export const META = {
 
   99: {
     // Capture 1 Camp Objective in WvW
+    title:          "Capture 1 Camp Objective in World vs. World",
+    track:          "WvW",
+    acclaim:        10,
     time_per_stage: 10,
     stage_count:    1,
     time_verified:  false,
@@ -1279,6 +1577,9 @@ export const META = {
 
   107: {
     // Capture 1 Sentry Point in WvW
+    title:          "Capture 1 Sentry Point in World vs. World",
+    track:          "WvW",
+    acclaim:        10,
     time_per_stage: 5,
     stage_count:    1,
     time_verified:  false,
@@ -1290,6 +1591,9 @@ export const META = {
 
   139: {
     // Capture 1 Ruin or Shrine Objective in WvW
+    title:          "Capture 1 Ruin or Shrine Objective in World vs. World",
+    track:          "WvW",
+    acclaim:        10,
     time_per_stage: 8,
     stage_count:    1,
     time_verified:  false,
@@ -1301,6 +1605,9 @@ export const META = {
 
   155: {
     // Defeat 3 Enemy Invaders in WvW
+    title:          "Defeat 3 Enemy Invaders in World vs. World",
+    track:          "WvW",
+    acclaim:        10,
     time_per_stage: 8,
     stage_count:    3,
     time_verified:  false,
@@ -1312,6 +1619,9 @@ export const META = {
 
   187: {
     // Defeat 5 Enemy Guards in WvW
+    title:          "Defeat 5 Enemy Guards in World vs. World",
+    track:          "WvW",
+    acclaim:        10,
     time_per_stage: 2,
     stage_count:    5,
     time_verified:  false,
@@ -1323,6 +1633,9 @@ export const META = {
 
   202: {
     // Escort 1 Supply Caravan to Its Destination in WvW
+    title:          "Escort 1 Supply Caravan to Its Destination in World vs. World",
+    track:          "WvW",
+    acclaim:        10,
     time_per_stage: 10,
     stage_count:    1,
     time_verified:  false,
@@ -1334,6 +1647,9 @@ export const META = {
 
   28: {
     // Defeat 1 Enemy Supply Caravan in WvW
+    title:          "Defeat 1 Enemy Supply Caravan in World vs. World",
+    track:          "WvW",
+    acclaim:        10,
     time_per_stage: 10,
     stage_count:    1,
     time_verified:  false,
@@ -1345,6 +1661,9 @@ export const META = {
 
   10: {
     // Participate in 1 Defense Event in WvW
+    title:          "Participate in 1 Defense Event in World vs. World",
+    track:          "WvW",
+    acclaim:        10,
     time_per_stage: 15,
     stage_count:    1,
     time_verified:  false,
@@ -1356,6 +1675,9 @@ export const META = {
 
   353: {
     // Deal 50,000 Damage Using Siege Equipment in WvW
+    title:          "Deal 50,000 Damage Using Siege Equipment",
+    track:          "WvW",
+    acclaim:        10,
     time_per_stage: 15,
     stage_count:    1,
     time_verified:  false,
@@ -1371,6 +1693,9 @@ export const META = {
 
   166: {
     // Earn 10,000 WvW Experience
+    title:          "Earn 10,000 WvW Experience",
+    track:          "WvW",
+    acclaim:        50,
     time_per_stage: 60,
     stage_count:    1,
     time_verified:  false,
@@ -1382,6 +1707,9 @@ export const META = {
 
   46: {
     // Capture 10 WvW Objectives
+    title:          "Capture 10 World vs. World Objectives",
+    track:          "WvW",
+    acclaim:        50,
     time_per_stage: 8,
     stage_count:    10,
     time_verified:  false,
@@ -1393,6 +1721,9 @@ export const META = {
 
   181: {
     // Capture 5 Camps in WvW
+    title:          "Capture 5 Camps in World vs. World",
+    track:          "WvW",
+    acclaim:        50,
     time_per_stage: 8,
     stage_count:    5,
     time_verified:  false,
@@ -1404,6 +1735,9 @@ export const META = {
 
   192: {
     // Capture 5 Towers in WvW
+    title:          "Capture 5 Towers in World vs. World",
+    track:          "WvW",
+    acclaim:        50,
     time_per_stage: 15,
     stage_count:    5,
     time_verified:  false,
@@ -1415,6 +1749,9 @@ export const META = {
 
   137: {
     // Capture 3 Keeps in WvW
+    title:          "Capture 3 Keeps in World vs. World",
+    track:          "WvW",
+    acclaim:        50,
     time_per_stage: 25,
     stage_count:    3,
     time_verified:  false,
@@ -1426,6 +1763,9 @@ export const META = {
 
   109: {
     // Capture 10 Ruin, Shrine, or Mercenary Camp Objectives in WvW
+    title:          "Capture 10 Ruin, Shrine, or Mercenary Camp Objectives in World vs. World",
+    track:          "WvW",
+    acclaim:        50,
     time_per_stage: 8,
     stage_count:    10,
     time_verified:  false,
@@ -1437,6 +1777,9 @@ export const META = {
 
   50: {
     // Defeat 10 WvW Invaders
+    title:          "Defeat 10 World vs. World Invaders",
+    track:          "WvW",
+    acclaim:        50,
     time_per_stage: 8,
     stage_count:    10,
     time_verified:  false,
@@ -1448,6 +1791,9 @@ export const META = {
 
   144: {
     // Defeat 25 Enemy Guards in WvW
+    title:          "Defeat 25 Enemy Guards in World vs. World",
+    track:          "WvW",
+    acclaim:        50,
     time_per_stage: 3,
     stage_count:    25,
     time_verified:  false,
@@ -1459,6 +1805,9 @@ export const META = {
 
   94: {
     // Destroy 10 Enemy Supply Caravans in WvW
+    title:          "Destroy 10 Enemy Supply Caravans in World vs. World",
+    track:          "WvW",
+    acclaim:        50,
     time_per_stage: 10,
     stage_count:    10,
     time_verified:  false,
@@ -1470,6 +1819,9 @@ export const META = {
 
   32: {
     // Escort 6 Allied Supply Caravans to Their Destinations in WvW
+    title:          "Escort 6 Allied Supply Caravans to Their Destinations in World vs. World",
+    track:          "WvW",
+    acclaim:        50,
     time_per_stage: 10,
     stage_count:    6,
     time_verified:  false,
@@ -1481,6 +1833,9 @@ export const META = {
 
   206: {
     // Defend 10 WvW Objectives
+    title:          "Defend 10 World vs. World Objectives",
+    track:          "WvW",
+    acclaim:        50,
     time_per_stage: 10,
     stage_count:    10,
     time_verified:  false,
@@ -1492,6 +1847,9 @@ export const META = {
 
   163: {
     // Restore 50,000 Health to Yourself or Allied Players
+    title:          "Restore 50,000 Health to Yourself or Allied Players",
+    track:          "WvW",
+    acclaim:        50,
     time_per_stage: 30,
     stage_count:    1,
     time_verified:  false,
@@ -1503,6 +1861,9 @@ export const META = {
 
   85: {
     // Deal 500,000 Damage to Enemy Players in sPvP or WvW
+    title:          "Deal 500,000 Damage to Enemy Players in Structured Player vs. Player or World vs. World",
+    track:          "WvW",
+    acclaim:        50,
     time_per_stage: 60,
     stage_count:    1,
     time_verified:  false,
@@ -1514,6 +1875,9 @@ export const META = {
 
   359: {
     // Deal 500,000 Damage Using Siege Equipment in WvW
+    title:          "Deal 500,000 Damage Using Siege Equipment",
+    track:          "WvW",
+    acclaim:        50,
     time_per_stage: 45,
     stage_count:    1,
     time_verified:  false,
@@ -1529,6 +1893,9 @@ export const META = {
 
   2: {
     // Compete in 1 Player vs. Player Team Battle
+    title:          "Compete in 1 Player vs. Player Team Battle",
+    track:          "PvP",
+    acclaim:        10,
     time_per_stage: 12,
     stage_count:    1,
     time_verified:  false,
@@ -1540,7 +1907,10 @@ export const META = {
 
   18: {
     // Defeat 3 Enemy Players in a Structured PvP Match
-    time_per_stage: 3,
+    title:          "Defeat 3 Enemy Players in a Structured PvP Match",
+    track:          "PvP",
+    acclaim:        10,
+    time_per_stage: 12,
     stage_count:    3,
     time_verified:  false,
     tip:            "[PvP] Kill 3 enemy players in a single match. Play an offensive build and engage in team fights rather than capping empty points.",
@@ -1551,6 +1921,9 @@ export const META = {
 
   37: {
     // Earn 50 Rank Points in PvP Matches
+    title:          "Earn 50 Rank Points in PvP Matches",
+    track:          "PvP",
+    acclaim:        10,
     time_per_stage: 12,
     stage_count:    1,
     time_verified:  false,
@@ -1562,7 +1935,10 @@ export const META = {
 
   78: {
     // Earn a Top Scoreboard Stat on Your Team in a PvP Match
-    time_per_stage: 12,
+    title:          "Earn a Top Scoreboard Stat on Your Team in a PvP Match",
+    track:          "PvP",
+    acclaim:        10,
+    time_per_stage: 15,
     stage_count:    1,
     time_verified:  false,
     tip:            "[PvP] Finish a match leading your team in any one category - kills, damage, healing, or capture points. Focusing on a single stat and sustaining that focus throughout the match increases your chance of leading it.",
@@ -1573,6 +1949,9 @@ export const META = {
 
   157: {
     // Earn 1 reward from a PvP Reward Track
+    title:          "Earn 1 reward from a PvP Reward Track",
+    track:          "PvP",
+    acclaim:        10,
     time_per_stage: 12,
     stage_count:    1,
     time_verified:  false,
@@ -1584,6 +1963,9 @@ export const META = {
 
   174: {
     // Deal 100,000 Damage to Enemy Players in PvP
+    title:          "Deal 100,000 Damage to Enemy Players",
+    track:          "PvP",
+    acclaim:        10,
     time_per_stage: 12,
     stage_count:    1,
     time_verified:  false,
@@ -1599,6 +1981,9 @@ export const META = {
 
   91: {
     // Defeat 30 Players in Structured PvP
+    title:          "Defeat 30 Players in Structured Player vs. Player",
+    track:          "PvP",
+    acclaim:        50,
     time_per_stage: 12,
     stage_count:    5,
     time_verified:  false,
@@ -1610,6 +1995,9 @@ export const META = {
 
   108: {
     // Compete in 10 Structured PvP Matches
+    title:          "Compete in 10 Structured Player vs. Player Matches",
+    track:          "PvP",
+    acclaim:        50,
     time_per_stage: 12,
     stage_count:    10,
     time_verified:  false,
@@ -1621,6 +2009,9 @@ export const META = {
 
   110: {
     // Earn a Top Scoreboard Stat on Your Team in a PvP Match 5 Times
+    title:          "Earn a Top Scoreboard Stat on Your Team in a PvP Match 5 Times",
+    track:          "PvP",
+    acclaim:        50,
     time_per_stage: 15,
     stage_count:    5,
     time_verified:  false,
@@ -1632,6 +2023,9 @@ export const META = {
 
   141: {
     // Defeat 3 Enemies While Defending a Capture Point in Rated PvP Conquest
+    title:          "Defeat 3 Enemies While Defending a Capture Point in Rated Player vs. Player Conquest Matches",
+    track:          "PvP",
+    acclaim:        50,
     time_per_stage: 5,
     stage_count:    3,
     time_verified:  false,
@@ -1643,6 +2037,9 @@ export const META = {
 
   80: {
     // Neutralize 5 Enemy Capture Points in Rated PvP Conquest
+    title:          "Neutralize 5 Enemy Capture Points in Rated Player vs. Player Conquest Matches",
+    track:          "PvP",
+    acclaim:        50,
     time_per_stage: 10,
     stage_count:    5,
     time_verified:  false,
@@ -1654,6 +2051,9 @@ export const META = {
 
   145: {
     // Win 3 Structured PvP Rated Games
+    title:          "Win 3 Structured Player vs. Player Rated Games",
+    track:          "PvP",
+    acclaim:        50,
     time_per_stage: 20,
     stage_count:    3,
     time_verified:  false,
@@ -1665,6 +2065,9 @@ export const META = {
 
   171: {
     // Win 5 Games in Structured PvP
+    title:          "Win 5 Games in Structured Player vs. Player",
+    track:          "PvP",
+    acclaim:        50,
     time_per_stage: 12,
     stage_count:    5,
     time_verified:  false,
@@ -1676,6 +2079,9 @@ export const META = {
 
   36: {
     // Win 1 Game in Conquest Mode after Completing the Map's Secondary Objective
+    title:          "Win 1 Game in Conquest Mode after Completing the Map\'s Secondary Objective",
+    track:          "PvP",
+    acclaim:        50,
     time_per_stage: 20,
     stage_count:    1,
     time_verified:  false,
@@ -1687,6 +2093,10 @@ export const META = {
 
   167: {
     // Participate in 1 PvP Tournament Match
+    // ⚠️ VERIFY: Tournaments are timed - add schedule if known
+    title:          "Participate in 1 Player vs. Player Tournament Match",
+    track:          "PvP",
+    acclaim:        50,
     time_per_stage: 30,
     stage_count:    1,
     time_verified:  false,
@@ -1699,6 +2109,9 @@ export const META = {
 
   177: {
     // Earn 5 Rewards from Structured PvP Reward Tracks
+    title:          "Earn 5 Rewards from Structured Player vs. Player Reward Tracks",
+    track:          "PvP",
+    acclaim:        50,
     time_per_stage: 15,
     stage_count:    5,
     time_verified:  false,
@@ -1710,6 +2123,9 @@ export const META = {
 
   184: {
     // Earn 1,000 PvP Rank Points
+    title:          "Earn 1,000 PvP Rank Points",
+    track:          "PvP",
+    acclaim:        50,
     time_per_stage: 15,
     stage_count:    7,
     time_verified:  false,

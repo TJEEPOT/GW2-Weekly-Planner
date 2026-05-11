@@ -1,21 +1,22 @@
 /**
- * js/api.js - GW2 API calls
+ * js/api.js — GW2 API calls
  */
 
 const API_BASE = "https://api.guildwars2.com/v2/account/wizardsvault";
 
 /**
  * Fetch a single Wizard's Vault endpoint.
+ * The GW2 API backend does not support CORS preflight requests.
+ * Sending an Authorization header triggers a preflight OPTIONS request,
+ * which the GW2 backend rejects. The access_token query parameter is the
+ * correct approach for all browser-based apps — it keeps the request
+ * "simple" and skips the preflight entirely.
+ *
  * @param {"daily"|"weekly"} endpoint
  * @param {string} apiKey
  * @returns {Promise<object>}
  */
 async function fetchEndpoint(endpoint, apiKey) {
-  // The GW2 API backend does not support CORS preflight (OPTIONS) requests.
-  // Sending an Authorization header triggers a preflight, which fails.
-  // Using the access_token query parameter keeps the request "simple" and
-  // skips the preflight entirely - this is the approach recommended by ArenaNet
-  // for all browser-based applications.
   const url      = `${API_BASE}/${endpoint}?access_token=${encodeURIComponent(apiKey)}`;
   const response = await fetch(url);
 

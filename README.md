@@ -3,20 +3,45 @@
 A lightweight, single-page tool for Guild Wars 2 players to schedule and
 prioritise their daily and weekly Wizard's Vault objectives.
 
-No build step, no dependencies, no server required. Works entirely in the
-browser using the official GW2 API.
+No build step, no dependencies, no server required - works entirely in the
+browser and communicates only with the official GW2 API.
 
 ---
 
 ## Features
 
-- Fetches your current daily and weekly objectives live from the GW2 API
-- Schedules objectives around timed world-boss events, with a configurable
-  pre-event buffer so you're never caught mid-objective when Tequatl spawns
+- **API mode** — fetch your current objectives live from the GW2 API
+- **Manual mode** — select objectives yourself, useful when the API hasn't
+  updated yet after logging in (can take up to 20 minutes)
+- Schedules objectives around timed world-boss and meta-event windows, with
+  a configurable pre-event buffer so you're never caught mid-task
 - Shows estimated start times in your local timezone
 - Waypoint codes - click to copy straight into GW2
 - Manual tick-off (persists across refreshes via `localStorage`)
-- API-completed objectives automatically collapse to the bottom
+- API-completed objectives collapse to the bottom
+- Automatic expiry — daily objectives clear at 00:00 UTC, weekly objectives
+  at 07:30 UTC Monday; the page notifies you when this happens
+
+---
+
+## Two ways to use it
+
+### Load from API
+Enter your GW2 API key and click **Load from API**. Your current daily and
+weekly objectives are fetched directly from ArenaNet. The page never
+auto-loads — you must press the button each time you want fresh data.
+
+> **Note:** The GW2 API caches progress for up to an hour after you log
+> in. If your objectives look out of date, use Manual mode while you wait.
+
+### Manual mode
+Click **Select Objectives Manually** to open the objective picker. Search
+or scroll through all available daily and weekly objectives, click to
+select them, and close the picker to generate your schedule instantly —
+no API key needed.
+
+Manual selections are saved in your browser and automatically removed after
+the relevant reset (daily at 00:00 UTC, weekly at 07:30 UTC Monday).
 
 ---
 
@@ -25,30 +50,29 @@ browser using the official GW2 API.
 1. Fork or clone this repository.
 2. Push to GitHub.
 3. Go to **Settings → Pages** and set the source to your `main` branch, root `/`.
-4. The planner will be live at `https://<your-username>.github.io/<repo-name>/`.
+4. The planner will be live at
+   `https://<your-username>.github.io/<repo-name>/`.
+
+No build process needed.
 
 ---
 
 ## Local development
 
-Because the JavaScript uses ES modules (`import`/`export`), you need to serve
-the files over HTTP rather than opening `index.html` directly from the
-filesystem (browsers block module imports on `file://` URLs).
-
-The simplest options:
+ES modules require an HTTP server — you cannot open `index.html` directly
+from the filesystem. Options:
 
 ```bash
 # Python 3
 python -m http.server 8080
 
-# Node (npx, no install needed)
+# Node (no install needed)
 npx serve .
 
-# VS Code
-# Install the "Live Server" extension, then right-click index.html → Open with Live Server
+# VS Code - install "Live Server", right-click index.html → Open with Live Server
 ```
 
-Then open `http://localhost:8080` in your browser.
+Then open `http://localhost:8080`.
 
 ---
 
@@ -61,37 +85,72 @@ numeric objective id returned by the GW2 API.
 
 | Field | Type | Description |
 |---|---|---|
+| `title` | `string` | Display name from the GW2 API |
+| `track` | `string` | `"PvE"`, `"PvP"`, or `"WvW"` |
+| `acclaim` | `number` | Astral Acclaim reward. Used to classify daily (10) vs weekly (50) in the picker |
 | `time_per_stage` | `number` | Minutes to reach the objective, complete one stage, and be ready for the next |
-| `stage_count` | `number` | Number of stages that make up the full objective (often equals `progress_complete` from the API, but not always) |
-| `tip` | `string` | Advice shown to the player - fastest route, useful tricks, alternatives |
-| `waypoint` | `string\|null` | GW2 waypoint code (e.g. `[&BNABAAA=]`). Set to `null` if there's no single best starting point |
-| `timed` | `boolean` | `true` if the objective is only available at specific UTC times |
-| `schedule` | `string[]` | *(only when `timed: true`)* UTC spawn times in `"HH:MM"` format |
-| `priority` | `boolean` | `true` = schedule this before non-priority items; always `true` for timed objectives |
+| `stage_count` | `number` | Number of stages that make up the full objective |
+| `time_verified` | `boolean` | `false` = timing is estimated. Set to `true` once timed in-game |
+| `tip` | `string` | Advice shown to the player |
+| `waypoint` | `string\|null` | GW2 waypoint code. `null` if no single best starting point |
+| `timed` | `boolean` | `true` if only available at specific UTC times |
+| `schedule` | `string[]` | *(only when `timed: true`)* UTC spawn times as `"HH:MM"` strings |
+| `priority` | `PRIORITY` | `PRIORITY.HIGH` = schedule first; `PRIORITY.NORMAL` = standard; `PRIORITY.LOW` = passive/schedule last |
+
+### Priority levels
+
+```js
+PRIORITY.HIGH   // Timed events; anything you'd stop other tasks to catch
+PRIORITY.NORMAL // Active objectives worth doing deliberately
+PRIORITY.LOW    // Completes passively alongside other objectives
+```
 
 ### Adding a new objective
 
-1. Find the objective's `id` from the API response or from the
+1. Find the `id` from the API or from the
    [GW2 wiki](https://wiki.guildwars2.com/wiki/Wizard%27s_Vault/Easy_objectives).
 2. Copy the template at the bottom of `js/meta.js` and fill in the fields.
-3. Save - the page will pick it up on the next refresh.
+3. Save - the page picks it up on the next refresh.
 
 ---
 
 ## API key permissions
 
-Your key needs the following scopes enabled on the
+Your key needs the following scopes on the
 [GW2 API key management page](https://account.arena.net/applications):
 
 - **account**
 - **progression**
 
-The key is stored only in your browser's `localStorage` and is sent
-exclusively to `api.guildwars2.com`. It is never sent anywhere else.
+The key is stored only in your browser's `localStorage` and sent exclusively
+to `api.guildwars2.com` over HTTPS. It is never sent anywhere else.
+
+---
+
+## Project structure
+
+```
+/
+├── index.html                    Main HTML shell
+├── css/
+│   └── styles.css                All visual styles
+├── js/
+│   ├── meta.js                   Objective metadata — edit this to add/update objectives
+│   ├── api.js                    GW2 API calls
+│   ├── scheduler.js              Timeline building and conflict resolution
+│   ├── render.js                 DOM rendering and UI event binding
+│   ├── picker.js                 Manual objective selection, persistence, expiry
+│   ├── dialog.js                 Styled confirm dialog
+│   └── main.js                   Entry point — wires everything together
+├── gw2_objective_checker/
+│   ├── check_objectives.py       Detects new/removed objectives and posts to Discord
+│   └── script_result.py          Shared result type for the build checker system
+└── README.md
+```
 
 ---
 
 ## Contributing
 
-Pull requests for new objective entries in `js/meta.js` are very welcome -
-especially timing data and waypoints verified in-game.
+Pull requests for objective metadata in `js/meta.js` are welcome - especially
+verified timing data, waypoints, and tips confirmed in-game.
