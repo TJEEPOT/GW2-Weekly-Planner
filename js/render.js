@@ -3,6 +3,7 @@
  */
 
 import { isCompleted, formatTime, formatDuration, upcomingSlots } from "./scheduler.js";
+import { PRIORITY } from "./meta.js";
 
 /* ── Ticked state (localStorage) ─────────────────────────────── */
 
@@ -59,10 +60,9 @@ function buildCardHTML(obj, index) {
   }
 
   // ── Badges ───────────────────────────────────────────────────
-  const typeBadge     = `<span class="badge badge-${obj._type}">${obj._type}</span>`;
-  const timedBadge    = meta?.timed     ? `<span class="badge badge-timed">⏱ Timed</span>`    : "";
-  const priorityBadge = meta?.priority  ? `<span class="badge badge-priority">★ Priority</span>` : "";
-  const noMetaBadge   = !meta           ? `<span class="badge badge-no-meta">⚠ No metadata</span>` : "";
+  const timedBadge    = meta?.timed                      ? `<span class="badge badge-timed">⏱ Timed</span>`      : "";
+  const priorityBadge = meta?.priority === PRIORITY.HIGH  ? `<span class="badge badge-priority">★ Priority</span>` : "";
+  const noMetaBadge   = !meta                             ? `<span class="badge badge-no-meta">⚠ No metadata</span>` : "";
   const acclaimLabel  = `<span class="acclaim-label">${obj.acclaim} Astral Acclaim</span>`;
 
   // ── Progress — ticked manual/API shows N/N, otherwise real progress ──
@@ -107,7 +107,7 @@ function buildCardHTML(obj, index) {
 
       <div class="obj-body">
         <div class="obj-meta-row">
-          ${typeBadge}${timedBadge}${priorityBadge}${noMetaBadge}${acclaimLabel}
+          ${timedBadge}${priorityBadge}${noMetaBadge}${acclaimLabel}
         </div>
         <div class="obj-title">${obj.title}</div>
         ${tipHTML}
