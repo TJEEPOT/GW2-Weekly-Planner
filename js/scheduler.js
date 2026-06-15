@@ -117,9 +117,75 @@ export function upcomingSlots(schedule, fromDate, count = 3) {
 /* ── Conflict resolution ──────────────────────────────────────── */
 
 /**
- * Mutates the `timed` array, pushing any objective whose window
- * conflicts with a later one forward to its next available slot.
- * Repeats until no conflicts remain.
+ * Find the slot `mover` should move to in order to clear `anchor`'s
+ * occupied window (its activity period plus the buffer either side).
+ *
+ * The result is always strictly later than `mover`'s current slot —
+ * even if `mover`'s own next scheduled time would already clear `anchor`,
+ * we skip past it. Otherwise the resolver could "move" an objective back
+ * onto the slot it already occupies and loop forever.
+ *
+ * @param {object} mover   Enriched timed objective being rescheduled
+ * @param {object} anchor  Enriched timed objective staying where it is
+ * @returns {Date}
+ */
+function _replacementSlot(mover, anchor) {
+  const clearOfAnchorMs = anchor._nextSlot.getTime() + anchor._dur * MS + BUFFER_MIN * MS;
+  const afterOwnSlotMs  = mover._nextSlot.getTime() + MS;
+  return nextSlotAfter(mover._meta.schedule, new Date(Math.max(clearOfAnchorMs, afterOwnSlotMs)));
+}
+
+/**
+ * Decide which of two conflicting timed objectives should give up its
+ * natural slot, and where it lands instead.
+ *
+ * Preference order:
+ *   1. Higher `priority` keeps its slot — the lower-priority objective
+ *      is the one rescheduled (defaulting to NORMAL if unset, matching
+ *      the non-timed sort below).
+ *   2. Equal priority — whichever objective loses LESS time by moving
+ *      is the one rescheduled.
+ *
+ * Rule 2 matters because a conflict's "winner" would otherwise be decided
+ * purely by which objective's slot happens to fall chronologically first —
+ * an arbitrary accident of the clock. That systematically punishes rare
+ * events (large gaps between slots, so a big penalty for being bumped) in
+ * favour of frequent ones (small penalty — their next slot is always close
+ * by), since a rare event's sparse slots are statistically more likely to
+ * be the "earlier" one in any given clash. Comparing the actual cost of
+ * moving each candidate fixes that: the side with the nearer replacement
+ * slot absorbs the delay, regardless of which one's natural slot came first.
+ *
+ * @param {object} a  Enriched timed objective, chronologically first slot
+ * @param {object} b  Enriched timed objective, chronologically second slot
+ * @returns {{ loser: object, replacement: Date }}
+ */
+function _resolveConflict(a, b) {
+  const aPriority = a._meta?.priority ?? PRIORITY.NORMAL;
+  const bPriority = b._meta?.priority ?? PRIORITY.NORMAL;
+
+  const aReplacement = _replacementSlot(a, b);
+  const bReplacement = _replacementSlot(b, a);
+
+  if (aPriority !== bPriority) {
+    return aPriority < bPriority
+      ? { loser: a, replacement: aReplacement }
+      : { loser: b, replacement: bReplacement };
+  }
+
+  const aCostMs = aReplacement.getTime() - a._nextSlot.getTime();
+  const bCostMs = bReplacement.getTime() - b._nextSlot.getTime();
+
+  return aCostMs <= bCostMs
+    ? { loser: a, replacement: aReplacement }
+    : { loser: b, replacement: bReplacement };
+}
+
+/**
+ * Mutates the `timed` array, resolving any conflict between adjacent
+ * (chronologically sorted) objectives by rescheduling whichever one
+ * `_resolveConflict` deems should yield its slot. Repeats until no
+ * conflicts remain.
  *
  * A conflict occurs when:
  *   currEnd + BUFFER > nextStart - BUFFER
@@ -141,9 +207,8 @@ function resolveTimedConflicts(timed) {
       const nextNeedsMs = next._nextSlot.getTime() - BUFFER_MIN * MS;
 
       if (currEndsMs > nextNeedsMs) {
-        // Conflict: push curr to its next slot after next finishes (+buffer)
-        const pushAfterMs = next._nextSlot.getTime() + next._dur * MS + BUFFER_MIN * MS;
-        curr._nextSlot = nextSlotAfter(curr._meta.schedule, new Date(pushAfterMs));
+        const { loser, replacement } = _resolveConflict(curr, next);
+        loser._nextSlot = replacement;
         changed = true;
         break; // Re-sort and restart
       }
