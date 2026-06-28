@@ -612,7 +612,7 @@ export const META = {
     tip:            "LWS4: Activate Chapter 3 story (Be My Guest) and enter south-west of Apizmic Grounds WP. Begin the mission and head across the bridge killing Awakened as you go - you should hit 50 by the time Canach blows open the doors. PoF: Bonestrand Garrison ([&BKcKAAA=]) has dense Awakened including veterans - interact with Vizier's Propaganda posters to spawn more. Core: Risen fill Orr maps (Straits of Devastation, Malchor's Leap, Cursed Shore).",
     waypoint:       "[&BFALAAA=]",
     timed:          false,
-    priority:       PRIORITY.NORMAL,
+    priority:       PRIORITY.LOW,
   },
 
   70: {
@@ -626,7 +626,7 @@ export const META = {
     tip:            "HoT: From the waypoint, travel southeast on the surface layer road towards Gnarled Roots ([&BOcHAAA=]). Southeast of the PoI, look for a stream leading into a cave. There is a Hero Point directly above marking the entrance. Inside are many easy to kill Mordrem Maggots with a short respawn time, and they split into two twice when defeated, giving a total of 7 kills each. Core: Nightmare Court appear in Caledon Forest and the Twilight Arbor dungeon.",
     waypoint:       "[&BA4IAAA=]",
     timed:          false,
-    priority:       PRIORITY.NORMAL,
+    priority:       PRIORITY.LOW,
   },
 
   77: {
@@ -640,7 +640,7 @@ export const META = {
     tip:            "EoD: Complete the Trial of the Elders mini-dungeon at Sanctuary of Ione - if you reset at 7 stacks of Elder's Plight, you can clear this quickly in two runs. Core: Sons of Svanir respawn quickly between Highpeaks WP ([&BIICAAA=]), Claw Watch and Ridgepoint Sentry in Frostgorge Sound",
     waypoint:       "[&BEgNAAA=]",
     timed:          false,
-    priority:       PRIORITY.NORMAL,
+    priority:       PRIORITY.LOW,
   },
 
   143: {
@@ -654,7 +654,7 @@ export const META = {
     tip:            "LWS4: Head to the bottom of Rata Primus, Sandswept Isles for large groups of Inquest - especially around Magistorm Gallery ([&BCgLAAA=]). VoE: Groups of Inquest can be found under and around Riddled Cove ([&BIMPAAA=]) and Guarded Glades ([&BIkPAAA=]), Shipwreck Strand. Jade Mechs are found throughout EoD maps.",
     waypoint:       "[&BCULAAA=]",
     timed:          false,
-    priority:       PRIORITY.NORMAL,
+    priority:       PRIORITY.LOW,
   },
 
   190: {
@@ -668,7 +668,7 @@ export const META = {
     tip:            "Many groups of Bandits are found around Breean's Bandits, Brisban Wildlands ([&BFUAAAA=]).",
     waypoint:       "[&BGEAAAA=]",
     timed:          false,
-    priority:       PRIORITY.NORMAL,
+    priority:       PRIORITY.LOW,
   },
 
   193: {
@@ -682,7 +682,7 @@ export const META = {
     tip:            "Head to to Fort Marriner and enter the Fractal portal, choosing level 15 Thaumanova Reactor. Enter the fractal and head forward after the wall explodes, dropping down to the bottom area. Here there is a field of infinetely respawning Flame Legion enemies.",
     waypoint:       "[&BDAEAAA=]",
     timed:          false,
-    priority:       PRIORITY.NORMAL,
+    priority:       PRIORITY.LOW,
   },
 
   272: {
@@ -696,7 +696,7 @@ export const META = {
     tip:            "The best target here, if it is active, is the 'Get an extinguisher from Engineer Kayle Brightshock and put out fires' event in Sati Passage, Fireheart Rise. It is important that you NEVER use the extinguisher, as it reduces the number of elemental spawns - you should just move between the respawns as they occur. JW: Titanspawn are most numerous on Tier 1 Rifts, and Lowland Shore ([&BCcPAAA=]) has many potential spawn points close to each other.",
     waypoint:       "[&BBgCAAA=]",
     timed:          false,
-    priority:       PRIORITY.NORMAL,
+    priority:       PRIORITY.LOW,
   },
 
   334: {
@@ -710,7 +710,7 @@ export const META = {
     tip:            "LWS4: Head to the bottom of Rata Primus, Sandswept Isles for large groups of Inquest - especially around Magistorm Gallery ([&BCgLAAA=]). VoE: Groups of Inquest can be found under and around Riddled Cove ([&BIMPAAA=]) and Guarded Glades ([&BIkPAAA=]), Shipwreck Strand. Core: Inquest appear in Metrica Province and Level 15 Thaumanova Reactor Fractal, pirates (Consortium/bandit crews) are found in Southsun Cove and Kessex Hills.",
     waypoint:       "[&BCgLAAA=]",
     timed:          false,
-    priority:       PRIORITY.NORMAL,
+    priority:       PRIORITY.LOW,
   },
 
   /* ══════════════════════════════════════════════════════════════
@@ -995,22 +995,25 @@ export const META = {
     title:          "Complete a Meta-Event or Events in Heart of Maguuma or Events in Ascalon",
     track:          "PvE",
     acclaim:        50,
-    time_per_stage: 20,
+    time_per_stage: 25,
     stage_count:    1,
     time_verified:  true,
-    tip:            "The timer shows the next HoT meta-event, aside from Dragon's Stand, which is much slower (you should do Night and the Enemy instead) - type \'/wiki et\' in-game to find which one it is. Completing fifteen events in Ascalon maps (Plains of Ashford, Diessa Plateau, Iron Marches, Blazeridge Steppes, Fields of Ruin) are an alternative.",
+    tip:            "The timer shows the next Chak Gerent, Octovine or Dragon's Stand event - type \'/wiki et\' in-game to find which one it is. Completing fifteen events in Ascalon maps (Plains of Ashford, Diessa Plateau, Iron Marches, Blazeridge Steppes, Fields of Ruin) are an alternative, and possibly faster than Dragon's Stand.",
     waypoint:       null,
     timed:          true,
     schedule:       [
-      "00:00","00:30","01:00","01:45",
-      "02:30","03:00","03:45","04:30",
-      "05:00","05:45","06:30","07:00",
-      "07:45","08:30","09:00","09:45",
-      "10:30","11:00","11:45","12:30",
-      "13:00","13:45","14:30","15:00",
-      "15:45","16:30","17:00","17:45",
-      "18:30","19:00","19:45","20:30",
-      "21:00","21:45","22:30","23:00",
+      "00:30","00:50","01:30",
+      "02:30","02:50","03:30",
+      "04:30","04:50","05:30",
+      "06:30","06:50","07:30",
+      "08:30","08:50","09:30",
+      "10:30","10:50","11:30",
+      "12:30","12:50","13:30",
+      "14:30","14:50","15:30",
+      "16:30","16:50","17:30",
+      "18:30","18:50","19:30",
+      "20:30","20:50","21:30",
+      "22:30","22:50","23:30",
     ],
     priority:       PRIORITY.HIGH,
   },
