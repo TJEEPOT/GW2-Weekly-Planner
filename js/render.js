@@ -4,24 +4,55 @@
 
 import { isCompleted, formatTime, formatDuration, upcomingSlots } from "./scheduler.js";
 import { PRIORITY } from "./meta.js";
+import { getDailyResetEpoch, getWeeklyResetEpoch } from "./picker.js";
 
 /* ── Ticked state (localStorage) ─────────────────────────────── */
 
 const TICK_STORAGE_KEY = "gw2_wv_ticked";
 
-/** @type {Set<string>} */
+/**
+ * Tick key -> UTC timestamp of the reset period the tick was made in.
+ * A tick only means "done this period", so each is stamped with its
+ * period's reset epoch and pruned once that period has passed — the
+ * same expiry scheme picker.js uses for manual objectives.
+ * @type {Map<string, number>}
+ */
 let ticked = _loadTicked();
+
+/** The current reset epoch governing a tick key ("daily-…" / "weekly-…"). */
+function _resetEpochFor(key, now = new Date()) {
+  return key.startsWith("daily-") ? getDailyResetEpoch(now) : getWeeklyResetEpoch(now);
+}
 
 function _loadTicked() {
   try {
-    return new Set(JSON.parse(localStorage.getItem(TICK_STORAGE_KEY) ?? "[]"));
+    const raw = JSON.parse(localStorage.getItem(TICK_STORAGE_KEY) ?? "{}");
+    // Legacy format was a bare array of keys with no epochs, so expiry
+    // can't be checked — discard rather than let stale ticks linger.
+    if (Array.isArray(raw)) {
+      localStorage.setItem(TICK_STORAGE_KEY, "{}");
+      return new Map();
+    }
+    return new Map(Object.entries(raw));
   } catch {
-    return new Set();
+    return new Map();
   }
 }
 
 function _saveTicked() {
-  localStorage.setItem(TICK_STORAGE_KEY, JSON.stringify([...ticked]));
+  localStorage.setItem(TICK_STORAGE_KEY, JSON.stringify(Object.fromEntries(ticked)));
+}
+
+/** Drop any ticks made before the current reset period for their type. */
+function _pruneExpiredTicks(now = new Date()) {
+  let changed = false;
+  for (const [key, epoch] of ticked) {
+    if (epoch < _resetEpochFor(key, now)) {
+      ticked.delete(key);
+      changed = true;
+    }
+  }
+  if (changed) _saveTicked();
 }
 
 function _tickKey(obj) {
@@ -177,7 +208,7 @@ function _bindCheckboxes(root) {
         text.textContent      = `${origCur}/${complete}`;
       } else {
         // Tick — show as fully complete
-        ticked.add(key);
+        ticked.set(key, _resetEpochFor(key));
         box.textContent = "✓";
         card.classList.add("ticked");
         box.setAttribute("aria-checked", "true");
@@ -209,6 +240,10 @@ function _bindCompletedToggle() {
 /* ── Public functions ─────────────────────────────────────────── */
 
 export function renderOutput(data) {
+  // Expire old ticks first, so a tab left open across a reset (or a fresh
+  // API load the following week) never shows last period's ticks.
+  _pruneExpiredTicks();
+
   const { timeline, completed } = data;
   const missingMeta = [...timeline, ...completed].filter(o => !o._meta);
 
