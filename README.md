@@ -40,9 +40,6 @@ or scroll through all available daily and weekly objectives, click to
 select them, and close the picker to generate your schedule instantly —
 no API key needed.
 
-Manual selections are saved in your browser and automatically removed after
-the relevant reset (daily at 00:00 UTC, weekly at 07:30 UTC Monday).
-
 ---
 
 ## Deployment (GitHub Pages)
@@ -52,8 +49,6 @@ the relevant reset (daily at 00:00 UTC, weekly at 07:30 UTC Monday).
 3. Go to **Settings → Pages** and set the source to your `main` branch, root `/`.
 4. The planner will be live at
    `https://<your-username>.github.io/<repo-name>/`.
-
-No build process needed.
 
 ---
 
@@ -140,7 +135,7 @@ to `api.guildwars2.com` over HTTPS. It is never sent anywhere else.
 │   ├── scheduler.js              Timeline building and conflict resolution
 │   ├── render.js                 DOM rendering and UI event binding
 │   ├── picker.js                 Manual objective selection, persistence, expiry
-│   ├── dialog.js                 Styled confirm dialog
+│   ├── dialog.js                 Styled confirm dialogue
 │   └── main.js                   Entry point — wires everything together
 ├── gw2_objective_checker/
 │   ├── check_objectives.py       Detects new/removed objectives and posts to Discord
